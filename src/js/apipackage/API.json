@@ -1,0 +1,151 @@
+{
+    "mainApi": "http://118.89.174.142:3000/",
+    "userApi": {
+        "usualLogin": {
+            "path": "login",
+            "method": "POST"
+        },
+        "phoneLogin": {
+            "path": "login_phone",
+            "method": "POST"
+        },
+        "wechatLogin": "",
+        "qqLogin": "",
+        "logout": {
+            "path": "logout",
+            "method": "DELETE"
+        },
+        "regIn": {
+            "path": "users",
+            "method": "POST"
+        },
+        "centerUpdate": {
+            "path": "users/update",
+            "method": "PUT"
+        },
+        "phoneUpdate": {
+            "path": "users/update_phone",
+            "method": "POST"
+        },
+        "emailUpdate": {
+            "path": "users/update_email",
+            "method": "POST"
+        },
+        "passwordUpdate": {
+            "path": "users/update_password",
+            "method": "POST"
+        },
+        "usersCenter": {
+          "path": "users/profile",
+          "method": "GET"
+        }
+    },
+    "articleApi": {
+        "newArticle": {
+          "path": "workspace/articles",
+          "method": "POST"
+        },
+        "getAllArticles": {
+          "path": "workspace/articles",
+          "method": "GET"
+        },
+        "getOneArticle": {
+          "path": "workspace/articles/:id",
+          "method": "GET"
+        },
+        "reviseOneArticle": {
+          "path": "workspace/articles/:id",
+          "method": "PUT"
+        },
+        "reviseArticletoCor": {
+          "path": "workspace/articles/:id/update_cor",
+          "method": "PUT"
+        },
+        "reviseArticletoDir": {
+          "path": "workspace/articles/:id/update_dir",
+          "method": "PUT"
+        },
+        "deleteArticle": {
+          "path": "workspace/articles/:id",
+          "method": "DELETE"
+        }
+    },
+    "historyArticleApi": {
+      "newHistoryArticle": {
+        "path": "workspace/articles/:article_id/history_articles",
+        "method": "POST"
+      },
+      "getSomeHistoryArticles": {
+        "path": "history_articles",
+        "method": "GET"
+      },
+      "getOneHistoryArticle": {
+        "path": "history_articles/:id",
+        "method": "GET"
+      },
+      "deleteOneHistoryArticle": {
+        "path": "history_articles/:id",
+        "method": "DELETE"
+      }
+    },
+    "corpusApi": {
+      "newCor": {
+        "path": "workspace/corpus",
+        "method": "POST"
+      },
+      "getAllCor": {
+        "path": "workspace/corpus",
+        "method": "GET"
+      },
+      "getOneCor": {
+        "path": "workspace/corpus/:id",
+        "method": "GET"
+      },
+      "getArticleFromCor": {
+        "path": "workspace/corpus/:id/profile",
+        "method": "GET"
+      },
+      "reviseCor": {
+        "path": "workspace/corpus/:id",
+        "method": "PUT"
+      },
+      "reviseRoadOfCor": {
+        "path": "workspace/corpus/:id/update_dir",
+        "method": "PUT"
+      },
+      "deleteCor": {
+        "path": "workspace/corpus/:id",
+        "method": "DELETE"
+      }
+    },
+    "dirApi": {
+      "newFolder": {
+        "path": "workspace/folders",
+        "method": "POST"
+      },
+      "getAllFolders": {
+        "path": "workspace/folders",
+        "method": "GET"
+      },
+      "getOneFolder": {
+        "path": "workspace/folders/:id",
+        "method": "GET"
+      },
+      "getSonProfiles": {
+        "path": "workspace/folders/:id/profile",
+        "method": "GET"
+      },
+      "reviseFolder": {
+        "path": "workspace/folders/:id",
+        "method": "PUT"
+      },
+      "reviseRoadOfFolder": {
+        "path": "workspace/folders/:id/update_dir",
+        "method": "PUT"
+      },
+      "deleteFolder": {
+        "path": "workspace/folders/:id",
+        "method": "DELETE"
+      }
+    }
+}
