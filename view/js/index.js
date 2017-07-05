@@ -32,7 +32,7 @@ $(function() {
 function createCourse(course) {
 	var liStr = "\
 	<li>\
-		<div class='game-grid'>\
+		<div class='course-grid'>\
 			<img src='" + course.url + "' class='img-responsive' alt=''/>\
 			<h4 style='margin-top: 10px;'>" + course.name + "</h4>\
 			<p>" + course.intro + "</p>\
