@@ -5,10 +5,12 @@
 		<link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
 		<!-- Custom Theme files -->
 		<link href="css/style.css" rel='stylesheet' type='text/css'/>
+		<link href="css/index.css" rel='stylesheet' type='text/css'/>
 		<script src="js/jquery.min.js"></script>
 		<!-- jQuery (necessary JavaScript plugins) -->
 		<script src="js/bootstrap.js"></script>
 		<script src="js/index.js"></script>
+		<script src="js/flow_tag.js"></script>
 		<!-- Custom Theme files -->
 		<!--//theme-style-->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -136,8 +138,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<span>这是推荐课程啊啊啊啊</span>
 				</div>
 				<div class="top-game-grids">
-					<ul id="courseUl">
-					</ul>
+					<ul id="courseUl"></ul>
 					<script type="text/javascript">
 						$(window).load(function () {
 							$("#courseUl").flexisel({
@@ -168,6 +169,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 		</div>
+		<!-- 超级炫酷的浮动标签 -->
+		<div class="content flow_tag">
+			<div class="container">
+				<div class="col-md-4 col-sm-5 col-xs-12">
+					<div class="inner-panel">
+						<div class="searcher animated">
+							<form action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+								<input type="search" name="condition" ,="" placeholder="搜索教员或课程">
+								<button type="submit" class="btn-sm btn-danger">
+									<sapn class="glyphicon glyphicon-search"></sapn>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-8 col-sm-7 col-xs-12">
+					<div class="inner-panel">
+						<div class="flowshow animated">
+							<!-- <div class="box-header">
+		  <div class="box-title">
+		    <span>热门推荐</span>
+		  </div>
+		</div> -->
+							<!-- <div class="box-body"> -->
+							<div id="flow_tag_widget" class="flow-widget" role="label-container">
+								<a class="item btn btn-primary" title="精品课程" href="/courses/12" style="left: 345.403px; top: 225.036px; z-index: 147; opacity: 1.4289;">小白先生的英语课</a>
+								<a class="item btn btn-primary" title="精品课程" href="/courses/11" style="left: 332.394px; top: 123.126px; z-index: 208; opacity: 17.089;">其它课程</a>
+								<a class="item btn btn-primary" title="精品课程" href="/courses/10" style="left: 208.192px; top: 136.644px; z-index: 156; opacity: 2.0528;">作业辅导课程</a>
+								<a class="item btn btn-primary" title="精品课程" href="/courses/9" style="left: 244.028px; top: 46.9929px; z-index: 102; opacity: 0.114063; display: none;">艺术课程</a>
+								<a class="item btn btn-primary" title="名师推荐" href="/teachers/2" style="left: 382.295px; top: 44.3469px; z-index: 102; opacity: 0.109273; display: none;">WMD</a>
+								<a class="item btn btn-primary" title="名师推荐" href="/teachers/1" style="left: 399.289px; top: 81.8269px; z-index: 102; opacity: 0.108264; display: none;">明新教育官方</a>
+								<a class="item btn btn-primary" title="新闻热点" href="/articles" style="left: 291.077px; top: 27.1607px; z-index: 111; opacity: 0.239074; color: rgb(255, 255, 255); padding: 5px; background: rgb(48, 137, 155);">测试文章</a>
+								<a class="item btn btn-primary" title="学习资料" href="/articles" style="left: 282.793px; top: 34.0593px; z-index: 101; opacity: 0.105404; display: none;">test</a>
+							</div>
+							<!-- </div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<!-- latest -->
 		<div class="latest">
 			<div class="container">
@@ -176,8 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<span>这是最新课程啊啊啊啊</span>
 				</div>
 				<div class="latest-top">
-					<div class="col-md-5 trailer-text" id="trailerBox">
-					</div>
+					<div class="col-md-5 trailer-text" id="trailerBox"></div>
 					<div class="col-md-7 trailer">
 						<div style="width: 100%; height: auto; text-align: center">
 							<img id="trailer-img" src="" alt="" style="width: 90%;">
