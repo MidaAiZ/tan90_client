@@ -62,7 +62,7 @@ a#toTop {
 /*-- header_top --*/
 
 .header {
-    background: #5bb2fc;
+    background: #30cc9a;
     padding: 1em 0;
 }
 
@@ -214,7 +214,7 @@ span.menu {
 }
 
 .top-menu ul li.active a, .top-menu ul li a:hover {
-    color: #f43c60;
+    color: #30cc9a;
 }
 
 ::-webkit-input-placeholder {
@@ -388,40 +388,40 @@ ul.callbacks_tabs.callbacks1_tabs {
     padding: 4em 0;
 }
 
-.top-games h3, .latest-games h3 {
+.top-courses h3, .latest-courses h3 {
     color: #484949;
     font-size: 2em;
     font-family: 'Play-Bold';
     text-align: center;
 }
 
-.top-games span, .latest-games span {
+.top-courses span, .latest-courses span {
     display: block;
     text-align: center;
     margin-top: 5px;
 }
 
-.game-grid {
+.course-grid {
     text-align: center;
 }
 
-.top-game-grids {
+.top-course-grids {
     margin-top: 4em;
 }
 
-.game-grid h4 {
+.course-grid h4 {
     font-family: 'Play-Bold';
     font-size: 1.3em;
 }
 
-.game-grid p {
+.course-grid p {
     color: #777;
     font-size: 0.9em;
     margin: 0.7em 0;
     line-height: 1.8em;
 }
 
-.game-grid img {
+.course-grid img {
     width: 100%;
 }
 
@@ -505,7 +505,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 .x-box-left h2 {
     font-family: 'Play-Bold';
     font-size: 4em;
-    color: #f43c60;
+    color: #30cc9a;
 }
 
 .x-box-left h3 {
@@ -606,7 +606,7 @@ ul.callbacks_tabs.callbacks1_tabs {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #f43c60;
+    background: #30cc9a;
     -webkit-transform: scaleY(0);
     transform: scaleY(0);
     -webkit-transform-origin: 50% 100%;
@@ -659,7 +659,7 @@ ul.callbacks_tabs.callbacks1_tabs {
     color: #fff;
     margin-top: 1em;
     display: inline-block;
-    background: #f43c60;
+    background: #30cc9a;
     padding: 0.75em 1.3em;
     text-decoration: none;
     font-size: 0.9em;
@@ -703,7 +703,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 }
 
 .ftr-grid ul li a:hover {
-    color: #f43c60;
+    color: #30cc9a;
 }
 
 .ftr-info p {
@@ -739,7 +739,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 .about h2, .review h2, h2.top, .gallery h2, .contact h2 {
     font-family: 'Play-Bold';
     font-size: 2.5em;
-    color: #f43c60;
+    color: #30cc9a;
     text-align: center;
 }
 
@@ -787,7 +787,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 .testimonals h3, .team h3 {
     font-family: 'Play-Bold';
     font-size: 1.8em;
-    color: #f43c60;
+    color: #30cc9a;
     margin-bottom: 0.7em;
 }
 
@@ -821,7 +821,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 }
 
 .testi-info a {
-    color: #f43c60;
+    color: #30cc9a;
     text-decoration: none;
     font-size: 0.75em;
     font-weight: 600;
@@ -930,14 +930,14 @@ p.snglp {
 .recent-posts h4, .category h4, .coment-form h4, .response h4 {
     font-family: 'Play-Regular';
     font-size: 1.6em;
-    color: #f43c60;
+    color: #30cc9a;
     margin-bottom: 0.7em;
 }
 
 .posts-right label {
     margin: 0 0 0px 0;
     font-size: 1em;
-    color: #f43c60;
+    color: #30cc9a;
     line-height: 1.6em;
 }
 
@@ -1130,7 +1130,7 @@ a.list-group-item:hover {
 }
 
 .comment-icons ul li a:hover {
-    color: #f43c60;
+    color: #30cc9a;
 }
 
 .admin-text {
@@ -1209,7 +1209,7 @@ a.list-group-item:hover {
 
 .response-text-left h5 a:hover {
     text-decoration: none;
-    color: #f43c60;
+    color: #30cc9a;
 }
 
 .response-text-left h5 {
@@ -1244,7 +1244,7 @@ a.list-group-item:hover {
 }
 
 .response-text-right ul li a:hover {
-    color: #f43c60;
+    color: #30cc9a;
     text-decoration: none;
 }
 
@@ -1428,7 +1428,7 @@ h3.ghj {
 }
 
 .contact form input[type="text"]:hover, .contact-right textarea:hover {
-    border: 1px solid #f43c60;
+    border: 1px solid #30cc9a;
 }
 
 .contact form input[type="submit"] {
@@ -1462,7 +1462,7 @@ h3.ghj {
 .address h3 {
     font-family: 'Play-Regular';
     font-size: 1.8em;
-    color: #f43c60;
+    color: #30cc9a;
     margin-bottom: 0.7em;
     text-align: center;
 }
@@ -1810,7 +1810,7 @@ h3.ghj {
     .caption {
         margin-top: 10em;
     }
-    .top-games h3, .latest-games h3 {
+    .top-courses h3, .latest-courses h3 {
         font-size: 2em;
     }
     .sub-img {
@@ -2027,7 +2027,7 @@ h3.ghj {
     .caption {
         margin-top: 10em;
     }
-    .top-games h3, .latest-games h3 {
+    .top-courses h3, .latest-courses h3 {
         font-size: 2em;
     }
     .sub-img {
@@ -2177,7 +2177,7 @@ h3.ghj {
         padding: 0px 12px;
         width: 209px!important;
     }
-    .game-grid p {
+    .course-grid p {
         font-size: 0.8em;
     }
 }
@@ -2216,14 +2216,14 @@ h3.ghj {
         background: #69d2e8;
     }
     .top-menu ul.nav1 li.active {
-        background: #f43c60;
+        background: #30cc9a;
         color: #fff;
     }
     .top-menu ul li.active a, .top-menu ul li a:hover {
         color: #FFFFFF;
     }
     .top-menu ul.nav1 li:hover {
-        background: #f43c60;
+        background: #30cc9a;
         color: #fff;
         transition: 0.5s all;
         -webkit-transition: 0.5s all;
@@ -2279,19 +2279,19 @@ h3.ghj {
         padding: 0px 12px;
         width: 299px!important;
     }
-    .top-game-grids {
+    .top-course-grids {
         margin-top: 2em;
     }
-    .game-grid h4 {
+    .course-grid h4 {
         font-size: 1.15em;
     }
-    .game-grid p {
+    .course-grid p {
         font-size: 0.8em;
     }
     .content {
         padding: 3em 0;
     }
-    .top-games h3, .latest-games h3 {
+    .top-courses h3, .latest-courses h3 {
         font-size: 1.75em;
     }
     .sub-text a {
@@ -2714,16 +2714,16 @@ h3.ghj {
     .content {
         padding: 2em 0;
     }
-    .top-games h3, .latest-games h3 {
+    .top-courses h3, .latest-courses h3 {
         font-size: 1.4em;
     }
-    .top-game-grids {
+    .top-course-grids {
         margin-top: 1.5em;
     }
-    .game-grid h4 {
+    .course-grid h4 {
         font-size: 1em;
     }
-    .game-grid p {
+    .course-grid p {
         margin: 0.4em 0;
     }
     .latest-top {

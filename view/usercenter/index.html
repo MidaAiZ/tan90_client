@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Home</title>
+		<link href="../css/bootstrap.css" rel='stylesheet' type='text/css'/>
+		<!-- Custom Theme files -->
+		<link href="../css/style.css" rel='stylesheet' type='text/css'/>
+		<link href="../css/usercenter.css" rel='stylesheet' type='text/css'/>
+		<script src="../js/jquery.min.js"></script>
+		<!-- jQuery (necessary JavaScript plugins) -->
+		<script src="../js/bootstrap.js"></script>
+		<script src="../js/usercenter.js"></script>
+		<!-- Custom Theme files -->
+		<!--//theme-style-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta
+			name="keywords"
+			content="course Box  Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+		<script type="application/x-javascript">
+			addEventListener("load", function () {
+				setTimeout(hideURLbar, 0);
+			}, false);
+
+			function hideURLbar() {
+				window.scrollTo(0, 1);
+			}
+		</script>
+	</head>
+
+	<body>
+		<!-- header -->
+		<div class="top-banner">
+			<div class="header">
+				<div class="container">
+					<div class="headr-left">
+						<div class="social">
+							<a href="#">
+								<i class="facebook"></i>
+							</a>
+							<a href="#">
+								<i class="twitter"></i>
+							</a>
+							<a href="#">
+								<i class="gplus"></i>
+							</a>
+							<a href="#">
+								<i class="pin"></i>
+							</a>
+							<a href="#">
+								<i class="youtube"></i>
+							</a>
+						</div>
+						<div class="search">
+							<form>
+								<input type="submit" value="">
+								<input type="text" value="" placeholder="Search...">
+							</form>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="headr-right">
+						<div class="details">
+							<ul>
+								<li class="active">
+									<a href="/view">主页</a>
+								</li>
+								<li>
+									<a href="/view/about.html">课程详情</a>
+								</li>
+								<li>
+									<a href="/view/reviews.html">课程列表</a>
+								</li>
+								<li>
+									<a href="/view/usercenter">个人中心</a>
+								</li>
+								<li>
+									<a href="/view/gallery.html">考试管理</a>
+								</li>
+								<li>
+									<a href="javascript: void(0)">
+										<span class="glyphicon glyphicon-menu-down"></span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 个人信息 -->
+		<div class="container">
+			<div class="inner-block">
+				<div id="usercenter-tab" class="user-info-tab tab">
+					<ul>
+						<li class="tab-list ">
+							<a href="/view/usercenter/courses">我的课程</a>
+						</li>
+						<li class="tab-list">
+							<a href="/view/usercenter/notes">我的笔记</a>
+						</li>
+						<li class="tab-list">
+							<a href="/view/usercenter/questions">我的提问</a>
+						</li>
+						<li class="tab-list ">
+							<a href="/view/usercenter/messages">我的消息</a>
+						</li>
+						<li class="tab-list active">
+							<a href="/view/usercenter">基本信息</a>
+						</li>
+						<li class="tab-list ">
+							<a href="/view/usercenter/more">更多</a>
+						</li>
+					</ul>
+				</div>
+
+				<p id="notice"></p>
+				<div class="user-info">
+					<div class="info-box">
+						<div class="ico-box">
+							<img src="../images/default/avatar.png" alt="用户中心首页头像" id="navAvatar" class="info-ico" data-id="3">
+							<button data-toggle="modal" ,="" id="cropfile" class="cropfile">
+								<span class="glyphicon glyphicon-pencil">修改</span>
+							</button>
+						</div>
+						<ul class="fix-ico-right">
+							<li class="fix-item">
+								<span>用户名：</span>
+								<span>小白先生</span>
+							</li>
+						</ul>
+					</div>
+					<div class="phone-email info-box">
+						<div class="phone">
+							<div class="ico-box"><img src="../images/default/phone.jpg" class="info-ico"></div>
+							<ul class="fix-ico-right">
+								<li class="fix-item">
+									<p>手机已验证</p>
+									<span id="phone-info">15850680010</span>
+									<a id="edit-phone" href="javascript:void(0)" class="state-ture">修改手机号</a>
+								</li>
+							</ul>
+						</div>
+						<div class="email">
+							<div class="ico-box"><img src="../images/default/avatar.png" class="info-ico loader" src="/assets/index/email"></div>
+							<ul class="fix-ico-right">
+								<li class="fix-item">
+									<p>邮箱未验证</p>
+									<span id="email-info">302711074@qq.com</span>
+									<a id="valid-email" href="javascript:void(0)" class="state-false">点击验证</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="detail-info">
+					<ul>
+						<li class="info-item">
+							<span>姓名</span>
+							<div role="info-content">
+								<em role="info" data-attr="name">mida</em>
+								<input type="text-field" name="revise[name]" class="edit" role="edit">
+							</div>
+							<div class="revise-group" role="revise-group">
+								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
+								<div class="control-group">
+									<a href="javascript:void(0)" class="revise" role="cancel">取消</a>
+									<a href="javascript:void(0)" class="revise" role="conform" data-target="usercenter/revise">确定</a>
+								</div>
+							</div>
+						</li>
+						<li class="info-item">
+							<span>性别</span>
+							<div role="info-content">
+								<em role="info" name="revise[sex]" data-attr="sex"></em>
+								<input type="text-field" name="revise[sex]" class="edit" role="edit">
+							</div>
+							<div class="revise-group" role="revise-group">
+								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
+								<div class="control-group">
+									<a href="javascript:void(0)" class="revise" role="cancel">取消</a>
+									<a href="javascript:void(0)" class="revise" role="conform" data-target="usercenter/revise">确定</a>
+								</div>
+							</div>
+						</li>
+						<li class="info-item">
+							<span>生日</span>
+							<div role="info-content">
+								<em role="info" data-attr="birthday"></em>
+								<input type="text-field" name="revise[birthday]" role="edit" class="edit input date">
+							</div>
+							<div class="revise-group" role="revise-group">
+								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
+								<div class="control-group">
+									<a href="javascript:void(0)" class="revise" role="cancel">取消</a>
+									<a href="javascript:void(0)" class="revise" role="conform" data-target="usercenter/revise">确定</a>
+								</div>
+							</div>
+						</li>
+						<li class="info-item">
+							<span>地址</span>
+							<div role="info-content">
+								<em role="info" data-attr="address"></em>
+								<input type="text-field" name="revise[address]" class="edit" role="edit">
+							</div>
+							<div class="revise-group" role="revise-group">
+								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
+								<div class="control-group">
+									<a href="javascript:void(0)" class="revise" role="cancel">取消</a>
+									<a href="javascript:void(0)" class="revise" role="conform" data-target="usercenter/revise">确定</a>
+								</div>
+							</div>
+						</li>
+						<li class="info-item">
+							<span>学校</span>
+							<div role="info-content">
+								<em role="info" data-attr="school"></em>
+								<input type="text-field" name="revise[school]" class="edit" role="edit">
+							</div>
+							<div class="revise-group" role="revise-group">
+								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
+								<div class="control-group">
+									<a href="javascript:void(0)" class="revise" role="cancel">取消</a>
+									<a href="javascript:void(0)" class="revise" role="conform" data-target="usercenter/revise">确定</a>
+								</div>
+							</div>
+						</li>
+						<li class="info-item">
+							<span>年级</span>
+							<div role="info-content">
+								<em role="info" data-attr="grade"></em>
+								<input type="text-field" name="revise[grade]" class="edit" role="edit">
+							</div>
+							<div class="revise-group" role="revise-group">
+								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
+								<div class="control-group">
+									<a href="javascript:void(0)" class="revise" role="cancel">取消</a>
+									<a href="javascript:void(0)" class="revise" role="conform" data-target="usercenter/revise">确定</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="intro-box detail-info">
+					<div class="intro-head">
+						<span>自我介绍</span>
+					</div>
+					<div class="intro-content info-item">
+						<div class="revise-group" role="revise-group">
+							<a href="javascript:void(0)" class="revise" role="revise">修改</a>
+							<div class="control-group">
+								<a href="javascript:void(0)" class="revise" role="cancel">取消</a>
+								<a href="javascript:void(0)" class="revise" role="conform" data-target="usercenter/revise">确定</a>
+							</div>
+						</div>
+						<div role="info-content">
+							<em role="info" data-attr="intro">
+								<span></span>
+							</em>
+							<textarea class="edit" name="revise[intro]" role="edit"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<link rel="stylesheet" media="screen" href="../css/datepicker.css">
+			<script src="../js/datepicker.js"></script>
+			<!-- Modal -->
+			<div class="modal fade" id="cropModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">×</span>
+								<span class="sr-only">Close</span>
+							</button>
+							<p class="modal-title" id="Label">修改图片</p>
+						</div>
+						<div class="editarea">
+							<div class="croparea">
+								<a class="file-beauty">
+									<span class="glyphicon glyphicon-arrow-up"></span>
+									上传图片
+									<form id="cropForm" action="" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="ripvb7XBz/QCgvxPphelpt7cZbxcHpGys3eQ/FRotZehPCPtJxWc0J5wGubs1D7Y6kiop5Z7wUybWfzxIcamyg==">
+										<input type="file" name="avatar" class="cropable" id="inputFile">
+										<input id="posi_x" type="hidden" value="0" name="x">
+										<input id="posi_y" type="hidden" value="0" name="y">
+										<input id="img_width" type="hidden" value="200" name="width">
+										<input id="img_height" type="hidden" value="200" name="height">
+										<input id="img_rotate" type="hidden" value="0" name="rotate">
+									</form>
+								</a>
+								<p id="alertType"></p>
+								<div class="showpics">
+									<img src="../images/default/avatar.png" id="imagefile" src="/assets/index/avatar" class="">
+								</div>
+								<div class="btn-group">
+									<button type="button" class="btn-sm btn-primary" id="lrotate">
+										<span class="glyphicon glyphicon-share-alt rotatey"></span>
+									</button>
+									<button type="button" class="btn-sm btn-primary" id="rrotate">
+										<span class="glyphicon glyphicon-share-alt"></span>
+									</button>
+								</div>
+								<button type="button" class="btn-sm btn-primary" id="reset">
+									<span class="glyphicon glyphicon-repeat"></span>
+								</button>
+								<p class="prompt">
+									<span class="glyphicon glyphicon-heart"></span>
+									双击图片可切换拖拽/裁剪
+									<span class="glyphicon glyphicon-heart"></span>
+									支持缩放
+								</p>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn-sm btn-Default" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn-sm btn-primary" id="subcrop">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				/*
+		  * 图片裁剪
+		  */
+				// $(function () {
+				// 	//文件上传
+				// 	$('#subcrop').on("click", function () {
+				// 		uploadCrop("avatar", "/usercenter/edit/avatar", "/accounts/");
+				// 	});
+				// });
+			</script>
+			<!-- <link rel="stylesheet" media="screen" href="/assets/share/cropbox.css"> -->
+			<!-- <script src="/assets/share/cropbox.js"></script> -->
+
+		</div>
+
+	</body>
+</html>
