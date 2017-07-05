@@ -394,10 +394,11 @@ ul.callbacks_tabs.callbacks1_tabs {
     font-family: 'Play-Bold';
     text-align: center;
 }
-.top-games span, .latest-games span  {
-	display: block;
-	text-align: center;
-	margin-top: 5px;
+
+.top-games span, .latest-games span {
+    display: block;
+    text-align: center;
+    margin-top: 5px;
 }
 
 .game-grid {
@@ -421,7 +422,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 }
 
 .game-grid img {
-	width: 100%;
+    width: 100%;
 }
 
 
@@ -458,6 +459,7 @@ ul.callbacks_tabs.callbacks1_tabs {
 .trailer {
     padding-left: 0;
 }
+
 .sub-img {
     float: left;
 }
@@ -2889,3 +2891,4 @@ h3.ghj {
     .blog-info p {
         margin-top: 0.5em;
     }
+}
