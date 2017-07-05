@@ -1,8 +1,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Reviews</title>
+<title>所有课程</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<script src="js/jquery.min.js"></script>
 <!-- jQuery (necessary JavaScript plugins) -->
 <script src="js/bootstrap.js"></script>
 <!-- Custom Theme files -->
@@ -15,7 +16,10 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
-<script src="js/jquery.min.js"></script>
+<script src="js/search-result.js"></script>
+
+<!-- Theme style  -->
+<link rel="stylesheet" href="css/search-result.css">
 
 </head>
 <body>
@@ -83,86 +87,277 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- banner -->
 <div class="banner">		  			
-		<div class="bnr2">						  
-	   </div>			 
+	<div class="bnr2">						  
+	</div>			 
 </div>
 <!-- content -->
 <div class="review">
-	 <div class="container">
-		 <h2 >Reviews</h2>
-		 <div class="review-md1">
-				 <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="images/re7.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div>
-				 </div>
-				  <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div>
-				 </div>
-				  <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="images/re2.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div>
-				 </div>
-				 <div class="clearfix"> </div>
+	<div class="container">
+		<h2 id="title">所有课程</h2>
+		<!--搜索框-->
+		<div class="filter">
+			<!--栏目1-->
+			<div class="filter-bar">
+				<div class="filter-title-box">
+					<h4 class="filter-title-text">
+						课程分类
+					</h4>
+				</div>
+				<div>
+				<a href="#" class="filter-category-text active">
+					<h4>全部</h4>
+				</a>
+				<a href="#" class="filter-category-text">
+					<h4>历史学</h4>
+				</a>
+				<a href="#" class="filter-category-text">
+					<h4>哲学</h4>
+				</a>
+				<a href="#" class="filter-category-text">
+					<h4>艺术学</h4>
+				</a>
+				<a href="#" class="filter-category-text">
+					<h4>文学</h4>
+				</a>
+				<a href="#" class="filter-category-text">
+					<h4>管理学</h4>
+				</a>
+				<a href="#" class="filter-category-text">
+					<h4>经济学</h4>
+				</a>
+				<a href="#" class="filter-category-text">
+					<h4>经济学</h4>
+				</a>
+				<a href="#" class="filter-category-text">
+					<h4>法学</h4>
+				</a>
+				<a href="#" class="filter-category-text">
+					<h4>教育学</h4>
+				</a>
+				<a href="#" class="filter-category-text">
+					<h4>农学</h4>
+				</a>
+				<a href="#" class="filter-category-text">
+					<h4>医学</h4>
+				</a>
+				<a href="#" class="filter-category-text">
+					<h4>工学</h4>
+				</a>
+				</div>
+			</div>
+
+			<!--栏目2-->
+			<div class="filter-bar filter-second">
+				<div class="filter-title-box" style="width:15%">
+					<h4 class="filter-title-text">
+						排序方式
+					</h4>
+				</div>
+				<a href="#" class="filter-rank-text active">
+					<h4>综合排序</h4>
+				</a>
+				<a href="#" class="filter-rank-text">
+					<h4>最新课程</h4>
+				</a>
+				<a href="#" class="filter-rank-text">
+					<h4>本周最热</h4>
+				</a>
+				<a href="#" class="filter-rank-text">
+					<h4>观看最多</h4>
+				</a>
+			</div>
+		</div>
+
+		<div class="review-md1">
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+				 
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="clearfix"> </div>
+		</div>
+		<div class="review-md1">
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+				  
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="clearfix"> </div>
 		 </div>
+
 		 <div class="review-md1">
-				 <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="images/re3.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div>
-				 </div>
-				  <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="images/re4.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div>
-				 </div>
-				  <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="images/re5.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div>
-				 </div>
-				 <div class="clearfix"> </div>
-		 </div>
-		 <div class="review-md1">
-				 <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="images/re6.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div>
-				 </div>
-				  <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="images/re7.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div>
-				 </div>
-				  <div class="col-md-4 sed-md">
-				 	 <div class=" col-1">
-						 <a href="single.html"><img class="img-responsive" src="images/re2.jpg" alt=""></a>
-					 	<h4><a href="single.html">Sed ut perspiciatis unde omnis</a></h4>
-						<p>Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-					 </div>
-				 </div>
-				<div class="clearfix"> </div>
-		 </div>
-	 </div>
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="clearfix"> </div>
+		</div>
+
+		<div class="review-md1">
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="clearfix"> </div>
+		</div>
+
+		<div class="review-md1">
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 sed-md">
+				<div class=" col-1">
+					<a href="single.html"><img class="img-responsive" src="images/re1.jpg" alt=""></a>
+					<h4><a class="class-name" href="single.html">Sed ut perspiciatis unde omnis</a></h4>
+					<p class="class-intro">Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
+				</div>
+			</div>
+
+			<div class="clearfix"> </div>
+		</div>
+
+		<!--页码选择-->
+		<div>
+			
+		</div>
+
+	</div>
 </div>
 <!-- footer -->
 <div class="footer">
