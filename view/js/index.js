@@ -87,3 +87,21 @@ function createTrailer(course) {
 	"
 	return $(liStr);
 }
+
+$(function() {
+	$.ajax({
+		url: "http://115.159.188.200:8000/do_login/",
+		type: "POST",
+		// dataType: "text/html",
+		success: function(res) {
+			console.log(res);
+		},
+		error: function(err) {
+			// alert("Fail");
+			console.log(err);
+		},
+		beforeSend: function(XHR) {
+			XHR.setRequestHeader("Accept", "text/html");
+		}
+	})
+})

@@ -1,0 +1,89 @@
+.flow_tag {
+	background: url("../images/bg.png");
+}
+.inner-panel {
+    width: 100%;
+    height: 300px;
+    float: left;
+    overflow: hidden;
+    background-color: white;
+}
+
+.searcher {
+  width: 90%;
+  height: 50px;
+  margin: 12px auto 0px;
+  border-radius: 4px;
+  color: #ddd;
+}
+.searcher form {
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+}
+.searcher form input[type='search'] {
+  float: left;
+  padding: 0 12px;
+  border: 1px solid red;
+  border-radius: 4px;
+  width: 85%;
+  height: 100%;
+}
+.searcher form button {
+  float: left;
+  width: 15%;
+  height: 100%;
+}
+
+
+.flowshow {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+.flowshow .flow-widget {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.flowshow .flow-widget .item {
+  position: absolute;
+  min-height: 18px;
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  top: 0px;
+  left: 0px;
+  padding: 6px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  border: none;
+}
+.flowshow .flow-widget .item:hover {
+  background: #d02f53;
+  display: block;
+}
+.flowshow .flow-widget .item:nth-child(n) {
+  background: #666;
+  border-radius: 3px;
+  display: inline-block;
+  line-height: 18px;
+  margin: 0 10px 15px 0;
+}
+.flowshow .flow-widget .item:nth-child(2n) {
+  background: #d1a601;
+}
+.flowshow .flow-widget .item:nth-child(3n) {
+  background: #286c4a;
+}
+.flowshow .flow-widget .item:nth-child(5n) {
+  background: #518ab2;
+}
+.flowshow .flow-widget .item:nth-child(4n) {
+  background: #c91d13;
+}
