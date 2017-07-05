@@ -1,0 +1,69 @@
+#title{
+    padding-bottom: 15px;
+}
+.filter{
+    width: 100%;
+    height: 60px;
+}
+
+.filter-bar{
+    width: 100%;
+    height: 35px;
+}
+
+.filter-second{
+    height: 35px;
+}
+
+.filter-title-box{
+    height: 100%;
+    width: 15%;
+    float: left;
+    text-align:center;
+}
+
+.filter-title-text{
+    padding-top: 5px;
+}
+
+
+.filter-category-text.active{
+    height: 35px;
+    width: 70px;
+    float: left;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    padding-top: 5px;
+    text-align: center;
+    color:#0099ff;
+}
+
+.filter-category-text{
+    height: 35px;
+    width: 70px;
+    float: left;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.filter-rank-text.active{
+    height: 35px;
+    width: 10%;
+    float: left;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    padding-top: 5px;
+    color:#0099ff;
+    text-align:center;
+}
+
+.filter-rank-text{
+    height: 35px;
+    width: 10%;
+    float: left;
+    padding-top: 5px;
+    text-align:center;
+}
+
+
+
