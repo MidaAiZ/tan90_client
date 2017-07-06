@@ -10,6 +10,7 @@
 		<!-- jQuery (necessary JavaScript plugins) -->
 		<script src="js/bootstrap.js"></script>
 		<script src="js/index.js"></script>
+		<script src="js/common.js"></script>
 		<script src="js/flow_tag.js"></script>
 		<!-- Custom Theme files -->
 		<!--//theme-style-->
@@ -79,10 +80,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="/view/gallery.html">考试管理</a>
 								</li>
-								<li>
-									<a href="javascript: void(0)">
-										<span class="glyphicon glyphicon-menu-down"></span>
-									</a>
+								<li style="display: none;" id="user-info">
+									<div class="dropdown">
+										<a id="dLabel" data-target="#" href="javascript: void(0)" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+											<span class="glyphicon glyphicon-menu-down"></span>
+										</a>
+
+										<ul class="dropdown-menu" aria-labelledby="dLabel">
+											<li class="m-option">观看记录</li>
+											<li role="separator" class="divider"></li>
+											<li class="m-option">我的课程</li>
+											<li class="m-option">我的笔记</li>
+											<li class="m-option">我的提问</li>
+											<li role="separator" class="divider"></li>
+											<li class="m-option">退出</li>
+										</ul>
+									</div>
+								</li>
+								<li style="display: none;" id="session-info">
+									<a id="login-btn" type="button" data-toggle="modal" data-target=".login">登录</a>
+									<a id="signin-btn" type="button" data-toggle="modal" data-target=".login">注册</a>
 								</li>
 							</ul>
 						</div>
@@ -203,37 +220,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 
-			<!-- latest -->
-			<div class="content">
-				<div class="container">
-					<div class="latest-courses">
-						<h3>最新课程</h3>
-						<span>这是最新课程啊啊啊啊</span>
-					</div>
-					<div class="latest-top">
-						<div class="col-md-5 trailer-text" id="trailerBox"></div>
-						<div class="col-md-7 trailer">
-							<div style="width: 100%; height: auto; text-align: center">
-								<img id="trailer-img" src="" alt="" style="width: 90%;">
-							</div>
+		<!-- latest -->
+		<div class="content">
+			<div class="container">
+				<div class="latest-courses">
+					<h3>最新课程</h3>
+					<span>这是最新课程啊啊啊啊</span>
+				</div>
+				<div class="latest-top">
+					<div class="col-md-5 trailer-text" id="trailerBox"></div>
+					<div class="col-md-7 trailer">
+						<div style="width: 100%; height: auto; text-align: center">
+							<img id="trailer-img" src="" alt="" style="width: 90%;">
 						</div>
-						<div class="clearfix"></div>
 					</div>
+					<div class="clearfix"></div>
 				</div>
 			</div>
-			<!-- poster -->
-			<div class="poster">
-				<div class="container">
-					<div class="poster-info">
-						<h3>Nunc cursus dui in metus efficitur, sit amet ullamcorper dolor viverra.</h3>
-						<p>Proin ornare metus eros, quis mattis lorem venenatis eget. Curabitur eget dui euismod, varius nisl eu, pharetra lacus. Sed vehicula tempor leo. Aenean dictum suscipit magna vel tempus. Aliquam nec dui dolor. Quisque scelerisque aliquet est et
-							dignissim. Morbi magna quam, molestie sed fermentum et, elementum at dolor</p>
-						<a class="hvr-bounce-to-bottom" href="reviews.html">Read More</a>
-					</div>
+		</div>
+		<!-- poster -->
+		<div class="poster">
+			<div class="container">
+				<div class="poster-info">
+					<h3>Nunc cursus dui in metus efficitur, sit amet ullamcorper dolor viverra.</h3>
+					<p>Proin ornare metus eros, quis mattis lorem venenatis eget. Curabitur eget dui euismod, varius nisl eu, pharetra lacus. Sed vehicula tempor leo. Aenean dictum suscipit magna vel tempus. Aliquam nec dui dolor. Quisque scelerisque aliquet est et
+						dignissim. Morbi magna quam, molestie sed fermentum et, elementum at dolor</p>
+					<a class="hvr-bounce-to-bottom" href="reviews.html">Read More</a>
 				</div>
 			</div>
-			<div class="content">
-				<div class="container container-types">
+		</div>
+		<div class="content">
+			<div class="container container-types">
 				<div class="l article">
 					<h3 class="types-title">热门手记</h3>
 					<div class="article-content">
@@ -293,7 +310,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="r question">
 					<h3 class="types-title">推荐猿问</h3>
 					<div class="question-content">
-						<a style="background-image: url(http://img.mukewang.com/58ac14f10001f87f05900100.jpg);" style="background-image: url(http://img.mukewang.com/592e8e0c00010e8005900100.jpg);" target="_blank" href="http://www.imooc.com/wenda/detail/352739" class="hot-content" style="background-image: url(http://img.mukewang.com/58ac14f10001f87f05900100.jpg);" data-track="sytjyw-1-1">【花式填坑第10期】PHP架构师未来之路</a>
+						<a
+							style="background-image: url(http://img.mukewang.com/58ac14f10001f87f05900100.jpg);"
+							style="background-image: url(http://img.mukewang.com/592e8e0c00010e8005900100.jpg);"
+							target="_blank"
+							href="http://www.imooc.com/wenda/detail/352739"
+							class="hot-content"
+							style="background-image: url(http://img.mukewang.com/58ac14f10001f87f05900100.jpg);"
+							data-track="sytjyw-1-1">【花式填坑第10期】PHP架构师未来之路</a>
 						<ul>
 							<li class="clearfix">
 								<a class="label" href="/wenda/17">
@@ -358,88 +382,88 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 				</div>
-				</div>
 			</div>
-			<!-- footer -->
-			<div class="footer">
-				<div class="container">
-					<div class="footer-grids">
-						<div class="col-md-3 ftr-info">
-							<h3>About Us</h3>
-							<p>Sed faucibus mollis laoreet. Sed vehicula faucibus tristique lectus a orci molestie finibus. Suspendisse pharetra, metus sed rutrum pretium.</p>
-						</div>
-						<div class="col-md-3 ftr-grid">
-							<h3>Categories</h3>
-							<ul class="ftr-list">
-								<li>
-									<a href="#">Action</a>
-								</li>
-								<li>
-									<a href="#">Racing</a>
-								</li>
-								<li>
-									<a href="#">Adventure</a>
-								</li>
-								<li>
-									<a href="#">Simulation</a>
-								</li>
-								<li>
-									<a href="#">Bike</a>
-								</li>
-							</ul>
-						</div>
-						<div class="col-md-3 ftr-grid">
-							<h3>Platform</h3>
-							<ul class="ftr-list">
-								<li>
-									<a href="#">Pc</a>
-								</li>
-								<li>
-									<a href="#">Ps4</a>
-								</li>
-								<li>
-									<a href="#">XBOX 360</a>
-								</li>
-								<li>
-									<a href="#">XBOX ONE</a>
-								</li>
-								<li>
-									<a href="#">PSP</a>
-								</li>
-							</ul>
-						</div>
-						<div class="col-md-3 ftr-grid">
-							<h3>Information</h3>
-							<ul class="ftr-list">
-								<li>
-									<a href="#">Contact Us</a>
-								</li>
-								<li>
-									<a href="#">Wish Lists</a>
-								</li>
-								<li>
-									<a href="#">Site Map</a>
-								</li>
-								<li>
-									<a href="#">Terms & Conditions</a>
-								</li>
-							</ul>
-						</div>
-						<div class="clearfix"></div>
+		</div>
+		<!-- footer -->
+		<div class="footer">
+			<div class="container">
+				<div class="footer-grids">
+					<div class="col-md-3 ftr-info">
+						<h3>About Us</h3>
+						<p>Sed faucibus mollis laoreet. Sed vehicula faucibus tristique lectus a orci molestie finibus. Suspendisse pharetra, metus sed rutrum pretium.</p>
 					</div>
+					<div class="col-md-3 ftr-grid">
+						<h3>Categories</h3>
+						<ul class="ftr-list">
+							<li>
+								<a href="#">Action</a>
+							</li>
+							<li>
+								<a href="#">Racing</a>
+							</li>
+							<li>
+								<a href="#">Adventure</a>
+							</li>
+							<li>
+								<a href="#">Simulation</a>
+							</li>
+							<li>
+								<a href="#">Bike</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-3 ftr-grid">
+						<h3>Platform</h3>
+						<ul class="ftr-list">
+							<li>
+								<a href="#">Pc</a>
+							</li>
+							<li>
+								<a href="#">Ps4</a>
+							</li>
+							<li>
+								<a href="#">XBOX 360</a>
+							</li>
+							<li>
+								<a href="#">XBOX ONE</a>
+							</li>
+							<li>
+								<a href="#">PSP</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-3 ftr-grid">
+						<h3>Information</h3>
+						<ul class="ftr-list">
+							<li>
+								<a href="#">Contact Us</a>
+							</li>
+							<li>
+								<a href="#">Wish Lists</a>
+							</li>
+							<li>
+								<a href="#">Site Map</a>
+							</li>
+							<li>
+								<a href="#">Terms & Conditions</a>
+							</li>
+						</ul>
+					</div>
+					<div class="clearfix"></div>
 				</div>
 			</div>
-			<!---->
-			<div class="copywrite">
-				<div class="container">
-					<p>Copyright &copy; 2015.Company name All rights reserved.More Templates
-						<a href="http://www.genban.org/" target="_blank" title="跟版网模板">跟版网模板</a>
-						- Collect from
-						<a href="http://www.genban.org/" title="网页模板" target="_blank">网页模板</a>
-					</p>
-				</div>
+		</div>
+		<!---->
+		<div class="copywrite">
+			<div class="container">
+				<p>Copyright &copy; 2015.Company name All rights reserved.More Templates
+					<a href="http://www.genban.org/" target="_blank" title="跟版网模板">跟版网模板</a>
+					- Collect from
+					<a href="http://www.genban.org/" title="网页模板" target="_blank">网页模板</a>
+				</p>
 			</div>
-			<!---->
-		</body>
+		</div>
+		<!---->
+	</body>
 
-	</html>
+</html>
