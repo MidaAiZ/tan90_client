@@ -24,72 +24,82 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <!-- header -->
-<div class="top-banner">
-	 <div class="header">
-		 <div class="container">
-			 <div class="headr-left">
-				 <div class="social">
-						<a href="#"><i class="facebook"></i></a>
-						<a href="#"><i class="twitter"></i></a>
-						<a href="#"><i class="gplus"></i></a>
-						<a href="#"><i class="pin"></i></a>
-						<a href="#"><i class="youtube"></i></a>
-				 </div>
-				 <div class="search">
-					 <form>
-						 <input type="submit" value="">
-						 <input type="text" value="" placeholder="Search...">
-					 </form>
-				 </div>
-				 <div class="clearfix"></div>
-			 </div>
-			 <div class="headr-right">
-				 <div class="details">
-					 <ul>
-						 <li><a href="mailto@example.com"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>info(at)example.com</a></li>
-						 <li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>(+1)000 123 456789</li>
-					 </ul>
-				 </div>
-			 </div>
-			 <div class="clearfix"></div>
-		 </div>
-	 </div>
+		<div class="top-banner">
+			<div class="header">
+				<div class="container">
+					<div class="headr-left">
+						<div class="social">
+							<a href="#">
+								<i class="facebook"></i>
+							</a>
+							<a href="#">
+								<i class="twitter"></i>
+							</a>
+							<a href="#">
+								<i class="gplus"></i>
+							</a>
+							<a href="#">
+								<i class="pin"></i>
+							</a>
+							<a href="#">
+								<i class="youtube"></i>
+							</a>
+						</div>
+						<div class="search">
+							<form>
+								<input type="submit" value="">
+								<input type="text" value="" placeholder="Search...">
+							</form>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="headr-right">
+						<div class="details">
+							<ul>
+								<li class="active">
+									<a href="/view">主页</a>
+								</li>
+								<li>
+									<a href="/view/about.html">课程详情</a>
+								</li>
+								<li>
+									<a href="/view/reviews.html">课程列表</a>
+								</li>
+								<li>
+									<a href="/view/usercenter">个人中心</a>
+								</li>
+								<li>
+									<a href="/view/gallery.html">考试管理</a>
+								</li>
+								<li style="display: none;" id="user-info">
+									<div class="dropdown">
+										<a id="dLabel" data-target="#" href="javascript: void(0)" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+											<span class="glyphicon glyphicon-menu-down"></span>
+										</a>
 
-	 <!--banner-info-->
-	 <div class="banner-info">
-		  <div class="container">
-			  <div class="logo">
-					 <h1><a href="index.html">GAME BOX</a></h1>
-			  </div>
-			 <div class="top-menu">
-				 <span class="menu"></span>
-					<ul class="nav1">
-						 <li><a href="index.html">Home</a></li>
-						 <li class="active"><a href="about.html">About</a></li>
-						 <li><a href="reviews.html">Reviews</a></li>
-						 <li><a href="typo.html">News</a></li>
-						 <li><a href="gallery.html">Gallery</a></li>
-						 <li><a href="contact.html">Mail</a></li>
-				  </ul>
-			 </div>
-	 <!-- script-for-menu -->
-						<script>
-							 $( "span.menu" ).click(function() {
-							$( "ul.nav1" ).slideToggle( 300, function() {
-							// Animation complete.
-								});
-								});
-						</script>
-					<!-- /script-for-menu -->
-			 <div class="clearfix"></div>
-		 </div>
-	 </div>
-</div>
-<!-- banner -->
-<div class="banner">
-		<div class="bnr2">
-	   </div>
-</div>
+										<ul class="dropdown-menu" aria-labelledby="dLabel">
+											<li class="m-option">观看记录</li>
+											<li role="separator" class="divider"></li>
+											<li class="m-option">我的课程</li>
+											<li class="m-option">我的笔记</li>
+											<li class="m-option">我的提问</li>
+											<li role="separator" class="divider"></li>
+											<li class="m-option">退出</li>
+										</ul>
+									</div>
+								</li>
+								<li style="display: none;" id="session-info">
+									<a id="login-btn" type="button" data-toggle="modal" data-target=".login">登录</a>
+									<a id="signin-btn" type="button" data-toggle="modal" data-target=".login">注册</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<!-- header end -->
 <!-- About -->
 <div class="about">
 	<div class="container">

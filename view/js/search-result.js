@@ -1,4 +1,30 @@
 $(function() {
+    //连接服务器
+    var params = "";
+    var url = "http://115.159.188.200:8000/get_category/"; 
+    
+    $.ajax({  
+            type: 'POST',  
+            url: url,  
+            dataType: 'text',  
+            data: params,  
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+
+            complete: function(XMLHttpRequest, textStatus) { 
+            },  
+            success: function(data) {  
+                    
+            },
+            //error:function(XMLHttpRequest, textStatus, errorThrown){
+            //通常情况下textStatus和errorThrown只有其中一个包含信息
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                window.alert(textStatus);
+            }
+                });  
+
     $(".filter-category-text").on("click", function(event){
         var $this = $(this);
         console.log($this);

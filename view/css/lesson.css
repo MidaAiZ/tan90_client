@@ -150,7 +150,7 @@ p{
   height: 49px;
   width: 49px;
   border-radius: 50%;
-  background-color: #EE283D;
+  background-color: rgba(62, 76, 69, 0.77);
   border: none;
   transition: all 0.40s ease-out;
 }
