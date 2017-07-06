@@ -7,7 +7,7 @@ $(function() {
         $("#chapter").append('<h3>第'+(i+1)+'章 ***************</h3>');
         $("#chapter").append("<ul>");
         for (var j = 0; j < 10; j++) {
-            $("#chapter").append('<li><a href="#">4-'+(j+1)+' ***************</a></li>');
+            $("#chapter").append('<li><a href="#">'+(i+1)+'-'+(j+1)+'  ***************</a></li>');
         };
         $("#chapter").append("</ul>");
     };

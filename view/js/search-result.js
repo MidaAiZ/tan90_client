@@ -13,6 +13,8 @@ $(function() {
         event.stopPropagation();
     });
 
+    $(".sed-md").css("display", "none");
+
     //动态显示所有的课程
 
     for (var i = 0; i < 10; i++) {

@@ -1,3 +1,356 @@
 .abt-pic{
-    height: 500px;
+    height: 480px;
+    float: left;
+    text-align: center;
+    text-align: -webkit-center;
+}
+
+.abt-pic-side .abt-info-pic{
+    float: left;
+}
+
+.abt-info-pic{
+    border: 1px solid #d0d6d9; 
+    padding: 15px;
+}
+
+.testimonals h3{
+    padding-top: 10px;
+    margin-bottom: 0.2em;
+}
+.testimonals {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 15px;
+    border: 1px solid #d0d6d9; 
+}
+
+#last-lesson{
+    float: left;
+    margin-top: 185px;
+}
+#next-lesson{
+    float: right;
+    margin-top: 185px;
+}
+
+
+.col-md-5{
+    width:42%;
+    margin-left: 2%;
+}
+.col-md-7{
+    width:56%;
+}
+.col-md-2{
+    height: 480px;
+}
+.col-md-8{
+    padding-right: 0;
+}
+#lesson-title{
+    padding-bottom: 15px;
+}
+
+#a1{
+    margin: auto 30px;
+}
+h3{
+    margin-bottom: 10px;
+}
+p{
+    word-break: break-word;
+}
+
+.ques-answer {
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #d0d6d9;
+}
+.ques-answer .answer-con .ctrl-bar .reply {
+    display: inline-block;
+    height: 24px;
+    border: 1px solid #d0d6d9;
+    padding: 0 9px;
+}
+.ques-answer .answer-con .ctrl-bar span {
+    line-height: 24px;
+    font-size: 12px;
+    color: #787d82;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.rich-text p {
+    margin: 0;
+}
+.answer-con .answer-content .ques-content :not(code) {
+    color: #14191e!important;
+    line-height: 1.2em!important;
+    font-size: 14px!important;
+}
+.answer-con .detail-signal, .detail-ci-avator .detail-signal {
+    color: #b5b9bc;
+    font-size: 12px;
+    height: 18px;
+}
+.answer-con .detail-r, .detail-ci-avator .detail-r {
+    margin: 0 0 10px 50px;
+}
+.ques-content.rich-text.aimgPreview {
+    margin-left: 50px;
+}
+.answer-content.rich-text.aimgPreview {
+    margin-left: 50px;
+}
+.ctrl-bar{
+    margin: 10px 0 5px 50px;
+}
+.user-pic{
+    float: left;
+}
+.detail-r .time {
+    float: right;
+    color: #b5b9bc;
+    font-size: 12px;
+    margin-top: 12px;
+}
+.ques-answer .user-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.ques-answer .user-pic img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.answer-con img, .detail-ci-avator img {
+    float: left;
+    border-radius: 50%;
+}
+
+
+/*侧边栏主要样式*/
+.menu-expanded {
+  background-color: transparent;
+  position: fixed;
+  width: auto;
+  height:100%;
+  top: 0px;
+  left: 0px;
+  overflow: hidden !important;
+  z-index: 5;
+}
+ 
+.menu {
+  float: left;
+  margin: 15px 0 0 15px;
+  height: 49px;
+  width: 49px;
+  border-radius: 50%;
+  background-color: #EE283D;
+  border: none;
+  transition: all 0.40s ease-out;
+}
+ 
+.main-menu {
+    visibility: hidden;
+    width: 290px;
+    position: absolute;
+    top: 60px;
+    opacity: 0;
+    transition: all 0.300s;
+    transition-delay: 0s;
+}
+
+#left-menu-title{
+    color: white;
+    font-size: 20px;
+    margin-left: 90px;
+    width: 200px;
+    height: 30px;
+    margin-top: 28px;
+    top: 0px;
+}
+
+ 
+.main-menu div {
+    width: 100%;
+    height: auto;
+    list-style-type: none;
+    overflow: auto;
+}
+ 
+.main-menu p {
+  margin: 20px 0px;
+}
+ 
+.main-menu p a {
+  float: left;
+  text-decoration: none;
+  color: transparent;
+  background-color: #DB0024;
+  margin-top: 20px;
+}
+ 
+.main-menu p a:hover {
+  opacity: 0.7;
+}
+
+/*汉堡包按钮主要样式*/
+.menu,
+.linee {
+  cursor: pointer;
+}
+ 
+.over {
+  transform: scale(100);
+  transition: all 0.350s ease-in;
+  cursor: default;
+  width: 340px;
+}
+ 
+.linea1 {
+  background: #fff;
+  height: 2px;
+  width: 15px;
+  position: absolute;
+  left: 33px;
+  top: 33px;
+  transition: all 0.3s;
+}
+ 
+.linea2 {
+  background: #fff;
+  height: 2px;
+  width: 15px;
+  position: absolute;
+  left: 33px;
+  top: 38px;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+ 
+.linea3 {
+  background: #fff;
+  height: 2px;
+  width: 15px;
+  position: absolute;
+  left: 33px;
+  top: 43px;
+}
+ 
+.overL1 {
+  animation: closetop 1s forwards;
+  animation-direction: alternate;
+  cursor: pointer;
+}
+ 
+.overL2 {
+  opacity: 0;
+  transition: opacity 0.5s;
+  cursor: pointer;
+}
+ 
+.overL3 {
+  animation: closebottom 1s forwards;
+  animation-direction: alternate;
+  cursor: pointer;
+}
+
+/*汉堡包按钮变形为侧边栏菜单的CSS*/
+@keyframes closetop {
+  0% {
+    transform: translateY(5px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(5px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(5px) rotate(-45deg);
+  }
+  100% {
+    transform: translateY(5px) rotate(-45deg);
+  }
+}
+ 
+@keyframes closebottom {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(45deg);
+  }
+  100% {
+    transform: translateY(-5px) rotate(45deg);
+  }
+}
+ 
+.overmain {
+  visibility: visible;
+  opacity: 1;
+  height: 85%;
+  transition: all 0.400s;
+  transition-delay: 0.370s;
+}
+
+/*定义滚动条宽高及背景，宽高分别对应横竖滚动条的尺寸*/
+.scrollbar::-webkit-scrollbar{
+    width: 16px;
+    height: 16px;
+    background-color: #f5f5f5;
+}
+/*定义滚动条的轨道，内阴影及圆角*/
+.scrollbar::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    border-radius: 10px;
+    background-color: #f5f5f5;
+}
+/*定义滑块，内阴影及圆角*/
+.scrollbar::-webkit-scrollbar-thumb{
+    /*width: 10px;*/
+    height: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+#content1 p{
+    color: white;
+}
+
+
+h1{
+    font-family:Georgia,serif; 
+    font-size:18px; 
+    font-style:italic; 
+    margin:40px; 
+    color:#26beff;
+}     
+p{
+    margin:0 0 20px 0;
+}
+hr{
+    height:0; 
+    border:none; 
+    border-bottom:1px solid rgba(255,255,255,0.13); 
+    border-top:1px solid rgba(0,0,0,1); 
+    margin:9px 10px; 
+    clear:both;
+}
+
+.mycontent{
+    margin-left: 20px;
+    width:320px; 
+    height:500px; 
+    padding:20px; 
+    overflow:auto;
+    -webkit-border-radius:3px; 
+    -moz-border-radius:3px; 
+    border-radius:3px;
 }

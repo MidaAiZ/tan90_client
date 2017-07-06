@@ -3,12 +3,10 @@
 <head>
 <title>课程详情</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<!-- jQuery (necessary JavaScript plugins) -->
-<script src="js/bootstrap.js"></script>
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <!-- style  -->
-<link href="css/course-catalog.css" rel="stylesheet">
+<link href="css/lesson.css" rel="stylesheet">
 <!-- Custom Theme files -->
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,8 +16,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 <script src="js/jquery.min.js"></script>
+<!-- jQuery (necessary JavaScript plugins) -->
+<script src="js/bootstrap.js"></script>
 
-<script src="js/course-catalog.js"></script>
+<!--视频插件-->
+<script type="text/javascript" src="ckplayer/ckplayer.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/offlights.js"></script>
+<script type="text/javascript" src="js/lesson.js"></script>
+<script type="text/javascript" src="js/course-catalog.js"></script>
+
+<!--滚动条插件-->
+<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 
 </head>
 <body>
@@ -92,25 +100,61 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- About -->
 <div class="about">
+    <!-- 侧边栏笔记 -->
+    <div class="menu-expanded">
+        <div id="menu" class="menu"></div>
+        <span class="linee linea1"></span>
+        <span class="linee linea2"></span>
+        <span class="linee linea3"></span>
+
+        <div id="main">
+            <h3 class="main-menu" id="left-menu-title"><b>笔记</b></h3>
+            <div class="main-menu mycontent" id="content1">
+                <p>笔记内容1</p>
+                <p>笔记内容2</p>
+                <p>笔记内容3</p>
+                <p>笔记内容4</p>
+                <p>笔记内容5</p>
+                <p>笔记内容6</p>
+                <p>笔记内容7</p>
+                <p>笔记内容8</p>
+                <p>笔记内容9</p>
+                <p>笔记内容10</p>
+                <p>笔记内容11</p>
+                <p>笔记内容12</p>
+                <p>笔记内容13</p>
+                <p>笔记内容14</p>
+                <p>笔记内容15</p>
+        </div>
+    </div>
+</div>
     <div class="container">
         <h2>课程详情</h2>
-        <div class="about-info-grids">
-            <div class="col-md-8 abt-pic" style="background:#dddddd;">
-                <!--视频-->
-                <video src="movie.ogg" controls="controls">
-                    您的浏览器不支持 video 标签。
-                </video>
+        
+        <div class="testimonals">
+            <div class="col-md-2 abt-pic-side">
+                <a id="last-lesson" href="#"><上一节</a>
             </div>
-            <div class="col-md-4 abt-info-pic">
-                <h4 id="course-name">课程名称</h4>
-                <ul>
-                    <li id="course-time">发布时间：XXXX-XX-XX</li>
-                    <li id="course-intro">课程简介：XXXXXXXXXXXXXXXXXXXXXXXXXXx</li>
-                </ul>
+            <div class="col-md-8 abt-pic" >
+                <h4 id="lesson-title">2-3 JAVA 从入门到放弃</h4>
+                <!--视频-->
+                <div id="a1"></div>
+            </div>
+            <div class="col-md-2 abt-pic-side">
+                <a id="next-lesson" href="#">下一节></a>
             </div>
             <div class="clearfix"></div>
         </div>
-        <div class="testimonals">
+
+        <div class="col-md-12 abt-info-pic">
+            <h3 id="course-name">课程名称</h3>
+            <ul>
+                <li id="course-time">发布时间：XXXX-XX-XX</li>
+                <li id="course-intro">课程简介：XXXXXXXXXXXXXXXXXXXXXXXXXXx</li>
+            </ul>
+        </div>
+
+        <div class="testimonals col-md-7">
             <h3>课程目录</h3>
             <div class="testimonal-grids">
                 <div id="chapter">
@@ -119,6 +163,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="clearfix"></div>
             </div>
         </div>
+        <div class="col-md-5 testimonals" id="discussion">
+            <h3>课程问答</h3>
+<!--
+            <div class="ques-answer">
+                
+                <div class="answer-con first" >
+
+                    <div class="user-pic l">
+                        <a href="/u/3118245/bbs" target="_blank">
+                            <img src="http://img.mukewang.com/58cf458000016d7302000200-100-100.jpg" width="40" height="40" alt="?">
+                        </a>
+                    </div>
+
+                    <div class="detail-r">
+                        <span class="time">22小时前</span>
+                        <a class="detail-name" href="/u/3118245/bbs" target="_blank">书旅</a>
+                        <p class="detail-signal">也许迟早会败给现实，那么请在举手投降之前，再拼一次</p>
+                    </div>
+
+                    <div class="ques-content rich-text aimgPreview">
+                        <p>JAVA环境怎么搭建？</p>
+                    </div>
+                    
+                    <div class="answer-content rich-text aimgPreview ctrl-bar">
+                        <span data-replynum="0" data-ques-uid="1915727"><em>2</em>个回复：</span>
+                        <p>回复者1：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+                        <p>回复者2：XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+                        <input type="text" name="user_search" placeholder="Search W3School" />
+                        <span class="reply">回复</span>
+                    </div>
+
+                </div> 
+                
+
+            </div>
+
+            -->
+
+        </div>
+
     </div>
 </div>
 <!-- footer -->
@@ -127,8 +211,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
          <div class="footer-grids">
              <div class="col-md-3 ftr-info">
                  <h3>About Us</h3>
-                 <p>Sed faucibus mollis laoreet. Sed vehicula faucibus tristique lectus a orci molestie finibus. 
-                 Suspendisse pharetra, metus sed rutrum pretium.</p>
+                 <a href="#"><p>Sed faucibus mollis laoreet. Sed vehicula faucibus tristique lectus a orci molestie finibus. 
+                 Suspendisse pharetra, metus sed rutrum pretium.</p></a>
              </div>
              <div class="col-md-3 ftr-grid">
                  <h3>Categories</h3>
@@ -166,7 +250,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!---->
 <div class="copywrite">
      <div class="container">
-         <p>Copyright &copy; 2015.Company name All rights reserved.More Templates <a href="http://www.genban.org/" target="_blank" title="跟版网模板">跟版网模板</a> - Collect from <a href="http://www.genban.org/" title="网页模板" target="_blank">网页模板</a></p>
+         <p>Copyright &copy; 2017.Company name All rights reserved.More Templates <a href="http://www.genban.org/" target="_blank" title="模板">模板</a> - Collect from <a href="http://www.genban.org/" title="网页模板" target="_blank">网页模板</a></p>
      </div>
 </div>
 <!---->
