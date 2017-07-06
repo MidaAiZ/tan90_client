@@ -10,6 +10,7 @@ $(function() {
 
 function initUInfo() {
 	$("#user-info").show();
+    listenLogout();
 }
 
 function initSession() {
@@ -36,9 +37,12 @@ function initSession() {
 
 function check_login(res) {
 	if (res.code == 1000) {
-        alert('登录成功！');
+        sessionStorage.setItem("userId", res.id);
+        $(".login").modal("hide");
+        window.location = "";
 	} else {
 		$('#login_form').removeClass('shake_effect');
+        $("#tip").html("<span class='glyphicon glyphicon-exclamation-sign'>帐号或密码错误</span>");
 	     setTimeout(function() {
 	         $('#login_form').addClass('shake_effect')
 	     }, 1);
@@ -47,9 +51,16 @@ function check_login(res) {
 
 function check_register(res) {
     if (res.code == 1000) {
-        alert('注册成功！');
+        $("#tip").html("<span class='glyphicon glyphicon-ok-sign' style='color: green;'>注册成功,请登录</span>");
+        setTimeout(function() {
+            $('form').animate({
+                height: 'toggle',
+                opacity: 'toggle'
+            }, 'slow');
+        }, 300);
     } else {
         $('#login_form').removeClass('shake_effect');
+        $("#tip").html("<span class='glyphicon glyphicon-exclamation-sign'>注册失败</span>");
         setTimeout(function() {
             $('#login_form').addClass('shake_effect')
         }, 1);
@@ -61,6 +72,7 @@ function getLoginModal() {
 		<div class='modal fade login' tabindex='-1' role='dialog' aria-labelledby='mySmallModalLabel'>\
   			<div class='modal-dialog login-page' role='document'>\
 				<div id='login_form' class='form'>\
+                    <p id='tip' style='color: red; margin-bottom: 10px'></p>\
 					<form class='register-form'>\
 					  <input type='text' name='name' placeholder='用户名' id='r_user_name'/>\
 					  <input type='password' name='pwd' placeholder='密码' id='r_password' />\
@@ -82,8 +94,22 @@ function getLoginModal() {
     return $(sLogin);
 }
 
-function getLogoutModel() {
-
+function listenLogout() {
+    $("#logout").click(function() {
+        $.ajax({
+            url: ROOT + "do_logout/",
+            type: "POST",
+            dataType: "json",
+            crossDomain: true,
+            xhrFields: {
+                withCredentials: true
+            },
+            complete: function(res) {
+                sessionStorage.removeItem("userId");
+                window.location = "";
+            }
+        })
+    })
 }
 
 function login() {
@@ -94,6 +120,10 @@ function login() {
         type: "POST",
 		data: fd,
 		dataType: "json",
+        crossDomain: true,
+        xhrFields: {
+            withCredentials: true
+        },
 		success: function(res) {
 			console.log(res);
 			check_login(res);
@@ -112,6 +142,7 @@ function register() {
         type: "POST",
 		data: fd,
 		dataType: "json",
+        crossDomain: true,
 		success: function(res) {
 			console.log(res);
 			check_register(res);
