@@ -37,9 +37,9 @@ function initSession() {
 
 function check_login(res) {
 	if (res.code == 1000) {
-        sessionStorage.setItem("userId", res.id);
+        sessionStorage.setItem("userId", res.info.id);
         $(".login").modal("hide");
-        window.location = "";
+        // window.location = "";
 	} else {
 		$('#login_form').removeClass('shake_effect');
         $("#tip").html("<span class='glyphicon glyphicon-exclamation-sign'>帐号或密码错误</span>");
