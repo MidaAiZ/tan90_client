@@ -77,7 +77,9 @@ function getLoginModal() {
 					  <input type='text' name='name' placeholder='用户名' id='r_user_name'/>\
 					  <input type='password' name='pwd' placeholder='密码' id='r_password' />\
 					  <input type='text' name='mail' placeholder='电子邮件' id='r_emial'/>\
-					  <input type='text' name='department' placeholder='所属部门' id='r_department'/>\
+                      <select type='text' name='department' placeholder='所属部门' id='r_department'>\
+                          <option value='animalFarm'>测试</option>\
+                      </select>\
 					  <button id='create'>创建账户</button>\
 					  <p class='message'>已经有了一个账户? <a href='#'>立刻登录</a></p>\
 					</form>\
@@ -100,10 +102,10 @@ function listenLogout() {
             url: ROOT + "do_logout/",
             type: "POST",
             dataType: "json",
-            crossDomain: true,
-            xhrFields: {
-                withCredentials: true
-            },
+                crossDomain: true,
+                xhrFields: {
+                    withCredentials: true
+                },
             complete: function(res) {
                 sessionStorage.removeItem("userId");
                 window.location = "";

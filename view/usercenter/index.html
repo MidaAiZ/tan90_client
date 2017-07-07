@@ -162,7 +162,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<span>姓名</span>
 							<div role="info-content">
 								<em role="info" data-attr="name">mida</em>
-								<input type="text-field" name="revise[name]" class="edit" role="edit">
+								<input type="text-field" name="name" class="edit" role="edit">
 							</div>
 							<div class="revise-group" role="revise-group">
 								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
@@ -175,8 +175,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="info-item">
 							<span>性别</span>
 							<div role="info-content">
-								<em role="info" name="revise[sex]" data-attr="sex"></em>
-								<input type="text-field" name="revise[sex]" class="edit" role="edit">
+								<em role="info" name="gender" data-attr="gender"></em>
+								<input type="text-field" name="gender" class="edit" role="edit">
 							</div>
 							<div class="revise-group" role="revise-group">
 								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
@@ -190,7 +190,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<span>生日</span>
 							<div role="info-content">
 								<em role="info" data-attr="birthday"></em>
-								<input type="text-field" name="revise[birthday]" role="edit" class="edit input date">
+								<input type="text-field" name="birthday" role="edit" class="edit input date">
 							</div>
 							<div class="revise-group" role="revise-group">
 								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
@@ -204,7 +204,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<span>地址</span>
 							<div role="info-content">
 								<em role="info" data-attr="address"></em>
-								<input type="text-field" name="revise[address]" class="edit" role="edit">
+								<input type="text-field" name="address" class="edit" role="edit">
 							</div>
 							<div class="revise-group" role="revise-group">
 								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
@@ -218,7 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<span>学校</span>
 							<div role="info-content">
 								<em role="info" data-attr="school"></em>
-								<input type="text-field" name="revise[school]" class="edit" role="edit">
+								<input type="text-field" name="school" class="edit" role="edit">
 							</div>
 							<div class="revise-group" role="revise-group">
 								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
@@ -232,7 +232,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<span>年级</span>
 							<div role="info-content">
 								<em role="info" data-attr="grade"></em>
-								<input type="text-field" name="revise[grade]" class="edit" role="edit">
+								<input type="text-field" name="grade" class="edit" role="edit">
 							</div>
 							<div class="revise-group" role="revise-group">
 								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
@@ -257,10 +257,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</div>
 						<div role="info-content">
-							<em role="info" data-attr="intro">
+							<em role="info" data-attr="introduce">
 								<span></span>
 							</em>
-							<textarea class="edit" name="revise[intro]" role="edit"></textarea>
+							<textarea class="edit" name="introduce" role="edit"></textarea>
 						</div>
 					</div>
 				</div>
@@ -268,8 +268,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<link rel="stylesheet" media="screen" href="../css/datepicker.css">
 			<script src="../js/datepicker.js"></script>
 			<!-- Modal -->
-			<div class="modal fade" id="cropModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
+
+			<div class="modal fade in" id="cropModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+				<div class="modal-dialog modal-crop">
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">
@@ -280,62 +281,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="editarea">
 							<div class="croparea">
-								<a class="file-beauty">
-									<span class="glyphicon glyphicon-arrow-up"></span>
-									上传图片
-									<form id="cropForm" action="" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="ripvb7XBz/QCgvxPphelpt7cZbxcHpGys3eQ/FRotZehPCPtJxWc0J5wGubs1D7Y6kiop5Z7wUybWfzxIcamyg==">
+								<span class="file-beautify">
+									<form id="cropForm" action="" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="HPbYOuv+WXp9u8lY1DcMDdlesGqy/cyE2dQ5n5wamh+h3iu3VfjHfB+6SYwnRn4PqNN4VGHvd0wRm1CdeCU2pg==">
 										<input type="file" name="avatar" class="cropable" id="inputFile">
-										<input id="posi_x" type="hidden" value="0" name="x">
-										<input id="posi_y" type="hidden" value="0" name="y">
-										<input id="img_width" type="hidden" value="200" name="width">
-										<input id="img_height" type="hidden" value="200" name="height">
+										<input id="posi_x" type="hidden" name="x">
+										<input id="posi_y" type="hidden" name="y">
+										<input id="img_width" type="hidden" name="width">
+										<input id="img_height" type="hidden" name="height">
 										<input id="img_rotate" type="hidden" value="0" name="rotate">
 									</form>
-								</a>
+								</span>
 								<p id="alertType"></p>
 								<div class="showpics">
-									<img src="../images/default/avatar.png" id="imagefile" src="/assets/index/avatar" class="">
+									<img id="imagefile" src="/view/images/default/avatar.png" alt="" class="cropper-hidden">
 								</div>
 								<div class="btn-group">
-									<button type="button" class="btn-sm btn-primary" id="lrotate">
+									<button type="button" class="btn btn-primary" id="lrotate">
 										<span class="glyphicon glyphicon-share-alt rotatey"></span>
 									</button>
-									<button type="button" class="btn-sm btn-primary" id="rrotate">
+									<button type="button" class="btn btn-primary" id="rrotate">
 										<span class="glyphicon glyphicon-share-alt"></span>
 									</button>
 								</div>
-								<button type="button" class="btn-sm btn-primary" id="reset">
+								<button type="button" class="btn btn-primary" id="reset">
 									<span class="glyphicon glyphicon-repeat"></span>
 								</button>
-								<p class="prompt">
-									<span class="glyphicon glyphicon-heart"></span>
-									双击图片可切换拖拽/裁剪
-									<span class="glyphicon glyphicon-heart"></span>
-									支持缩放
-								</p>
+
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn-sm btn-Default" data-dismiss="modal">关闭</button>
-							<button type="button" class="btn-sm btn-primary" id="subcrop">确定</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn btn-primary" data-loading-text="更新中..." id="subcrop">确定</button>
 						</div>
 					</div>
 				</div>
 			</div>
+			<link href="../css/crop.css" rel='stylesheet' type='text/css'/>
+			<script src="../js/crop.js"></script>
 			<script type="text/javascript">
-				/*
-		  * 图片裁剪
-		  */
-				// $(function () {
-				// 	//文件上传
-				// 	$('#subcrop').on("click", function () {
-				// 		uploadCrop("avatar", "/usercenter/edit/avatar", "/accounts/");
-				// 	});
-				// });
-			</script>
-			<!-- <link rel="stylesheet" media="screen" href="/assets/share/cropbox.css"> -->
-			<!-- <script src="/assets/share/cropbox.js"></script> -->
 
+			$(function () {
+				//文件上传
+				$('#subcrop').on("click", function () {
+					 		uploadCrop("avatar", "/usercenter/edit/avatar", "/accounts/");
+						});
+				});
+			</script>
 		</div>
 
 	</body>
