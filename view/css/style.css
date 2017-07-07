@@ -1360,6 +1360,7 @@ h3.ghj {
 
 .gallery-grid img {
     width: 100%;
+    cursor: pointer;
 }
 
 .gallery-grid:hover img {
@@ -1372,10 +1373,11 @@ h3.ghj {
 
 .gallery-grid {
     position: relative;
+    margin-bottom: 25px;
 }
 
 .gallery-1 {
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
 .gallery-1:nth-child(1) {
@@ -3039,4 +3041,34 @@ body {
 }
 p.center{
     color: #fff;font-family: "Microsoft YaHei";
+}
+a {
+    cursor: pointer;
+}
+
+
+.file-beautify {
+  width: 100px;
+  height: 34px;
+  position: relative;
+  border-radius: 3px;
+  line-height: 34px;
+  overflow: hidden;
+  color: white;
+  background-color: #30cc9a;
+  display: inline-block;
+}
+
+.file-beautify:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  content: "选择文件";
+}
+
+.file-beautify input[type='file'] {
+  opacity: 0;
+  cursor: pointer;
 }

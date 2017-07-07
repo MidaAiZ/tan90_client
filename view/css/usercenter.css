@@ -261,12 +261,8 @@ li {
   .detail-info input[type='text-field'] {
     min-width: 220px;
   }
-
-  .detail-info textarea.edit {
-    min-width: 260px;
-    margin-right: 12px;
-  }
 }
+
 .courses_panel {
   border: 1px solid #eaeaea;
   padding: 12px 0;
@@ -414,13 +410,6 @@ li {
   .modal-dialog {
     width: 90% !important;
     margin-top: 100px;
-  }
-  .modal-dialog .editarea {
-    width: 100%;
-    text-align: center;
-  }
-  .modal-dialog .croparea {
-    width: 95%;
   }
 }
 

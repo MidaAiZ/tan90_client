@@ -25,7 +25,6 @@ function getCourses(url, callBK) {
 				console.log(res.courses);
 				callBK(res);
 			} else {
-				alert("FAIL");
 				console.log(res.msg);
 			}
 		},
@@ -39,9 +38,35 @@ function getCourses(url, callBK) {
 function courseBK(res) {
 	var $box = $("#courseUl");
 	var courses = res.courses
+	var size = courses.length
 	for(var i in courses) {
 		$box.append(createCourse(courses[i]));
 	}
+	$box.on("click", "a", function() {
+        window.location = $(this).data("href");
+    })
+	$("#courseUl").flexisel({
+		visibleItems: 4,
+		animationSpeed: 1000,
+		autoPlay: true,
+		autoPlaySpeed: 3000,
+		pauseOnHover: true,
+		enableResponsiveBreakpoints: true,
+		responsiveBreakpoints: {
+			portrait: {
+				changePoint: 480,
+				visibleItems: 1
+			},
+			landscape: {
+				changePoint: 640,
+				visibleItems: 2
+			},
+			tablet: {
+				changePoint: 768,
+				visibleItems: 3
+			}
+		}
+	});
 }
 
 // 生成课程节点
@@ -49,7 +74,9 @@ function createCourse(course) {
 	var liStr = "\
 	<li>\
 		<div class='course-grid' data-id='" + course.id + "'>\
-			<img src='" + IMGROOT + course.cover + "' class='img-responsive' alt=''/>\
+		  	<a data-href='/view/lesson.html?chapter_id=1&video_id=1&course_id=" + course.id + "'>\
+				<img src='" + IMGROOT + course.cover + "' class='img-responsive' alt=''/>\
+		  	</a>\
 			<h4 style='margin-top: 10px;'>" + course.name + "</h4>\
 			<p>" + course.introduce + "|<span>" + course.category + "</span></p>\
 		</div>\
@@ -66,7 +93,7 @@ function createCourse(course) {
 // 部分课程列表
 $(function() {
 	// ajax获取课程信息
-	getCourses(ROOT + "get_all_courses/", trailerBK);
+	getCourses(ROOT + "get_all_courses/?count=4", trailerBK);
 })
 
 function trailerBK(res) {
@@ -76,6 +103,9 @@ function trailerBK(res) {
 		if(i > 3) break;
 		$box.append(createTrailer(courses[i]));
 	}
+	$box.on("click", "a", function() {
+		window.location = $(this).data("href");
+	})
 	$("#trailer-img").attr("src", "images/course.png");
 }
 
@@ -83,10 +113,10 @@ function createTrailer(course) {
 	var liStr = "\
 	<div class='sub-trailer'>\
 		<div class='col-md-4 sub-img'>\
-			<img src='" + IMGROOT + course.cover + "' alt='img07'/>\
+			<a data-href='/view/lesson.html?chapter_id=1&video_id=1&course_id=" + course.id + "'><img src='" + IMGROOT + course.cover + "' alt='img07'/></a>\
 		</div>\
 		<div class='col-md-8 sub-text'>\
-			<a href='#'>" + course.name +
+			<a data-href='/view/lesson.html?chapter_id=1&course_id=" + course.id + "'>" + course.name +
 			"<span style='margin-top: -5px; border: 2px solid #ddd; border-radius: 30%; padding: 3px; float: right;'>"+ course.category +"</span></a>\
 			<p>" + course.introduce + "</p>\
 		</div>\

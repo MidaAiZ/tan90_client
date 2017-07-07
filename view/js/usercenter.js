@@ -1,3 +1,6 @@
+ROOT = "http://115.159.188.200:8000/"
+IMGROOT = "http://115.159.188.200:8000"
+
 //个人中心修改
 
 //构建用于ajax交互的表单
@@ -80,21 +83,30 @@ function doRevise() {
     var $item = $(this).parents(".info-item");
     var $target = $item.find("*[role='edit']");
     var $input = $("<input name=\"" + $target.attr("name") + "\" value=\"" + $target.val() + "\" type=\"hidden\" />");
-    var url = $item.find("[role='conform']").data('target');
+    var url = ROOT + "do_modify_user_profile/";
+    var $reviseEle = $item.find("*[role='info']");
+    var attr = $reviseEle.data('attr');
+    $reviseEle.text($target.val());
+
     var $ajaxForm = buildForm($input);
     reviseInfo($ajaxForm, url, $item);
 }
 
 //个人中心修改ajax后台交互
 function reviseInfo($ajaxForm, url, $item) {
-    $.post({
+    $.ajax({
         data: $ajaxForm.serialize(),
         dataType: "json",
-        url: url
+        url: url,
+        type: "POST",
+        crossDomain: true,
+        xhrFields: {
+            withCredentials: true
+        }
     }).done(function (res) {
-        var $reviseEle = $item.find("*[role='info']");
-        var attr = $reviseEle.data('attr');
-        $reviseEle.text(res[attr]);
+        // var $reviseEle = $item.find("*[role='info']");
+        // var attr = $reviseEle.data('attr');
+        // $reviseEle.text(res[attr]);
     }).fail(function (res) {});
     $ajaxForm.remove();
 };
@@ -951,3 +963,58 @@ $(document).ready(function () {
         return '\n        <form action="javascript: void(0)">\n          <div class="field">\n              <label for=\'valid-email-input\'>' + formTip + '</label>\n              <input type="text" id="email-input" class="input form-control" value="' + oldEmail + '" placeholder="请输入邮箱">\n          </div>\n          <p style="text-align: left;">系统将发送验证信息到该邮箱，请注意查收验证</p>\n        </form>\n        ';
     }
 });
+
+
+// 获取用户课程
+// 首页课程第一部分
+$(function() {
+	getCourses(ROOT + "get_courses/", courseBK);
+})
+
+// 动态添加课程
+function getCourses(url, callBK) {
+	$.ajax({
+		url: url,
+		type: "POST",
+		dataType: "json",
+		crossDomain: true,
+		xhrFields: {
+			withCredentials: true
+		},
+		success: function(res) {
+			if (res.code == 1000) {
+				console.log(res.courses);
+				callBK(res);
+			} else {
+				console.log(res.msg);
+			}
+		},
+		error: function(err) {
+			console.log(err);
+		}
+	})
+}
+
+// 回调函数
+function courseBK(res) {
+	var $box = $("#user-course");
+	var courses = res.courses
+	var size = courses.length
+	for(var i in courses) {
+		$box.append(createCourse(courses[i]));
+	}
+    $box.on("click", "a", function() {
+        window.location = $(this).data("href");
+    })
+}
+
+// 生成课程节点
+function createCourse(course) {
+	var liStr = "\
+        <div class='col-md-3 gallery-grid'>\
+            <a data-href='/view/lesson.html?chapter_id=1&video_id=1&course_id=" + course.id + "' class='example-image-link' data-lightbox='example-set' target='_blank' >\
+            <img class='example-image' src='" + IMGROOT + course.cover + "'/></a>\
+        </div>\
+	"
+	return $(liStr);
+}
