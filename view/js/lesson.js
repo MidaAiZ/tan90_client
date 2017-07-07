@@ -1,41 +1,123 @@
 $(function() {
-    //视频插件加载
-    var flashvars={
-        p:0,
-        e:1,
-        i:'http://www.ckplayer.com/static/images/cqdw.jpg'
-    };
-    var video=['http://img.ksbbs.com/asset/Mon_1605/0ec8cc80112a2d6.mp4->video/mp4'];
-    var support=['all'];
-    CKobject.embedHTML5('a1','ckplayer_a1',650,433,video,flashvars,support);
 
-    //自动生成讨论区回复
-    for (var i = 0; i < 4; i++) {
-        // var $parentDiv = $('<div />',{class: 'answer-con first '+i});
+    //获取参数方法
+    function GetQueryString(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
 
-        var $quesAnsw = $('<div />',{class: 'ques-answer num'+i});
-        var $parentDiv = $('<div />',{class: 'answer-con first'});
-        var $headPic = $('<div />',{class: 'user-pic',
-                                    html:'<img src="http://img.mukewang.com/58cf458000016d7302000200-100-100.jpg" width="40" height="40" alt="?">'});
-        var $quesUser = $('<div />',{class: 'detail-r',
-                                    html:'<span class="time">22小时前</span>'+
-                                '<a class="detail-name" href="/u/3118245/bbs" target="_blank">书旅</a>'+
-                                '<p class="detail-signal">职务</p>'})
-        var $quesCon = $('<div />',{class: 'ques-content rich-text aimgPreview',
-                                    html:'<p>JAVA环境怎么搭建？</p>'});
-        var $answCon = $('<div />',{class:'answer-content rich-text aimgPreview ctrl-bar'});
-        $answCon.append('<span data-replynum="0" data-ques-uid="1915727"><em>2</em>个回复：</span>'+
-                        '<p>回复者1：回复内容</p>'+
-                        '<p>回复者2：回复内容</p>');
-        $answCon.append('<input type="text" name="user_search" placeholder="请输入回复内容" />'+
-                        '<span class="reply">回复</span>');
-        $("#discussion").append($quesAnsw);
-        $quesAnsw.append($parentDiv);
-        $parentDiv.append($headPic);
-        $parentDiv.append($quesUser);
-        $parentDiv.append($quesCon);
-        $parentDiv.append($answCon);
-    };
+
+    //连接服务器获取讨论区内容
+    var params = "chapter_id="+GetQueryString("chapter_id")+"&limit=20&page_index=1";
+    
+    $.ajax({  
+            type: 'POST',  
+            url: "http://115.159.188.200:8000/get_discussion_list/",  
+            dataType: 'json',  
+            data: params,
+            //下面2个参数用于解决跨域问题  
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+
+            complete: function(XMLHttpRequest, textStatus) { 
+            },  
+            success: function(data) {  
+                console.log(data);
+
+                var discList = data.discussion_list;
+                
+                for (var i = 0; i < discList.length; i++) {
+
+                    var $quesAnsw = $('<div />',{class: 'ques-answer num'+i});
+                    var $parentDiv = $('<div />',{class: 'answer-con first'});
+                    var $headPic = $('<div />',{class: 'user-pic',
+                                    html:'<img src="http://115.159.188.200:8000'+discList[i].questioner_face+'" width="40" height="40" alt="?">'});
+                    var $quesUser = $('<div />',{class: 'detail-r',
+                                    html:'<span class="time">'+discList[i].question_time+'</span>'+
+                                '<a class="detail-name" href="#" target="_blank">'+discList[i].questioner_name+'</a>'+
+                                '<p class="detail-signal">'+discList[i].questioner_department+'</p>'})
+                    var $quesCon = $('<div />',{class: 'ques-content rich-text aimgPreview',
+                                    html:'<p>'+discList[i].question_content+'</p>'});
+                    var $answCon = $('<div />',{class:'answer-content rich-text aimgPreview ctrl-bar'});
+                    $answCon.append('<span"><em>'+discList[i].response_cnt+'</em>个回复：</span>');
+                    var max_bound = discList[i].response_page1.length;
+                    //console.log(max_bound);
+                    var bd = max_bound < 6 ? max_bound : 6;
+                    for (var j = 0; j < bd; j++) {
+                        var answ = discList[i].response_page1;
+                        $answCon.append('<p>'+answ[j].user_name+'：'+answ[j].content+'</p>');
+                    };
+
+                    $answCon.append('<input type="text" name="user_search" placeholder="请输入回复内容" />'+
+                        '<span diss-id='+discList[i].discussion_id+' class="reply">回复</span>');
+                    $("#discussion").append($quesAnsw);
+                    $(".reply").on("click", function(event){
+                        var $this = $(this);
+                        console.log($this.prev().text());
+                        console.log(GetQueryString("chapter_id"));
+                        //window.location.href='lesson.html?chapter_id='+GetQueryString("chapter_id")+'&course_id='+GetQueryString("course_id")+'&video_id='+$this.attr("video-id");
+                    });
+                    $quesAnsw.append($parentDiv);
+                    $parentDiv.append($headPic);
+                    $parentDiv.append($quesUser);
+                    $parentDiv.append($quesCon);
+                    $parentDiv.append($answCon);
+
+
+                }
+
+            },
+            //error:function(XMLHttpRequest, textStatus, errorThrown){
+            //通常情况下textStatus和errorThrown只有其中一个包含信息
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                window.alert(textStatus);
+            }
+    }); 
+    
+    //连接服务器获取视频地址
+    var params = "video_id="+GetQueryString("video_id");
+    var videoUrl;
+    $.ajax({  
+            type: 'POST',  
+            url: "http://115.159.188.200:8000/get_video/",  
+            dataType: 'json',  
+            data: params,
+            //下面2个参数用于解决跨域问题  
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+
+            complete: function(XMLHttpRequest, textStatus) { 
+            },  
+            success: function(data) {  
+                
+                videoUrl = data.url;
+                console.log(videoUrl);
+                //视频插件加载
+                var flashvars={
+                    p:0,
+                    e:1,
+                    h:0,
+                    i:'http://115.159.188.200:8000/media/cover/default.png'
+                };
+                var video=['http://115.159.188.200:8000'+videoUrl+'->video/mp4'];
+                var support=['all'];
+                CKobject.embedHTML5('a1','ckplayer_a1',650,433,video,flashvars,support);
+            },
+            //error:function(XMLHttpRequest, textStatus, errorThrown){
+            //通常情况下textStatus和errorThrown只有其中一个包含信息
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                window.alert(textStatus);
+            }
+    });
+
+    
+
+    
 
     //侧边栏js
     $('.menu , .linee').on('click', function() {
