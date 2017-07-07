@@ -74,7 +74,7 @@ function createCourse(course) {
 	var liStr = "\
 	<li>\
 		<div class='course-grid' data-id='" + course.id + "'>\
-		  	<a data-href='/view/lesson.html?chapter_id=1&course_id=" + course.id + "'>\
+		  	<a data-href='/view/lesson.html?chapter_id=1&video_id=1&course_id=" + course.id + "'>\
 				<img src='" + IMGROOT + course.cover + "' class='img-responsive' alt=''/>\
 		  	</a>\
 			<h4 style='margin-top: 10px;'>" + course.name + "</h4>\
@@ -113,7 +113,7 @@ function createTrailer(course) {
 	var liStr = "\
 	<div class='sub-trailer'>\
 		<div class='col-md-4 sub-img'>\
-			<a data-href='/view/lesson.html?chapter_id=1&course_id=" + course.id + "'><img src='" + IMGROOT + course.cover + "' alt='img07'/></a>\
+			<a data-href='/view/lesson.html?chapter_id=1&video_id=1&course_id=" + course.id + "'><img src='" + IMGROOT + course.cover + "' alt='img07'/></a>\
 		</div>\
 		<div class='col-md-8 sub-text'>\
 			<a data-href='/view/lesson.html?chapter_id=1&course_id=" + course.id + "'>" + course.name +
