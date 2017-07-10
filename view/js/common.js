@@ -38,8 +38,12 @@ function initSession() {
 function check_login(res) {
 	if (res.code == 1000) {
         sessionStorage.setItem("userId", res.info.id);
+        sessionStorage.setItem("userName", res.info.name);
+        sessionStorage.setItem("userAvatar", res.info.face);
+        sessionStorage.setItem("userDep", res.info.department);
+
         $(".login").modal("hide");
-        // window.location = "";
+        window.location = "";
 	} else {
 		$('#login_form').removeClass('shake_effect');
         $("#tip").html("<span class='glyphicon glyphicon-exclamation-sign'>帐号或密码错误</span>");
@@ -108,6 +112,10 @@ function listenLogout() {
                 },
             complete: function(res) {
                 sessionStorage.removeItem("userId");
+                sessionStorage.removeItem("userName");
+                sessionStorage.removeItem("userAvatar");
+                sessionStorage.removeItem("userDep");
+
                 window.location = "";
             }
         })
