@@ -1,5 +1,6 @@
+
 .abt-pic{
-    height: 480px;
+    height: 505px;
     float: left;
     text-align: center;
     text-align: -webkit-center;
@@ -34,6 +35,66 @@
     margin-top: 185px;
 }
 
+/*选项卡style*/
+
+.vedio-pdf-change {
+      position: relative;
+      background: white;
+      width: 100%;
+    }
+
+.tab-group {
+      position: relative;
+      border: 1px solid #bdbdbd;
+      margin-top: 2.5em;
+      border-radius: 0 0 10px 10px;
+    }
+    .tab-group section {
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      transition: opacity 0.4s ease, height 0.4s ease;
+    }
+    .tab-group section.active {
+      opacity: 1;
+      height: auto;
+      overflow: visible;
+    }
+
+    .tab-nav {
+      list-style: none;
+      margin: -2.5em -1px 0 0;
+      padding: 0;
+      height: 2.5em;
+      overflow: hidden;
+    }
+    .tab-nav li {
+      display: inline;
+    }
+    .tab-nav li a {
+      top: 1px;
+      position: relative;
+      display: block;
+      float: left;
+      border-radius: 10px 10px 0 0;
+      background: #eee;
+      line-height: 2em;
+      padding: 0 1em;
+      text-decoration: none;
+      color: grey;
+      margin-top: .5em;
+      margin-right: 1px;
+      transition: background .2s ease, line-height .2s ease, margin .2s ease;
+    }
+    .tab-nav li.active a {
+      background: #6EB590;
+      color: white;
+      line-height: 2.5em;
+      margin-top: 0;
+    }
+
+/*选项卡style完毕*/
+
 
 .col-md-5{
     width:42%;
@@ -43,7 +104,7 @@
     width:56%;
 }
 .col-md-2{
-    height: 480px;
+    height: 505px;
 }
 .col-md-8{
     padding-right: 0;
@@ -53,16 +114,26 @@
 }
 
 #a1{
-    margin: auto 30px;
+    margin: 1em auto;
+}
+#pdf-iframe{
+    height: 433px;
+    width: 650px;
+    border: 0px;
+    margin: 1em;
 }
 h3{
     margin-bottom: 10px;
 }
 p{
-    word-break: break-word;
+    word-break: break-all;
 }
 ul {
     margin-left: 40px;
+}
+
+#course-name{
+  color: #30cc9a;
 }
 
 .ques-answer {
@@ -73,10 +144,30 @@ ul {
 }
 .ques-answer .answer-con .ctrl-bar .reply {
     display: inline-block;
-    height: 24px;
+    height: 28px;
     border: 1px solid #d0d6d9;
-    padding: 0 9px;
+    margin-left: 8px;
+    padding: 1.5px 9px;
 }
+
+.ques-answer .answer-con .ctrl-bar .questext {
+    display: inline-block;
+    resize: none;
+    width: 100%;
+}
+
+.ques-answer .answer-con .ctrl-bar .newQues {
+    display: inline-block;
+    height: 28px;
+    border: 1px solid #d0d6d9;
+    padding: 1.5px 9px;
+}
+
+.ques-answer .answer-con .ctrl-bar .replytext {
+    display: inline-block;
+    width: 75%;
+}
+
 .ques-answer .answer-con .ctrl-bar span {
     line-height: 24px;
     font-size: 12px;
@@ -187,7 +278,23 @@ ul {
 }
  
 .main-menu p {
-  margin: 20px 0px;
+    margin: 20px 0px;
+    width: 90%;
+    cursor: default;
+}
+
+.main-menu input[type="text"]{
+  background-color: rgba(255, 255, 255, 0);
+  border: 2px solid rgba(255, 255, 255, 0.27);
+  padding: 3px;
+  color: white;
+}
+
+.main-menu input[type="text"]:focus{
+    border-color: rgba(255, 255, 255, 0.27);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(255, 255, 255, 0.27);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(255, 255, 255, 0.27);
 }
  
 .main-menu p a {
@@ -200,6 +307,18 @@ ul {
  
 .main-menu p a:hover {
   opacity: 0.7;
+}
+
+.editNote{
+  padding-left: 8px;
+  padding-right: 8px;
+  cursor: pointer;
+}
+
+.deleteNote{
+  padding-left: 8px;
+  padding-right: 8px;
+  cursor: pointer;
 }
 
 /*汉堡包按钮主要样式*/

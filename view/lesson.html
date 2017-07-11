@@ -8,11 +8,13 @@
 <!-- style  -->
 <link href="css/lesson.css" rel="stylesheet">
 <!-- Custom Theme files -->
+
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Game Box  Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
 
 <script src="js/jquery.min.js"></script>
 <!-- jQuery (necessary JavaScript plugins) -->
@@ -26,6 +28,11 @@
 <!--滚动条插件-->
 <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
 <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+<!-- 选项卡插件 -->
+<script src="js/prefixfree.min.js"></script>
+<script type="text/javascript" src="js/jquery-tab.js"></script> 
+
 
 </head>
 <body>
@@ -119,35 +126,48 @@
         <div id="main">
             <h3 class="main-menu" id="left-menu-title"><b>笔记</b></h3>
             <div class="main-menu mycontent" id="content1">
-                <p>笔记内容1</p>
-                <p>笔记内容2</p>
-                <p>笔记内容3</p>
-                <p>笔记内容4</p>
-                <p>笔记内容5</p>
-                <p>笔记内容6</p>
-                <p>笔记内容7</p>
-                <p>笔记内容8</p>
-                <p>笔记内容9</p>
-                <p>笔记内容10</p>
-                <p>笔记内容11</p>
-                <p>笔记内容12</p>
-                <p>笔记内容13</p>
-                <p>笔记内容14</p>
-                <p>笔记内容15</p>
+                <p class="note">笔记内容111111111111111111111111111111111111111111111111111111111<span class="glyphicon glyphicon-pencil editNote"></span><span class="glyphicon glyphicon-remove deleteNote"></span></p>
+                <input type="text" class="form-horizontal">
+                <p class="note">笔记内容2</p>
+                <p class="note">笔记内容3</p>
+                <p class="note">笔记内容4</p>
+                <p class="note">笔记内容5</p>
+                <p class="note">笔记内容6</p>
+                <p class="note">笔记内容7</p>
+                <p class="note">笔记内容8</p>
+                <p class="note">笔记内容9</p>
+                <p class="note">笔记内容10</p>
+                <p class="note">笔记内容11</p>
+                <p class="note">笔记内容12</p>
+                <p class="note">笔记内容13</p>
+                <p class="note">笔记内容14</p>
+                <p class="note">笔记内容15</p>
         </div>
     </div>
 </div>
     <div class="container">
-        <h2>课程详情</h2>
+        <h3 id="lesson-title"></h3>
 
         <div class="testimonals">
             <div class="col-md-2 abt-pic-side">
                 <a id="last-lesson" href="#"><上一节</a>
             </div>
             <div class="col-md-8 abt-pic" >
-                <h4 id="lesson-title">2-3 pm2.5监控系统实现</h4>
-                <!--视频-->
-                <div id="a1"></div>
+                <!-- 视频pdf切换标签 -->
+                <div class="vedio-pdf-change">
+                    <div class="tab-group">
+                        <section id="tab1" title="视频">
+                            <div id="a1"></div>
+                        </section>
+                        <section id="tab2" title="文档">
+                            <iframe id="pdf-iframe" src="" width="100%" height="400" >
+                                <a href="pdf/viewer.html?pdfLink=http://115.159.188.200:8000/media/video/2015软件杯文档罗龙镇.pdf">你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a>
+                            </iframe>
+                        </section>
+                    </div>
+                </div>
+                
+                
             </div>
             <div class="col-md-2 abt-pic-side">
                 <a id="next-lesson" href="#">下一节></a>
@@ -158,7 +178,6 @@
         <div class="col-md-12 abt-info-pic">
             <h3 id="course-name">课程名称</h3>
             <ul>
-                <li id="course-time">发布者：管理员</li>
                 <li id="course-intro">课程简介：XXXXXXXXXXXXXXXXXXXXXXXXXXx</li>
             </ul>
         </div>
@@ -173,7 +192,32 @@
             </div>
         </div>
         <div class="col-md-5 testimonals" id="discussion">
-            <h3>课程问答</h3>
+            <h3>发布提问</h3>
+
+            <div class="ques-answer">
+                <div class="answer-con first" >
+
+                    <div class="user-pic l">
+                        <a href="#" target="_blank">
+                            <img id="my-avatar" src="http://115.159.188.200:8000/media/face/default.png" width="40" height="40" alt="?">
+                        </a>
+                    </div>
+
+                    <div class="detail-r">
+                        <a id="my-name" class="detail-name" href="#" target="_blank">书旅</a>
+                        <p id="my-department" class="detail-signal">所属部门</p>
+                    </div>
+
+                    <div class="ques-content rich-text aimgPreview ctrl-bar">
+                        <textarea class="questext" rows="3" cols="26" maxlength="150"></textarea>
+                        <button class="btn btn-success newQues">提问</button>
+                    </div>
+
+                </div>
+
+
+            </div>
+
 <!--
             <div class="ques-answer">
 
@@ -209,6 +253,8 @@
             </div>
 
             -->
+
+            <h3>课程问答</h3>
 
         </div>
 

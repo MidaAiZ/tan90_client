@@ -1,26 +1,129 @@
 $(function() {
 
+    
+
     //获取参数方法
     function GetQueryString(name){
         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
         if(r!=null)return  unescape(r[2]); return null;
     }
+    //
+
+    //计算数组长度
+    function count(str){
+        var s = typeof str;
+        if(s == 'object'){
+            if(str.toString().length == 0){
+                return 0;
+            }else{
+                var i = 0;
+                for(var j in str){
+                    i++;
+                }
+                return i;
+            }
+        }   
+    }
 
 
     //catalog为存放各节视频、pdf信息的数组
     var catalog = new Array();
+    var chapsname = new Array();
     var t = 0;//t用于catalog数组计数
+
+    var lessonIdx = GetQueryString("lesson_index");
+    var chapterIdx = GetQueryString("chapter_index");
+    window.chapterid = -1;
+    window.videoid = -1;
+    window.pdfid = -1;
+
+    //设置catalog数组
+    function setCatalogArray(data){
+        //将返回数据存入catalog数组
+        for (var i = 0; i < data.chapters.length; i++) {
+            chapsname[i] = (data.chapters[i]).name;
+            for (var h = 0; h < ((data.chapters[i]).video).length; h++){
+                catalog[t] = {"chapterId":(data.chapters[i]).id,
+                            "chapterIndex": (data.chapters[i]).index,
+                            "idx":((data.chapters[i]).video[h]).index, 
+                            "videoId": ((data.chapters[i]).video[h]).id,
+                            "videoName": ((data.chapters[i]).video[h]).name,
+                            "pdfId": -1,
+                            "pdfName":""
+                        };
+                t++;
+            };
+
+            for (var j = 0; j < ((data.chapters[i]).pdf).length; j++){
+            //console.log("j="+j);
+            // 遍历本章中的video的index看是否有相等的，如果有则修改pdf属性，若没有则新建一个
+            var exsited = false; //用于标识是否找到相同index
+                for (var k in catalog) {
+                    if(catalog[k].chapterIndex == (data.chapters[i]).index && catalog[k].idx == ((data.chapters[i]).pdf[j]).index){
+                        catalog[k].pdfId = ((data.chapters[i]).pdf[j]).id;
+                        catalog[k].pdfName = ((data.chapters[i]).pdf[j]).name;
+                        exsited = true;
+                    }
+                };
+                if(exsited == false){
+                    catalog[t] = {"chapterId":(data.chapters[i]).id,
+                                "chapterIndex": (data.chapters[i]).index,
+                                "idx":((data.chapters[i]).pdf[j]).index, 
+                                "videoId": -1, 
+                                "videoName": "",
+                                "pdfId": ((data.chapters[i]).pdf[j]).id,
+                                "pdfName":((data.chapters[i]).pdf[j]).name
+                            };
+                    t++;
+                }
+            };
+            
+        };
+        
+    }
+
+    //动态生成课程目录
+    function createCatalogItems(data){
+            //动态生成课程内容及目录
+
+                $("#course-name").text(data.course_name);
+                $("#course-intro").text("课程简介："+data.course_introduce);
+                $(".img-responsive").attr('src','http://115.159.188.200:8000'+data.cover);
+
+                var chaps = data.chapters;
+                for (var i=0; i<data.chapters.length;i++){
+                    $("#chapter").append('<h3>第'+chaps[i].index+'章 '+chaps[i].name+'</h3>');
+                    var $list = $('<ul></ul>');
+                    $("#chapter").append($list);
+                    var pdf = chaps[i].pdf;
+                    //console.log("pdf.length="+pdf.length);
+                    var video = chaps[i].video;
+
+                    var max = count(pdf) > count(video) ? count(pdf) : count(video);
+                    for (var j=0; j<count(catalog);j++) {
+                        if(catalog[j].chapterId==chaps[i].id){
+                            var na = (catalog[j].videoId==-1) ? catalog[j].pdfName : catalog[j].videoName ;
+                            var $part = $('<a></a>',{class: 'part',
+                                    html: '<li>'+catalog[j].chapterIndex+'-'+catalog[j].idx+'  '+na+'</li>'});
+                            $part.attr('chapter-index', catalog[j].chapterIndex);
+                            $part.attr('lesson-index', catalog[j].idx);
+                            $list.append($part);
+                        }
+
+                    };
+                };
+
+                $(".part").on("click", function(event){
+                    var $this = $(this);
+                    window.location.href='lesson.html?course_id='+GetQueryString("course_id")+'&chapter_index='+$this.attr("chapter-index")+'&lesson_index='+$this.attr("lesson-index");
+                });
+    }
+
 
     //连接服务器获取课程详细内容
     var params = "id="+ GetQueryString("course_id");
     var url = "http://115.159.188.200:8000/get_chapter/"; 
-    
-    /**
-    下面是课程目录的自动生成
-    **/
-
-
     $.ajax({  
             type: 'POST',  
             url: url,  
@@ -37,63 +140,66 @@ $(function() {
             success: function(data) {  
                 console.log(data);
 
-                var chaps = data.chapters;
+                //设置catalog数组
+                setCatalogArray(data);
 
-                //将返回数据存入catalog数组
-                for (var i = 0; i < chaps.length; i++) {
-                    for (var j = 0; j < (chaps[i]).video.length; j++){
-                        //catalog[t] = {"chapter":(i+1),"index":((chaps[i]).video[j]).index, "video-id": ((chaps[i]).video[j]).id};
-                        catalog[t] = {"chapter":(i+1),"video-id": ((chaps[i]).video[j]).id};
-                        t++;
-
-                    };
-                    for (var j = 0; j < (chaps[i]).pdf.length; j++){
-
-                    };
-                };
-
+                console.log("catalog如下：");
                 console.log(catalog);
+                console.log("chapsname如下：");
+                console.log(chapsname);
+
+
+                for (var i=0;i<count(catalog);i++) {
+                    if(chapterIdx==catalog[i].chapterIndex&&lessonIdx==catalog[i].idx){
+                        if(catalog[i].videoId!=-1&&catalog[i].pdfId==-1){
+                            setVideo(catalog[i].videoId);
+                            $("#lesson-title").text(chapterIdx+'-'+lessonIdx+' '+catalog[i].videoName);
+                            //删除pdf选项卡
+                            var $pdf = document.getElementById("tab2");
+                            $pdf.parentNode.removeChild($pdf);
+                            $(".tab-group").tabify();
+                        }
+                        if(catalog[i].videoId==-1&&catalog[i].pdfId!=-1){
+                            setPdf(catalog[i].pdfId);
+                            $("#lesson-title").text(chapterIdx+'-'+lessonIdx+' '+catalog[i].pdfName);
+                            //删除视频选项卡
+                            var $video = document.getElementById("tab1");
+                            $video.parentNode.removeChild($video);
+                            $(".tab-group").tabify();
+                        }
+                        if(catalog[i].videoId!=-1&&catalog[i].pdfId!=-1){
+                            $("#lesson-title").text(chapterIdx+'-'+lessonIdx+' '+catalog[i].videoName);
+                            setVideo(catalog[i].videoId);
+                            setPdf(catalog[i].pdfId);
+                            $(".tab-group").tabify();
+                        }    
+
+
+                        //配置上一节下一节
+                        if(i==0){
+                            $("#last-lesson").remove();
+                        }
+                        if(i>0){
+                            $("#last-lesson").attr('href','lesson.html?course_id='+GetQueryString("course_id")+'&chapter_index='+catalog[i-1].chapterIndex+'&lesson_index='+catalog[i-1].idx);
+                        }
+                        if(i<count(catalog)-1){
+                            $("#next-lesson").attr('href','lesson.html?course_id='+GetQueryString("course_id")+'&chapter_index='+catalog[i+1].chapterIndex+'&lesson_index='+catalog[i+1].idx);
+                        }
+                        if(i==count(catalog)-1){
+                            $("#next-lesson").remove();
+                        }
+                        
+
+                        setDiscussion(catalog[i].chapterId);
+                    }
+            
+                };
+                
+
 
                 //动态生成课程内容及目录
-                $("#course-name").text(data.course_name);
-                $("#course-time").text("课程发布时间：");
-                $("#course-intro").text("课程简介:");
-                $(".img-responsive").attr('src','http://115.159.188.200:8000'+data.cover);
-
+                createCatalogItems(data);
                 
-                for (var i = 0; i < chaps.length; i++) {
-                    $("#chapter").append('<h3>第'+(i+1)+'章 '+chaps[i].name+'</h3>');
-                    var $list = $('<ul></ul>');
-                    $("#chapter").append($list);
-                    var pdf = (data.chapters[i]).pdf;
-                    var video = (data.chapters[i]).video;
-                    var max = pdf.length + video.length;
-                    for (var j = 0; j < max; j++) {
-                        if(j < video.length){
-                            var $part = $('<a></a>',{class: 'part',
-                                    html: '<li>'+(i+1)+'-'+(j+1)+'  '+video[j].name+'</li>'});
-                            $part.attr('video-id', video[j].id);
-                            $part.attr('chapter-id', chaps[i].id);
-                            $list.append($part);
-                        }else{
-                            var $part = $('<a></a>',{class: 'part',
-                                    html: '<li>'+(i+1)+'-'+(j+1)+'  '+pdf[j-video.length].name+'</li>'});
-                            $part.attr('pdf-id', pdf[j-video.length].id);
-                            $part.attr('chapter-id', chaps[i].id);
-                            $list.append($part);
-                        }
-
-                    };
-                };
-
-                $(".part").on("click", function(event){
-                    var $this = $(this);
-                    var id = $this.attr("chapter-id");
-                    if(typeof($this.attr("video-id"))!="undefined")
-                        window.location.href='lesson.html?course_id='+GetQueryString("course_id")+'&chapter_id='+id+'&video_id='+$this.attr("video-id");
-                    else if(typeof($this.attr("pdf-id"))!="undefined")
-                        window.location.href='lesson.html?course_id='+GetQueryString("course_id")+'&chapter_id='+id+'&pdf_id='+$this.attr("pdf-id");
-                });
             },
             //error:function(XMLHttpRequest, textStatus, errorThrown){
             //通常情况下textStatus和errorThrown只有其中一个包含信息
@@ -102,15 +208,137 @@ $(function() {
             }
     });
 
+    
+
+    /**
+    下面是视频和pdf的获取
+    **/
+
+    function setVideo(videoid){
+        //连接服务器获取视频地址
+        var videoParams = {"video_id": videoid};
+        var videoUrl;
+        $.ajax({  
+            type: 'POST',  
+            url: "http://115.159.188.200:8000/get_video/",  
+            dataType: 'json',  
+            data: videoParams,
+            //下面2个参数用于解决跨域问题  
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+
+            complete: function(XMLHttpRequest, textStatus) { 
+            },  
+            success: function(data) {  
+                
+                videoUrl = data.url;
+                console.log(videoUrl);
+                //视频插件加载
+                var flashvars={
+                    p:0,
+                    e:1,
+                    h:0,
+                    i:'http://115.159.188.200:8000/media/cover/default.png'
+                };
+                var video=['http://115.159.188.200:8000'+videoUrl+'->video/mp4'];
+                var support=['all'];
+                CKobject.embedHTML5('a1','ckplayer_a1',650,433,video,flashvars,support);
+            },
+            //error:function(XMLHttpRequest, textStatus, errorThrown){
+            //通常情况下textStatus和errorThrown只有其中一个包含信息
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                window.alert(textStatus);
+            }
+        });
+    }
+    
+    
+    function setPdf(pdfId){
+        //连接服务器获取pdf地址
+        var pdfParams = {"pdf_id": pdfId}
+        var pdfUrl;
+        $.ajax({  
+            type: 'POST',  
+            url: "http://115.159.188.200:8000/get_pdf/",  
+            dataType: 'json',  
+            data: pdfParams,
+            //下面2个参数用于解决跨域问题  
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+
+            complete: function(XMLHttpRequest, textStatus) { 
+            },  
+            success: function(data) {  
+                pdfUrl = data.url;
+                console.log(pdfUrl);
+                $('#pdf-iframe').attr('src', 'http://115.159.188.200:8000'+pdfUrl);
+            },
+            //error:function(XMLHttpRequest, textStatus, errorThrown){
+            //通常情况下textStatus和errorThrown只有其中一个包含信息
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                window.alert(textStatus);
+            }
+        });
+    }
+
+      
+
     /**
     下面是课程问答模块的自动生成
     **/ 
 
-    var $answInput;
-    var $answCon;
+    function setDiscussion(chapterid) {
+        var $answInput;
+        var $answCon;
+
+    //生成新的提问
+    $("#my-avatar").attr('src','http://115.159.188.200:8000'+sessionStorage.getItem("userAvatar"));
+    $("#my-name").text(sessionStorage.getItem("userName"));
+    $("#my-department").text(sessionStorage.getItem("userDep"));
+    $(".newQues").on("click", function(event){
+        var $this = $(this);
+        var content = $this.prev().val();
+        //连接服务器提交回复
+        var params = {"title": content,
+                      "content": content,
+                      "chapter_id":  chapterid
+                     }
+        $.ajax({  
+                type: 'POST',  
+                url: 'http://115.159.188.200:8000/post_new_discution/',  
+                dataType: 'json',  
+                data: params,
+                //下面2个参数用于解决跨域问题  
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                complete: function(XMLHttpRequest, textStatus) { 
+                },  
+                success: function(data) { 
+                    if(data.code=="1000"){
+                        window.location.reload();
+                    }
+                },
+                //error:function(XMLHttpRequest, textStatus, errorThrown){
+                //通常情况下textStatus和errorThrown只有其中一个包含信息
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    window.alert(textStatus);
+                }
+        });
+                        
+    });
 
     //连接服务器获取讨论区内容
-    var params = "chapter_id="+GetQueryString("chapter_id")+"&limit=20&page_index=1";
+
+    var params = {"limit": 5,
+                    "page_index": 1,
+                    "chapter_id":  chapterid
+                  };
     
     $.ajax({  
             type: 'POST',  
@@ -153,7 +381,7 @@ $(function() {
                     };
 
                     $answInput = $('<div />',{class:'answer-content ctrl-bar'});
-                    $answInput.append('<input type="text" name="user_search" placeholder="请输入回复内容" />'+
+                    $answInput.append('<input type="text" class="replytext" name="replytext" placeholder="请输入回复内容" />'+
                         '<span diss-id='+discList[i].discussion_id+' class="reply">回复</span>');
                     $("#discussion").append($quesAnsw);
                     
@@ -194,7 +422,6 @@ $(function() {
                                         console.log(sessionStorage.getItem("userId"));
                                         $this.parent().prev().append('<p>'+ sessionStorage.getItem("userName") +'：'+content+'</p>');
                                         $this.prev().val("");
-                                        //window.location.href='lesson.html?chapter_id='+GetQueryString("chapter_id")+'&course_id='+GetQueryString("course_id")+'&video_id='+GetQueryString("video_id");
                                     }
                                 },
                                 //error:function(XMLHttpRequest, textStatus, errorThrown){
@@ -214,53 +441,7 @@ $(function() {
             }
     }); 
 
-    /**
-    下面是视频和pdf的获取
-    **/
-
-
-    var videoId = GetQueryString("video_id");
-    var pdfId = GetQueryString("pdf_id");
-    
-    //连接服务器获取视频地址
-    var videoParams = {"video_id": videoId}
-    var videoUrl;
-    $.ajax({  
-            type: 'POST',  
-            url: "http://115.159.188.200:8000/get_video/",  
-            dataType: 'json',  
-            data: videoParams,
-            //下面2个参数用于解决跨域问题  
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true,
-
-            complete: function(XMLHttpRequest, textStatus) { 
-            },  
-            success: function(data) {  
-                
-                videoUrl = data.url;
-                console.log(videoUrl);
-                //视频插件加载
-                var flashvars={
-                    p:0,
-                    e:1,
-                    h:0,
-                    i:'http://115.159.188.200:8000/media/cover/default.png'
-                };
-                var video=['http://115.159.188.200:8000'+videoUrl+'->video/mp4'];
-                var support=['all'];
-                CKobject.embedHTML5('a1','ckplayer_a1',650,433,video,flashvars,support);
-            },
-            //error:function(XMLHttpRequest, textStatus, errorThrown){
-            //通常情况下textStatus和errorThrown只有其中一个包含信息
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
-                window.alert(textStatus);
-            }
-    });
-
-    
+    }
 
     
 
