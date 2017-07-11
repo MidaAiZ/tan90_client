@@ -1,224 +1,235 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<title>课程详情</title>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
-<!-- style  -->
-<link href="css/lesson.css" rel="stylesheet">
-<!-- Custom Theme files -->
+  <head>
+    <title>课程详情</title>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel='stylesheet' type='text/css'/>
+    <!-- style  -->
+    <link href="css/lesson.css" rel="stylesheet">
+    <!-- Custom Theme files -->
 
-<!--//theme-style-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Game Box  Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta
+      name="keywords"
+      content="Game Box  Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+    <script type="application/x-javascript">
+      addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+      }, false);
+      function hideURLbar() {
+        window.scrollTo(0, 1);
+      }
+    </script>
 
+    <script src="js/jquery.min.js"></script>
+    <!-- jQuery (necessary JavaScript plugins) -->
+    <script src="js/bootstrap.js"></script>
 
-<script src="js/jquery.min.js"></script>
-<!-- jQuery (necessary JavaScript plugins) -->
-<script src="js/bootstrap.js"></script>
+    <!--视频插件-->
+    <script type="text/javascript" src="ckplayer/ckplayer.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/offlights.js"></script>
+    <script type="text/javascript" src="js/lesson.js"></script>
 
-<!--视频插件-->
-<script type="text/javascript" src="ckplayer/ckplayer.js" charset="utf-8"></script>
-<script type="text/javascript" src="js/offlights.js"></script>
-<script type="text/javascript" src="js/lesson.js"></script>
+    <!--滚动条插件-->
+    <link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 
-<!--滚动条插件-->
-<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
-<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- 选项卡插件 -->
+    <script src="js/prefixfree.min.js"></script>
+    <script type="text/javascript" src="js/jquery-tab.js"></script>
 
-<!-- 选项卡插件 -->
-<script src="js/prefixfree.min.js"></script>
-<script type="text/javascript" src="js/jquery-tab.js"></script> 
-
-
-</head>
-<body>
-<!-- header -->
-        <div class="top-banner">
-            <div class="header">
-                <div class="container">
-                    <div class="headr-left">
-                        <div class="social">
-                            <a href="#">
-                                <i class="facebook"></i>
-                            </a>
-                            <a href="#">
-                                <i class="twitter"></i>
-                            </a>
-                            <a href="#">
-                                <i class="gplus"></i>
-                            </a>
-                            <a href="#">
-                                <i class="pin"></i>
-                            </a>
-                            <a href="#">
-                                <i class="youtube"></i>
-                            </a>
-                        </div>
-                        <div class="search">
-                            <form>
-                                <input type="submit" value="">
-                                <input type="text" value="" placeholder="Search...">
-                            </form>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="headr-right">
-                        <div class="details">
-                            <ul>
-                                <li class="active">
-                                    <a href="/view">主页</a>
-                                </li>
-                                <li>
-                                    <a href="/view/about.html">课程详情</a>
-                                </li>
-                                <li>
-                                    <a href="/view/reviews.html">课程列表</a>
-                                </li>
-                                <li>
-                                    <a href="/view/usercenter">个人中心</a>
-                                </li>
-                                <li>
-                                    <a href="/view/gallery.html">考试管理</a>
-                                </li>
-                                <li style="display: none;" id="user-info">
-                                    <div class="dropdown">
-                                        <a id="dLabel" data-target="#" href="javascript: void(0)" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                            <span class="glyphicon glyphicon-menu-down"></span>
-                                        </a>
-
-                                        <ul class="dropdown-menu" aria-labelledby="dLabel">
-                                            <li class="m-option">观看记录</li>
-                                            <li role="separator" class="divider"></li>
-                                            <li class="m-option">我的课程</li>
-                                            <li class="m-option">我的笔记</li>
-                                            <li class="m-option">我的提问</li>
-                                            <li role="separator" class="divider"></li>
-                                            <li class="m-option">退出</li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li style="display: none;" id="session-info">
-                                    <a id="login-btn" type="button" data-toggle="modal" data-target=".login">登录</a>
-                                    <a id="signin-btn" type="button" data-toggle="modal" data-target=".login">注册</a>
-                                </li>
-                            </ul>
-                        </div>
+  </head>
+  <body>
+    <!-- header -->
+    <div class="top-banner">
+        <div class="header">
+            <div class="container">
+                <div class="headr-left">
+                    <div class="social">
+                        <a href="#">
+                            <i class="facebook"></i>
+                        </a>
+                        <a href="#">
+                            <i class="twitter"></i>
+                        </a>
+                        <a href="#">
+                            <i class="gplus"></i>
+                        </a>
+                        <a href="#">
+                            <i class="pin"></i>
+                        </a>
+                        <a href="#">
+                            <i class="youtube"></i>
+                        </a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="headr-right">
+                    <div class="search">
+                        <form>
+                            <input type="submit" value="">
+                            <input type="text" value="" placeholder="Search...">
+                        </form>
+                    </div>
+                    <div class="details collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="" style="float: right">
+                            <li class="active">
+                                <a href="/view">主页</a>
+                            </li>
+                            <li>
+                                <a href="/view/reviews.html">所有课程</a>
+                            </li>
+                            <li>
+                                <a href="/view/gallery.html">考试管理</a>
+                            </li>
+                            <li>
+                                <a href="/view/usercenter">个人中心</a>
+                            </li>
+                            <li style="display: none;" id="user-info">
+                                <div class="dropdown">
+                                    <a id="dLabel" data-target="#" href="javascript: void(0)" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <span class="glyphicon glyphicon-menu-down"></span>
+                                    </a>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                        <li class="m-option">观看记录</li>
+                                        <li role="separator" class="divider"></li>
+                                        <li class="m-option">我的课程</li>
+                                        <li class="m-option">我的笔记</li>
+                                        <li class="m-option">我的提问</li>
+                                        <li role="separator" class="divider"></li>
+                                        <li class="m-option" id="logout">退出</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li style="display: none;" id="session-info">
+                                <a id="login-btn" type="button" data-toggle="modal" data-target=".login">登录</a>
+                                <a id="signin-btn" type="button" data-toggle="modal" data-target=".login">注册</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
             </div>
         </div>
-        <!-- header end -->
+    </div>
 
-<!-- About -->
-<div class="about">
-    <!-- 侧边栏笔记 -->
-    <div class="menu-expanded">
+    <!-- header end -->
+
+    <!-- About -->
+    <div class="about">
+      <!-- 侧边栏笔记 -->
+      <div class="menu-expanded">
         <div id="menu" class="menu"></div>
         <span class="linee linea1"></span>
         <span class="linee linea2"></span>
         <span class="linee linea3"></span>
 
         <div id="main">
-            <h3 class="main-menu" id="left-menu-title"><b>笔记</b></h3>
-            <div class="main-menu mycontent" id="content1">
-                <p class="note">笔记内容111111111111111111111111111111111111111111111111111111111<span class="glyphicon glyphicon-pencil editNote"></span><span class="glyphicon glyphicon-remove deleteNote"></span></p>
-                <input type="text" class="form-horizontal">
-                <p class="note">笔记内容2</p>
-                <p class="note">笔记内容3</p>
-                <p class="note">笔记内容4</p>
-                <p class="note">笔记内容5</p>
-                <p class="note">笔记内容6</p>
-                <p class="note">笔记内容7</p>
-                <p class="note">笔记内容8</p>
-                <p class="note">笔记内容9</p>
-                <p class="note">笔记内容10</p>
-                <p class="note">笔记内容11</p>
-                <p class="note">笔记内容12</p>
-                <p class="note">笔记内容13</p>
-                <p class="note">笔记内容14</p>
-                <p class="note">笔记内容15</p>
+          <h3 class="main-menu" id="left-menu-title">
+            <b>笔记</b>
+          </h3>
+          <div class="main-menu mycontent" id="content1">
+            <p class="note">笔记内容111111111111111111111111111111111111111111111111111111111<span class="glyphicon glyphicon-pencil editNote"></span>
+              <span class="glyphicon glyphicon-remove deleteNote"></span>
+            </p>
+            <input type="text" class="form-horizontal">
+            <p class="note">笔记内容2</p>
+            <p class="note">笔记内容3</p>
+            <p class="note">笔记内容4</p>
+            <p class="note">笔记内容5</p>
+            <p class="note">笔记内容6</p>
+            <p class="note">笔记内容7</p>
+            <p class="note">笔记内容8</p>
+            <p class="note">笔记内容9</p>
+            <p class="note">笔记内容10</p>
+            <p class="note">笔记内容11</p>
+            <p class="note">笔记内容12</p>
+            <p class="note">笔记内容13</p>
+            <p class="note">笔记内容14</p>
+            <p class="note">笔记内容15</p>
+          </div>
         </div>
-    </div>
-</div>
-    <div class="container">
+      </div>
+      <div class="container">
         <h3 id="lesson-title"></h3>
 
         <div class="testimonals">
-            <div class="col-md-2 abt-pic-side">
-                <a id="last-lesson" href="#"><上一节</a>
+          <div class="col-md-2 abt-pic-side">
+            <a id="last-lesson" href="#"><上一节</a>
+          </div>
+          <div class="col-md-8 abt-pic">
+            <!-- 视频pdf切换标签 -->
+            <div class="vedio-pdf-change">
+              <div class="tab-group">
+                <section id="tab1" title="视频">
+                  <div id="a1"></div>
+                </section>
+                <section id="tab2" title="文档">
+                  <iframe id="pdf-iframe" src="" width="100%" height="400">
+                    <a href="pdf/viewer.html?pdfLink=http://115.159.188.200:8000/media/video/2015软件杯文档罗龙镇.pdf">你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a>
+                  </iframe>
+                </section>
+              </div>
             </div>
-            <div class="col-md-8 abt-pic" >
-                <!-- 视频pdf切换标签 -->
-                <div class="vedio-pdf-change">
-                    <div class="tab-group">
-                        <section id="tab1" title="视频">
-                            <div id="a1"></div>
-                        </section>
-                        <section id="tab2" title="文档">
-                            <iframe id="pdf-iframe" src="" width="100%" height="400" >
-                                <a href="pdf/viewer.html?pdfLink=http://115.159.188.200:8000/media/video/2015软件杯文档罗龙镇.pdf">你的浏览器不支持iframe页面嵌套，请点击这里访问页面内容。</a>
-                            </iframe>
-                        </section>
-                    </div>
-                </div>
-                
-                
-            </div>
-            <div class="col-md-2 abt-pic-side">
-                <a id="next-lesson" href="#">下一节></a>
-            </div>
-            <div class="clearfix"></div>
+
+          </div>
+          <div class="col-md-2 abt-pic-side">
+            <a id="next-lesson" href="#">下一节></a>
+          </div>
+          <div class="clearfix"></div>
         </div>
 
         <div class="col-md-12 abt-info-pic">
-            <h3 id="course-name">课程名称</h3>
-            <ul>
-                <li id="course-intro">课程简介：XXXXXXXXXXXXXXXXXXXXXXXXXXx</li>
-            </ul>
+          <h3 id="course-name">课程名称</h3>
+          <ul>
+            <li id="course-intro">课程简介：XXXXXXXXXXXXXXXXXXXXXXXXXXx</li>
+          </ul>
         </div>
 
         <div class="testimonals col-md-7">
-            <h3>课程目录</h3>
-            <div class="testimonal-grids">
-                <div id="chapter">
-
-                </div>
-                <div class="clearfix"></div>
-            </div>
+          <h3>课程目录</h3>
+          <div class="testimonal-grids">
+            <div id="chapter"></div>
+            <div class="clearfix"></div>
+          </div>
         </div>
         <div class="col-md-5 testimonals" id="discussion">
-            <h3>发布提问</h3>
+          <h3>发布提问</h3>
 
-            <div class="ques-answer">
-                <div class="answer-con first" >
+          <div class="ques-answer">
+            <div class="answer-con first">
 
-                    <div class="user-pic l">
-                        <a href="#" target="_blank">
-                            <img id="my-avatar" src="http://115.159.188.200:8000/media/face/default.png" width="40" height="40" alt="?">
-                        </a>
-                    </div>
+              <div class="user-pic l">
+                <a href="#" target="_blank">
+                  <img id="my-avatar" src="http://115.159.188.200:8000/media/face/default.png" width="40" height="40" alt="?">
+                </a>
+              </div>
 
-                    <div class="detail-r">
-                        <a id="my-name" class="detail-name" href="#" target="_blank">书旅</a>
-                        <p id="my-department" class="detail-signal">所属部门</p>
-                    </div>
+              <div class="detail-r">
+                <a id="my-name" class="detail-name" href="#" target="_blank">书旅</a>
+                <p id="my-department" class="detail-signal">所属部门</p>
+              </div>
 
-                    <div class="ques-content rich-text aimgPreview ctrl-bar">
-                        <textarea class="questext" rows="3" cols="26" maxlength="150"></textarea>
-                        <button class="btn btn-success newQues">提问</button>
-                    </div>
-
-                </div>
-
+              <div class="ques-content rich-text aimgPreview ctrl-bar">
+                <textarea class="questext" rows="3" cols="26" maxlength="150"></textarea>
+                <button class="btn btn-success newQues">提问</button>
+              </div>
 
             </div>
 
-<!--
+          </div>
+
+          <!--
             <div class="ques-answer">
 
                 <div class="answer-con first" >
@@ -254,63 +265,94 @@
 
             -->
 
-            <h3>课程问答</h3>
+          <h3>课程问答</h3>
 
         </div>
 
+      </div>
     </div>
-</div>
-<!-- footer -->
-<div class="footer">
-     <div class="container">
-         <div class="footer-grids">
-             <div class="col-md-3 ftr-info">
-                 <h3>About Us</h3>
-                 <a href="#"><p>Sed faucibus mollis laoreet. Sed vehicula faucibus tristique lectus a orci molestie finibus.
-                 Suspendisse pharetra, metus sed rutrum pretium.</p></a>
-             </div>
-             <div class="col-md-3 ftr-grid">
-                 <h3>Categories</h3>
-                 <ul class="ftr-list">
-                     <li><a href="#">Action</a></li>
-                     <li><a href="#">Racing</a></li>
-                     <li><a href="#">Adventure</a></li>
-                     <li><a href="#">Simulation</a></li>
-                     <li><a href="#">Bike</a></li>
-                 </ul>
-             </div>
-             <div class="col-md-3 ftr-grid">
-                 <h3>Platform</h3>
-                 <ul class="ftr-list">
-                     <li><a href="#">Pc</a></li>
-                     <li><a href="#">Ps4</a></li>
-                     <li><a href="#">XBOX 360</a></li>
-                     <li><a href="#">XBOX ONE</a></li>
-                     <li><a href="#">PSP</a></li>
-                 </ul>
-             </div>
-             <div class="col-md-3 ftr-grid">
-                 <h3>Information</h3>
-                 <ul class="ftr-list">
-                     <li><a href="#">Contact Us</a></li>
-                     <li><a href="#">Wish Lists</a></li>
-                     <li><a href="#">Site Map</a></li>
-                     <li><a href="#">Terms & Conditions</a></li>
-                 </ul>
-             </div>
-             <div class="clearfix"></div>
-         </div>
-     </div>
-</div>
-<!---->
-<div class="copywrite">
-     <div class="container">
-         <p>Copyright &copy; 2017.Company name All rights reserved.More Templates <a href="http://www.genban.org/" target="_blank" title="模板">模板</a> - Collect from <a href="http://www.genban.org/" title="网页模板" target="_blank">网页模板</a></p>
-     </div>
-</div>
-<!---->
+    <!-- footer -->
+    <div class="footer">
+      <div class="container">
+        <div class="footer-grids">
+          <div class="col-md-3 ftr-info">
+            <h3>About Us</h3>
+            <a href="#">
+              <p>Sed faucibus mollis laoreet. Sed vehicula faucibus tristique lectus a orci molestie finibus. Suspendisse pharetra, metus sed rutrum pretium.</p>
+            </a>
+          </div>
+          <div class="col-md-3 ftr-grid">
+            <h3>Categories</h3>
+            <ul class="ftr-list">
+              <li>
+                <a href="#">Action</a>
+              </li>
+              <li>
+                <a href="#">Racing</a>
+              </li>
+              <li>
+                <a href="#">Adventure</a>
+              </li>
+              <li>
+                <a href="#">Simulation</a>
+              </li>
+              <li>
+                <a href="#">Bike</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 ftr-grid">
+            <h3>Platform</h3>
+            <ul class="ftr-list">
+              <li>
+                <a href="#">Pc</a>
+              </li>
+              <li>
+                <a href="#">Ps4</a>
+              </li>
+              <li>
+                <a href="#">XBOX 360</a>
+              </li>
+              <li>
+                <a href="#">XBOX ONE</a>
+              </li>
+              <li>
+                <a href="#">PSP</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3 ftr-grid">
+            <h3>Information</h3>
+            <ul class="ftr-list">
+              <li>
+                <a href="#">Contact Us</a>
+              </li>
+              <li>
+                <a href="#">Wish Lists</a>
+              </li>
+              <li>
+                <a href="#">Site Map</a>
+              </li>
+              <li>
+                <a href="#">Terms & Conditions</a>
+              </li>
+            </ul>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+    <!---->
+    <div class="copywrite">
+      <div class="container">
+        <p>Copyright &copy; 2017.Company name All rights reserved.More Templates
+          <a href="http://www.genban.org/" target="_blank" title="模板">模板</a>
+          - Collect from
+          <a href="http://www.genban.org/" title="网页模板" target="_blank">网页模板</a>
+        </p>
+      </div>
+    </div>
+    <!---->
 
-
-
-</body>
+  </body>
 </html>

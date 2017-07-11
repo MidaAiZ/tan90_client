@@ -1012,7 +1012,7 @@ function courseBK(res) {
 function createCourse(course) {
 	var liStr = "\
         <div class='col-md-3 gallery-grid'>\
-            <a data-href='/view/lesson.html?chapter_id=1&video_id=1&course_id=" + course.id + "' class='example-image-link' data-lightbox='example-set' target='_blank' >\
+            <a data-href='/view/lesson.html?chapter_index=1&lesson_index=1&course_id=" + course.id + "' class='example-image-link' data-lightbox='example-set' target='_blank' >\
             <img class='example-image' src='" + IMGROOT + course.cover + "'/></a>\
         </div>\
 	"
