@@ -15,7 +15,7 @@
 }
 
 .ms-container .ms-selectable, .ms-container .ms-selection{
-  background: #fff;
+  background: rgba(255,255,255,0);
   color: #555555;
   float: left;
   width: 45%;
@@ -77,12 +77,13 @@
   font-size: 14px;
 }
 
+
 .ms-container .ms-selectable li.ms-hover,
 .ms-container .ms-selection li.ms-hover{
   cursor: pointer;
   color: #fff;
   text-decoration: none;
-  background-color: #08c;
+  background-color: #65cea7;
 }
 
 .ms-container .ms-selectable li.disabled,

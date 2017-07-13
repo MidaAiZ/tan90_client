@@ -1,10 +1,14 @@
 //multiselect start
 
 
+
+
 $('#my_multi_select1').multiSelect();
 $('#my_multi_select2').multiSelect({
     selectableOptgroup: true
 });
+
+
 
 $('#my_multi_select3').multiSelect({
     selectableHeader: "<input type='text' class='form-control search-input' autocomplete='off' placeholder='search...'>",

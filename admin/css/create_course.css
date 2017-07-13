@@ -1,0 +1,78 @@
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 5px 0px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+select:-internal-list-box {
+    -webkit-appearance: listbox;
+    align-items: flex-start;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    vertical-align: text-bottom;
+    user-select: none;
+    white-space: nowrap;
+    margin-right: 5px; 
+    border-width: 1px;
+    border-style: inset;
+    border-color: grey;
+    border-image: initial;
+    border-radius: 3px;
+
+}
+
+
+select[multiple], select[size] {
+    height: 250px;
+}
+
+option {
+    font-weight: normal;
+    display: block;
+    white-space: pre;
+    min-height: 1.2em;
+    padding: 3px 2px 3px 10px;
+    -webkit-tap-highlight-color: #65CEA7; 
+}
+
+
+
+.ms-container .ms-list{
+  background-color: #fff;
+}
+
+.ms-container .ms-selectable, .ms-container .ms-selection{
+  background-color: rgba(255, 255, 255, 0);
+}
+
+
+.stepy-error {
+    position: absolute;
+    bottom: 105px;
+    padding-left: 180px;
+}
+
+.ms-container .ms-selectable li.ms-hover, .ms-container .ms-selection li.ms-hover {
+    background-color: #65CEA7;
+    color: #FFFFFF;
+    cursor: pointer;
+    text-decoration: none;
+}

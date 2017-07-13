@@ -119,33 +119,33 @@
 
 				if (opt.finishButton) {
 			        if ($finish.length) {
-			        	var isForm		= $this.is('form'),
-			        		onSubmit	= undefined;
+			        	// var isForm		= $this.is('form'),
+			        	// 	onSubmit	= undefined;
 
-			        	if (opt.finish && isForm) {
-			        		onSubmit = $this.attr('onsubmit');
-			        		$this.attr('onsubmit', 'return false;');
-			        	}
+			        	// if (opt.finish && isForm) {
+			        	// 	onSubmit = $this.attr('onsubmit');
+			        	// 	$this.attr('onsubmit', 'return false;');
+			        	// }
 
-		        		$finish.click(function(evt) {
-		    				if (opt.finish && !methods.execute.call($this, opt.finish, $steps.length - 1)) {
-		   						evt.preventDefault();
-		    				} else {
-		    					if (isForm) {
-		    						if (onSubmit) {
-		    							$this.attr('onsubmit', onSubmit);
-		    						} else {
-		    							$this.removeAttr('onsubmit');
-		    						}
+		        // 		$finish.click(function(evt) {
+		    				// if (opt.finish && !methods.execute.call($this, opt.finish, $steps.length - 1)) {
+		   					// 	evt.preventDefault();
+		    				// } else {
+		    				// 	if (isForm) {
+		    				// 		if (onSubmit) {
+		    				// 			$this.attr('onsubmit', onSubmit);
+		    				// 		} else {
+		    				// 			$this.removeAttr('onsubmit');
+		    				// 		}
 
-		    						var isSubmit = $finish.attr('type') == 'submit';
+		    				// 		var isSubmit = $finish.attr('type') == 'submit';
 
-		    						if (!isSubmit && (!opt.validate || methods.validate.call($this, $steps.length - 1))) {
-		    							$this.submit();
-		    						}
-		    					}
-		    				}
-		        		});
+		    				// 		if (!isSubmit && (!opt.validate || methods.validate.call($this, $steps.length - 1))) {
+		    				// 			$this.submit();
+		    				// 		}
+		    				// 	}
+		    				// }
+		        // 		});
 
 		        		$finish.appendTo($this.find('p:last'));
 			        } else {

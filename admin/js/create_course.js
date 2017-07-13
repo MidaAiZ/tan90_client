@@ -1,3 +1,75 @@
+$(function() {
+
+    //从服务器获取所有课程分类并自动生成
+    $.ajax({
+        type: "POST",
+        url: "http://115.159.188.200:8000/get_category/",
+        data: "limit=100&page=1",
+        dataType: "json",
+        //下面2个参数用于解决跨域问题  
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        success: function(data){
+            console.log("获取课程分类：");
+            console.log(data);
+            if(data.code==1000){
+                for (var i = 0; i < data.category.length; i++) {
+                    var $opt = $('<option></option>',{id: "test",html: data.category[i].name});
+                    $opt.text(data.category[i].name);
+                    $opt.attr('cateid', data.category[i].id);
+                    $("#cate_names").append($opt);
+                };
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            window.alert(textStatus);
+        }
+    });
+
+    
+    //点击“创建课程”提交信息给服务器
+    $("#sub").on('click', function(){
+        //课程名和课程介绍不为空
+        if($('input[name="course_name"]').val()!=null&&$('input[name="course_name"]').val()!=""&&$('input[name="introduce"]').val()!=null&&$('input[name="introduce"]').val()!=""){
+            $.ajax({
+                type: "POST",
+                url: "http://115.159.188.200:8000/add_course/",
+                data: $('#stepy_form').serialize(),
+                dataType: "json",
+                //下面2个参数用于解决跨域问题  
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function(data){
+                    console.log(data);
+                    window.alert("成功连接服务器"+data.msg);
+                    if(data.code==1000){
+                        window.alert(data.msg);
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    window.alert(textStatus);
+                    window.alert("失败");
+                }
+            });
+        }
+    })
+
+
+    
+    
+});
+
+
+
+
+
+
+
+
 /*
 * MultiSelect v0.9.8
 * Copyright (c) 2012 Louis Cuny
@@ -12,6 +84,7 @@
 !function ($) {
 
   "use strict";
+
 
 
  /* MULTISELECT CLASS DEFINITION
@@ -35,6 +108,32 @@
     constructor: MultiSelect,
 
     init: function(){
+        //从服务器获取所有部门信息并自动生成
+    $.ajax({
+        type: "POST",
+        url: "http://115.159.188.200:8000/get_department/",
+        data: "",
+        dataType: "json",
+        async: false,
+        //下面2个参数用于解决跨域问题  
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        success: function(data){
+            console.log(data);
+            if(data.code=="1000"){
+                var $opt = $('<option></option>',{value: data.departments[0].name, html: data.departments[0].name});
+                //$opt.text(data.departments[0].name);
+                $opt.attr('depId', data.departments[0].id);
+                $("#my_multi_select3").append($opt);
+                
+            }
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            window.alert(textStatus);
+        }
+    });
       var that = this,
           ms = this.$element;
 
@@ -45,7 +144,6 @@
 
         ms.find('option').each(function(){
           that.generateLisFromOption(this);
-          console.log(this);
         });
 
         this.$selectionUl.find('.ms-optgroup-label').hide();
