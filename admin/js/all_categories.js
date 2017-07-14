@@ -32,7 +32,7 @@ var EditableTable = function () {
                         window.alert("您尚未登录。");
                     }else if(data.code==1002){
                         window.alert("您不是管理员，没有此权限。");
-                    }{
+                    }else{
                         window.alert(data.msg);
                     }
                 },
