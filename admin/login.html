@@ -119,6 +119,8 @@
       function check_login(res) {
         if (res.code == 1000) {
           sessionStorage.setItem("adminId", res.info.id);
+          sessionStorage.setItem("adminName", res.info.name);
+          sessionStorage.setItem("adminAvatar", res.info.face);
           window.location = "/admin";
         } else {
           alert("帐号或密码错误！")
