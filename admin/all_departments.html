@@ -7,7 +7,7 @@
   <meta name="author" content="ThemeBucket">
   <link rel="shortcut icon" href="#" type="image/png">
 
-  <title>全部课程信息</title>
+  <title>全部部门</title>
 
   <!--data table-->
   <link rel="stylesheet" href="js/data-tables/DT_bootstrap.css" />
@@ -375,13 +375,13 @@
         <!-- page heading start-->
         <div class="page-heading">
             <h3>
-                全部课程信息
+               全部部门
             </h3>
             <ul class="breadcrumb">
                 <li>
                     <a href="all_courses.html">课程管理</a>
                 </li>
-                <li class="active"> 全部课程信息 </li>
+                <li class="active">全部部门</li>
             </ul>
         </div>
         <!-- page heading end-->
@@ -392,17 +392,15 @@
                 <div class="col-sm-12">
                 <section class="panel">
                 <header class="panel-heading">
-                    全部课程信息
+                    全部部门
                 </header>
                 <div class="panel-body">
                 <div class="adv-table editable-table ">
                 <div class="clearfix">
                     <div class="btn-group">
-                        <a href="create_course.html">
-                            <button  class="btn btn-primary">
-                                创建课程 <i class="fa fa-plus"></i>
-                            </button>
-                        </a>
+                        <button id="editable-sample_new" class="btn btn-primary">
+                            创建部门 <i class="fa fa-plus"></i>
+                        </button>
                     </div>
                     <div class="btn-group pull-right">
                         <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">工具 <i class="fa fa-angle-down"></i>
@@ -418,17 +416,14 @@
                 <table class="table table-striped table-hover table-bordered" id="editable-sample">
                 <thead>
                 <tr>
-                    <th>课程id</th>
-                    <th>课程名称</th>
-                    <th>课程所属分类</th>
-                    <th>课程简介</th>
-                    <th>课程权限</th>
+                    <th>部门id</th>
+                    <th>部门名称</th>
                     <th>修改</th>
                     <th>删除</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <!-- 此处动态生成 -->
+                    <!-- 动态生成部门列表 -->
                 </tbody>
                 </table>
                 </div>
@@ -465,8 +460,7 @@
 <!--common scripts for all pages-->
 <script src="js/scripts.js"></script>
 
-<!--script for editable table-->
-<script src="js/all_courses.js"></script>
+<script src="js/all_departments.js"></script>
 
 <!-- END JAVASCRIPTS -->
 <script>

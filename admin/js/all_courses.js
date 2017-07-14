@@ -31,6 +31,12 @@ var EditableTable = function () {
                             $cou.append('<td><a class="edit" href="javascript:;">修改</a></td><td><a class="delete" href="javascript:;">删除</a></td>');
                             $('tbody').append($cou);
                         };
+                    }else if(data.code==1001){
+                        window.alert("您尚未登录。");
+                    }else if(data.code==1002){
+                        window.alert("您不是管理员，没有此权限。");
+                    }else{
+                        window.alert(data.msg);
                     }
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -98,12 +104,12 @@ var EditableTable = function () {
                         "sPrevious": "上一页",
                         "sNext": "下一页"
                     }
-                },
-                "aoColumnDefs": [{
-                        'bSortable': false,
-                        'aTargets': [0]
-                    }
-                ]
+                }
+                // "aoColumnDefs": [{
+                //         'bSortable': false,
+                //         'aTargets': [0]
+                //     }
+                // ]
             });
 
             jQuery('#editable-sample_wrapper .dataTables_filter input').addClass("form-control medium"); // modify table search input
@@ -143,6 +149,14 @@ var EditableTable = function () {
                     console.log(data);
                     if(data.code==1000){
                         flag=true;
+                    }else if(data.code==1001){
+                        window.alert("您尚未登录。");
+                    }else if(data.code==1002){
+                        window.alert("您不是管理员，没有此权限。");
+                    }else if(data.code==1003){
+                        window.alert("不存在此门课程，请刷新页面。");
+                    }else{
+                        window.alert(data.msg);
                     }
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {

@@ -36,9 +36,12 @@ $(function(){
                     if(data.code==1000){
                         window.alert("修改封面成功");
                         window.location.href="all_courses.html";
-                    }
-                    if(data.code==1001){
+                    }else if(data.code==1001){
                         window.alert("您尚未登录。");
+                    }else if(data.code==1002){
+                        window.alert("您不是管理员，没有此权限。");
+                    }else{
+                        window.alert(data.msg);
                     }
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -69,9 +72,12 @@ $(function(){
                     if(data.code==1000){
                         window.alert("修改成功");
                         window.location.href="all_courses.html";
-                    }
-                    if(data.code==1001){
+                    }else if(data.code==1001){
                         window.alert("您尚未登录。");
+                    }else if(data.code==1002){
+                        window.alert("您不是管理员，没有此权限。");
+                    }else{
+                        window.alert(data.msg);
                     }
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -103,9 +109,12 @@ $(function(){
                 success: function(data){
                     if(data.code==1000){
                         flag1=true;
-                    }
-                    if(data.code==1001){
+                    }else if(data.code==1001){
                         window.alert("您尚未登录。");
+                    }else if(data.code==1002){
+                        window.alert("您不是管理员，没有此权限。");
+                    }else{
+                        window.alert(data.msg);
                     }
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -133,9 +142,12 @@ $(function(){
                 success: function(data){
                     if(data.code==1000){
                         flag2=true;
-                    }
-                    if(data.code==1001){
+                    }else if(data.code==1001){
                         window.alert("您尚未登录。");
+                    }else if(data.code==1002){
+                        window.alert("您不是管理员，没有此权限。");
+                    }else{
+                        window.alert(data.msg);
                     }
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {

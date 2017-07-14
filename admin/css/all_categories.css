@@ -1,0 +1,5 @@
+.adv-table .dataTables_filter label input {
+    float: right;
+    margin-left: 10px;
+    width: 88%;
+}

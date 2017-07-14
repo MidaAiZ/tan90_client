@@ -21,6 +21,12 @@ $(function() {
                     $opt.attr('cateid', data.category[i].id);
                     $("#cate_names").append($opt);
                 };
+            }else if(data.code==1001){
+                window.alert("您尚未登录。");
+            }else if(data.code==1002){
+                window.alert("您不是管理员，没有此权限。");
+            }else{
+                window.alert(data.msg);
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -52,6 +58,14 @@ $(function() {
                     if(data.code==1000){
                         window.alert("创建课程成功");
                         window.location.href="all_courses.html";
+                    }else if(data.code==1001){
+                        window.alert("您尚未登录。");
+                    }else if(data.code==1002){
+                        window.alert("您不是管理员，没有此权限。");
+                    }else if(data.code==1003){
+                        window.alert("已有同名课程，不可重复添加。");
+                    }else{
+                        window.alert(data.msg);
                     }
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -126,11 +140,18 @@ $(function() {
         success: function(data){
             console.log(data);
             if(data.code=="1000"){
-                var $opt = $('<option></option>',{value: data.departments[0].name, html: data.departments[0].name});
-                //$opt.text(data.departments[0].name);
-                $opt.attr('depId', data.departments[0].id);
-                $("#my_multi_select3").append($opt);
-                
+                for (var i = 0; i < data.departments.length; i++) {
+                    var $opt = $('<option></option>',{value: data.departments[i].name, html: data.departments[i].name});
+                    //$opt.text(data.departments[0].name);
+                    $opt.attr('depId', data.departments[i].id);
+                    $("#my_multi_select3").append($opt);
+                };
+            }else if(data.code==1001){
+                window.alert("您尚未登录。");
+            }else if(data.code==1002){
+                window.alert("您不是管理员，没有此权限。");
+            }else{
+                window.alert(data.msg);
             }
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
