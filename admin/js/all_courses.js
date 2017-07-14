@@ -114,9 +114,12 @@ var EditableTable = function () {
             $('#editable-sample a.delete').live('click', function (e) {
                 e.preventDefault();
 
-                if (confirm("确定要删除此门课程么?") == false) {
+                var f = window.confirm("确定要删除此门课程么?");
+
+                if (f == false) {
                     return;
                 }
+
                 console.log($(this).parent().parent().find(".course-name").text());
 
                 // var nRow = $(this).parents('tr')[0];
@@ -136,7 +139,7 @@ var EditableTable = function () {
                 },
                 crossDomain: true,
                 success: function(data){
-                    console.log("获取课程信息：");
+                    console.log("删除课程：");
                     console.log(data);
                     if(data.code==1000){
                         flag=true;
@@ -150,6 +153,7 @@ var EditableTable = function () {
                 if(flag==true){
                     var nRow = $(this).parents('tr')[0];
                     oTable.fnDeleteRow(nRow);
+                    window.alert("删除课程成功");
                 }
                 
             });

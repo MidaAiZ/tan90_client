@@ -31,13 +31,17 @@ $(function() {
     
     //点击“创建课程”提交信息给服务器
     $("#sub").on('click', function(){
+        var params = $('#stepy_form').serialize();
         //课程名和课程介绍不为空
-        if($('input[name="course_name"]').val()!=null&&$('input[name="course_name"]').val()!=""&&$('input[name="introduce"]').val()!=null&&$('input[name="introduce"]').val()!=""){
-            $.ajax({
+        if($('input[name="course_name"]').val()==""||$('input[name="introduce"]').val()==""){
+            return;
+        }
+        $.ajax({
                 type: "POST",
                 url: "http://115.159.188.200:8000/add_course/",
-                data: $('#stepy_form').serialize(),
+                data: params,
                 dataType: "json",
+                async: false,
                 //下面2个参数用于解决跨域问题  
                 xhrFields: {
                     withCredentials: true
@@ -45,18 +49,17 @@ $(function() {
                 crossDomain: true,
                 success: function(data){
                     console.log(data);
-                    window.alert("成功连接服务器"+data.msg);
                     if(data.code==1000){
-                        window.alert(data.msg);
+                        window.alert("创建课程成功");
+                        window.location.href="all_courses.html";
                     }
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
                     window.alert(textStatus);
-                    window.alert("失败");
                 }
-            });
-        }
-    })
+        });
+        
+    });
 
 
     
