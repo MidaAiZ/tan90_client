@@ -7,7 +7,7 @@
   <meta name="author" content="ThemeBucket">
   <link rel="shortcut icon" href="#" type="image/png">
 
-  <title>全部课程信息</title>
+  <title>全部学员信息</title>
 
   <!--data table-->
   <link rel="stylesheet" href="js/data-tables/DT_bootstrap.css" />
@@ -76,22 +76,22 @@
                 <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>学员统计</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="blank_page.html">学习时间</a></li>
-                        <li><a href="boxed_view.html">课程数</a></li>
+                        <li><a href="boxed_view.html">学员数</a></li>
                     </ul>
                 </li>
-                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>课程统计</span></a>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>学员统计</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="blank_page.html">学习人次</a></li>
-                        <li><a href="boxed_view.html">课程问答</a></li>
-                        <li><a href="leftmenu_collapsed_view.html">课程笔记</a></li>
+                        <li><a href="boxed_view.html">学员问答</a></li>
+                        <li><a href="leftmenu_collapsed_view.html">学员笔记</a></li>
                     </ul>
                 </li>
 
-                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>课程管理</span></a>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>学员管理</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="all_courses.html">全部课程</a></li>
+                        <li><a href="all_students.html">全部学员</a></li>
                         <li><a href="all_categories.html">分类管理</a></li>
-                        <li><a href="create_course.html">新建课程</a></li>
+                        <li><a href="create_student.html">新建学员</a></li>
                         <li><a href="upload_video.html">上传视频</a></li>
                         <li><a href="upload_pdf.html">上传PDF</a></li>
                     </ul>
@@ -405,13 +405,13 @@
         <!-- page heading start-->
         <div class="page-heading">
             <h3>
-                全部课程信息
+                全部学员信息
             </h3>
             <ul class="breadcrumb">
                 <li>
-                    <a href="all_courses.html">课程管理</a>
+                    <a href="all_students.html">学员管理</a>
                 </li>
-                <li class="active"> 全部课程信息 </li>
+                <li class="active"> 全部学员信息 </li>
             </ul>
         </div>
         <!-- page heading end-->
@@ -422,15 +422,15 @@
                 <div class="col-sm-12">
                 <section class="panel">
                 <header class="panel-heading">
-                    全部课程信息
+                    全部学员信息
                 </header>
                 <div class="panel-body">
                 <div class="adv-table editable-table ">
                 <div class="clearfix">
                     <div class="btn-group">
-                        <a href="create_course.html">
+                        <a href="create_student.html">
                             <button  class="btn btn-primary">
-                                创建课程 <i class="fa fa-plus"></i>
+                                创建学员 <i class="fa fa-plus"></i>
                             </button>
                         </a>
                     </div>
@@ -448,13 +448,13 @@
                 <table class="table table-striped table-hover table-bordered" id="editable-sample">
                 <thead>
                 <tr>
-                    <th>课程id</th>
-                    <th>课程名称</th>
-                    <th>课程所属分类</th>
-                    <th>课程简介</th>
-                    <th>课程权限</th>
-                    <th>修改</th>
-                    <th>删除</th>
+                    <th>学员帐号</th>
+                    <th>学员名称</th>
+                    <th>所属部门</th>
+                    <th>课程数目</th>
+                    <th>学员权限</th>
+                    <th>修改资料</th>
+                    <th>详细信息</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -496,7 +496,7 @@
 <script src="js/scripts.js"></script>
 
 <!--script for editable table-->
-<script src="js/all_courses.js"></script>
+<script src="js/all_students.js"></script>
 
 <!-- END JAVASCRIPTS -->
 <script>

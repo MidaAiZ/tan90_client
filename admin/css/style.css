@@ -4706,3 +4706,29 @@ ol.comment-list {
     border-radius: 5px;
     -webkit-border-radius: 5px;
 }
+
+.file-beauty {
+    position: relative;
+    overflow: hidden;
+    max-width: 100px;
+    text-align: center;
+}
+.file-beauty span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    line-height: 36px;
+}
+
+.file-beauty input {
+    opacity: 0;
+}
+.btn-success {
+    background: #31bf8a;
+}
+.btn-success:hover {
+    background: #26b27e;
+}
