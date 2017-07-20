@@ -1,5 +1,29 @@
+ROOT = "http://115.159.188.200:8000/"
 
-(function() {
+// 验证登录
+$(function() {
+  if(sessionStorage.getItem("adminId")) {
+    var $info = $(".u-info");
+    $info.find(".u-avatar").attr("src", sessionStorage.getItem("adminAvatar"));
+    $info.find(".u-name").text(sessionStorage.getItem("adminName"));
+  } else {
+      location = "/admin/login.html"
+  }
+
+  $("#logout-btn").click(function() {
+      $.ajax({
+          url: ROOT + "do_logout/",
+          complete: function() {
+              sessionStorage.removeItem("adminId");
+              sessionStorage.removeItem("adminName");
+              sessionStorage.removeItem("adminAvatar");
+              location = "/admin/login.html"
+          }
+      })
+  })
+});
+
+;(function() {
     "use strict";
 
     // custom scrollbar
@@ -18,10 +42,10 @@
 
     // Toggle Left Menu
    jQuery('.menu-list > a').click(function() {
-      
+
       var parent = jQuery(this).parent();
       var sub = parent.find('> ul');
-      
+
       if(!jQuery('body').hasClass('left-side-collapsed')) {
          if(sub.is(':visible')) {
             sub.slideUp(200, function(){
@@ -69,7 +93,7 @@
    // Menu Toggle
    jQuery('.toggle-btn').click(function(){
        $(".left-side").getNiceScroll().hide();
-       
+
        if ($('body').hasClass('left-side-collapsed')) {
            $(".left-side").getNiceScroll().hide();
        }
@@ -102,7 +126,7 @@
       }
 
    });
-   
+
 
    searchform_reposition();
 
