@@ -2006,7 +2006,7 @@ h3.ghj {
         margin-left: 0em;
     }
     .navbar-collapse.in {
-     overflow-y: visible; 
+     overflow-y: visible;
     }
     .top-menu ul li a {
         padding: 0.5em 0.8em;
@@ -3082,4 +3082,24 @@ a {
 .file-beautify input[type='file'] {
   opacity: 0;
   cursor: pointer;
+}
+
+.fix-r {
+    float: right;
+}
+.fix-l {
+    float: left;
+}
+.top-10 {
+    margin-top: 10px;
+}
+.top-20 {
+    margin-top: 20px;
+}
+a h3:hover {
+    color: #69d2e8;
+}
+.pagination {
+    float: right;
+    margin: 20px;
 }
