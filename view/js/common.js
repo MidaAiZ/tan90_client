@@ -33,6 +33,7 @@ function initSession() {
             opacity: 'toggle'
         }, 'slow');
     });
+    initDepart();
 }
 
 function check_login(res) {
@@ -81,8 +82,7 @@ function getLoginModal() {
 					  <input type='text' name='name' placeholder='用户名' id='r_user_name'/>\
 					  <input type='password' name='pwd' placeholder='密码' id='r_password' />\
 					  <input type='text' name='mail' placeholder='电子邮件' id='r_emial'/>\
-                      <select type='text' name='department' placeholder='所属部门' id='r_department'>\
-                          <option value='animalFarm'>测试</option>\
+                      <select type='text' name='department' placeholder='所属部门' id='r_department' class='select'>\
                       </select>\
 					  <button id='create'>创建账户</button>\
 					  <p class='message'>已经有了一个账户? <a href='#'>立刻登录</a></p>\
@@ -153,6 +153,9 @@ function register() {
 		data: fd,
 		dataType: "json",
         crossDomain: true,
+        xhrFields: {
+            withCredentials: true
+        },
 		success: function(res) {
 			console.log(res);
 			check_register(res);
@@ -162,3 +165,33 @@ function register() {
 		}
 	});
 }
+
+// 获取部门列表
+function initDepart() {
+    var departs = [];
+    $.ajax({
+        url: ROOT + "get_department/",
+        dataType: "json",
+        crossDomain: true,
+        xhrFields: {
+            withCredentials: true
+        },
+		success: function(res) {
+            departs = res.departments
+			console.log(departs);
+            var $select = $("#r_department");
+            departs.forEach(function(p) {
+                var $e = $("<option value=" + p.name + ">" + p.name + "</option>")
+                $select.append($e);
+            })
+            $('.select').each(function(){
+                new Select({
+                    el: this,
+                    selectLikeAlignment: $(this).attr('data-select-like-alignement') || 'auto',
+                    className: 'select-theme-default'
+                });
+            });
+           $(".select-target").text("选择部门")
+		}
+    })
+};
