@@ -41,6 +41,44 @@
         });
     }
 
+    //点击章后，获取该章的所有节
+    function showSections(){
+        var chap = $("#chapters_names option:selected");
+        $.ajax({
+                type: "POST",
+                url: "http://115.159.188.200:8000/get_section/",
+                data: 'chapter_id='+chap.attr('chapterid'),
+                dataType: "json",
+                async: false,
+                //下面2个参数用于解决跨域问题  
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function(data){
+                    console.log(data);
+                    if(data.code==1000){
+                        //获取成功
+                        $("#sections_names").empty();
+                        for (var i = 0; i < data.sections.length; i++) {
+                            var $opt = $('<option></option>',{class: 'section',html: data.sections[i].name});
+                            $opt.text(data.sections[i].name);
+                            $opt.attr('sectionid', data.sections[i].id);
+                            $("#sections_names").append($opt);
+                        };
+                    }else if(data.code==1001){
+                        window.alert("您尚未登录。");
+                    }else{
+                        window.alert(data.msg);
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    window.alert(textStatus);
+                }
+        });
+        
+    }
+
     
 
 //点击章节后，设置要提交的章节id
@@ -60,11 +98,50 @@ $(document).ready(function(){
     });
 
     context.attach('.chapter', [
-        {text: '<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;删除', action: function function_name (argument) {
-            // 向服务器请求删除
+        {text: '<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;删除', action: function(e) {
+            // 向服务器请求删除章
+            var chapterid = $(context.target).attr('chapterid');
         }},
-        {text: '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;修改', action: function function_name (argument) {
-            // 向服务器请求修改
+        {text: '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;修改', action: function(e) {
+            // 向服务器请求修改章
+            var chapterid = $(context.target).attr('chapterid');
+        }}
+    ]);
+
+    context.attach('.section', [
+        {text: '<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;删除', action: function(e) {
+            // 向服务器请求删除节
+            var sectionid = $(context.target).attr('sectionid');
+            $.ajax({
+                type: "POST",
+                url: "http://115.159.188.200:8000/del_section/",
+                data: 'session_id='+sectionid,
+                dataType: "json",
+                async: false,
+                //下面2个参数用于解决跨域问题  
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function(data){
+                    console.log(data);
+                    if(data.code==1000){
+                        //删除节成功
+                        showSections();
+                    }else if(data.code==1001){
+                        window.alert("您尚未登录。");
+                    }else{
+                        window.alert(data.msg);
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    window.alert(textStatus);
+                }
+            });
+        }},
+        {text: '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;修改', action: function(e) {
+            // 向服务器请求修改节
+            var sectionid = $(context.target).attr('sectionid');
         }}
     ]);
 
@@ -76,7 +153,7 @@ $(function() {
     setChapters();
 
     
-
+    //添加章
     $("#add_chapter").on('click',function(){
         var newname = $('#new-chap-name').val();
         var newid = $('#new-chap-id').val();
@@ -95,6 +172,38 @@ $(function() {
                 if(data.code==1000){
                     setChapters();
                     $('.bs-newchapter-modal-lg').modal('hide');
+                }else if(data.code==1001){
+                    window.alert("您尚未登录。");
+                }else if(data.code==1002){
+                    window.alert("您不是管理员，没有此权限。");
+                }else{
+                    window.alert(data.msg);
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                window.alert(textStatus);
+            }
+        });
+    })
+
+    //添加节
+    $("#add_section").on('click',function(){
+        var newname = $('#new-sec-name').val();
+        var newid = $('#new-sec-id').val();
+        $.ajax({
+            type: "POST",
+            url: "http://115.159.188.200:8000/add_section/",
+            data: "chapter_id="+$("#chapters_names option:selected").attr('chapterid')+"&index="+newid+"&section_name="+newname,
+            dataType: "json",
+            //下面2个参数用于解决跨域问题  
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            success: function(data){
+                if(data.code==1000){
+                    showSections()
+                    $('.bs-newsection-modal-lg').modal('hide');
                 }else if(data.code==1001){
                     window.alert("您尚未登录。");
                 }else if(data.code==1002){

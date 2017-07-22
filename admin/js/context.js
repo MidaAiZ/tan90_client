@@ -101,6 +101,7 @@ var context = context || (function () {
 		$(document).on('contextmenu', selector, function (e) {
 			e.preventDefault();
 			e.stopPropagation();
+			context.target = e.target;
 			
 			$('.dropdown-context:not(.dropdown-context-sub)').hide();
 			
