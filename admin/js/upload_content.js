@@ -2,7 +2,7 @@
     function GetQueryString(name){
         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
-        if(r!=null)return  unescape(r[2]); return null;
+        if(r!=null)return  decodeURI(r[2]); return null;
     }
 
     function setChapters () {
@@ -81,10 +81,10 @@
 
     
 
-//点击章节后，设置要提交的章节id
+//点击节后，设置要提交的节id
     function selectChapter(){
-        var cour = $("#chapters_names option:selected");
-        $('#hiddenId').val(cour.attr('chapterid'));
+        var cour = $("#sections_names option:selected");
+        $('#hiddenId').val(cour.attr('sectionid'));
     }
 
 $(document).ready(function(){
@@ -149,6 +149,8 @@ $(document).ready(function(){
 });
 
 $(function() {
+
+    $('#course-name').text("上传课程资料 至 "+(GetQueryString('course_name')));
 
     setChapters();
 
@@ -221,7 +223,7 @@ $(function() {
 
     console.log($("#uploadVideo"));
 
-    //点击“上传视频”提交信息给服务器
+    //点击“上传”提交信息给服务器
     $("#uploadVideo").on('click', function(){
         var formData =  new FormData(document.forms.namedItem("upload"));
         //视频名和index不为空
@@ -231,7 +233,7 @@ $(function() {
         
         $.ajax({
                 type: "POST",
-                url: "http://115.159.188.200:8000/add_video/",
+                url: "http://115.159.188.200:8000/add_content/",
                 data: formData,
                 dataType: "json",
                 async: false, 
@@ -247,7 +249,7 @@ $(function() {
                 success: function(data){
                     console.log(data);
                     if(data.code==1000){
-                        window.alert("上传视频成功");
+                        window.alert("上传课程资料成功");
                     }else if(data.code==1001){
                         window.alert("您尚未登录。");
                     }else if(data.code==1002){

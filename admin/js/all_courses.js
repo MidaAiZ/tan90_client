@@ -27,7 +27,7 @@ var EditableTable = function () {
                             $cou.append($('<td></td>',{style: 'width:13%',class: "course-category",html:data.courses[i].category}));
                             $cou.append($('<td></td>',{style: 'width:41%',class: "course-introduce",html:data.courses[i].introduce}));
                             $cou.append($('<td></td>',{style: 'width:15%',class: "course-departments",html:"课程权限（尚未接入）"}));
-                            $cou.append($('<td></td>',{style: 'width:9%',class: "upload-video",html:'<a href="upload_video.html?course_id='+data.courses[i].id+'">上传视频</a><br>'+'<a href="upload_pdf.html?course_id='+data.courses[i].id+'">上传pdf</a>'}));
+                            $cou.append($('<td></td>',{style: 'width:9%',class: "upload-video",html:'<a href="upload_content.html?course_id='+data.courses[i].id+'&course_name='+data.courses[i].name+'">上传</a>'}));
                             // $cou.append($('<td></td>',{html:data.courses[i].demaprtment}));
                             $cou.append('<td style="width:6%"><a class="edit" href="javascript:;">修改</a></td><td style="width:6%"><a class="delete" href="javascript:;">删除</a></td>');
                             $('tbody').append($cou);
