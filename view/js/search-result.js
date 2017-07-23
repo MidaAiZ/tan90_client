@@ -1,4 +1,4 @@
-ar myPage;
+var myPage;
 
 $(function() {
     initCourse();

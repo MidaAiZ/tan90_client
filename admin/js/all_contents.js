@@ -13,7 +13,12 @@ var EditableTable = function () {
 
         //main function to initiate the module
         init: function () {
-            //连接服务器动态生成课程信息表格
+
+            var chapname = "";
+            var secname = "";
+            var t=0;
+
+            //连接服务器动态生成课程资料表格
             $.ajax({
                 type: "POST",
                 url: "http://115.159.188.200:8000/get_chapter/",
@@ -30,17 +35,7 @@ var EditableTable = function () {
                     console.log(data);
                     if(data.code==1000){
                         for (var i = 0; i < data.chapters.length; i++) {
-                            // var $cou= $('<tr></tr>');
-                            // $cou.append($('<td></td>',{style: 'width:3%',class: "content-id",html:data.chapters[i].id}));
-                            // $cou.append($('<td></td>',{style: 'width:17%',class: "content-name",html:data.chapters[i].name}));
-                            // $cou.append($('<td></td>',{style: 'width:13%',class: "chapter-name"/*,html:data.courses[i].category*/}));
-                            // $cou.append($('<td></td>',{style: 'width:41%',class: "section-name"/*,html:data.courses[i].introduce*/}));
-                            // $cou.append($('<td></td>',{style: 'width:15%',class: "type",html:"课程权限（尚未接入）"}));
-                            // $cou.append($('<td></td>',{style: 'width:9%',class: "detail",html:'<a href="'+data.chapters[i].name+'">查看</a>'}));
-                            // // $cou.append($('<td></td>',{html:data.courses[i].demaprtment}));
-                            // $cou.append('<td style="width:6%"><a class="edit" href="javascript:;">修改</a></td><td style="width:6%"><a class="delete" href="javascript:;">删除</a></td>');
-                            // $('tbody').append($cou);
-
+                            chapname = data.chapters[i].name;
                             $.ajax({
                                 type: "POST",
                                 url: "http://115.159.188.200:8000/get_section/",
@@ -56,7 +51,55 @@ var EditableTable = function () {
                                     console.log("获取节：");
                                     console.log(data);
                                     if(data.code==1000){
-                                        
+                                        for (var i = 0; i < data.sections.length; i++) {
+                                            secname = data.sections[i].name;
+                                            $.ajax({
+                                                type: "POST",
+                                                url: "http://115.159.188.200:8000/get_content/",
+                                                data: "section_id="+data.sections[i].id,
+                                                dataType: "json",
+                                                async: false,
+                                                //下面2个参数用于解决跨域问题  
+                                                xhrFields: {
+                                                    withCredentials: true
+                                                },
+                                                crossDomain: true,
+                                                success: function(data){
+                                                    console.log("获取内容：");
+                                                    console.log(data);
+                                                    if(data.code==1000){
+                                                        
+                                                        for (var i = 0; i < data.contents.length; i++) {
+                                                            t++;
+                                                            var $con= $('<tr></tr>');
+                                                            $con.append($('<td></td>',{style: '',class: "content-id",html:t}));
+                                                            $con.append($('<td></td>',{style: '',class: "content-name",html:data.contents[i].name}));
+                                                            $con.append($('<td></td>',{style: '',class: "chapter-name",html:chapname}));
+                                                            $con.append($('<td></td>',{style: '',class: "section-name",html:secname}));
+
+                                                            if(data.contents[i].type=="V"){
+                                                                $con.append($('<td></td>',{style: '',class: "type",html:"视频"}));
+                                                            }else if(data.contents[i].type=="A"){
+                                                                $con.append($('<td></td>',{style: '',class: "type",html:"音频"}));
+                                                            }else if(data.contents[i].type=="P"){
+                                                                $con.append($('<td></td>',{style: '',class: "type",html:"文档"}));
+                                                            }
+
+                                                            $con.append($('<td></td>',{style: '',class: "detail",html:'<a href="'+'http://115.159.188.200:8000'+data.contents[i].url+'">查看</a>'}));
+                                                            $con.append('<td style=""><a class="edit" href="javascript:;">修改</a></td><td style="width:6%"><a class="delete" href="javascript:;">删除</a></td>');
+                                                            $('tbody').append($con);
+                                                        };
+                                                    }else if(data.code==1001){
+                                                        window.alert("您尚未登录。");
+                                                    }else{
+                                                        window.alert(data.msg);
+                                                    }
+                                                },
+                                                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                                                    window.alert(textStatus);
+                                                }
+                                            });
+                                        };
                                     }else if(data.code==1001){
                                         window.alert("您尚未登录。");
                                     }else{
@@ -158,7 +201,7 @@ var EditableTable = function () {
             $('#editable-sample a.delete').live('click', function (e) {
                 e.preventDefault();
 
-                var f = window.confirm("确定要删除此门课程么?");
+                var f = window.confirm("确定要删除此课程资料么?");
 
                 if (f == false) {
                     return;
