@@ -14,6 +14,8 @@
   <link href="css/style-responsive.css" rel="stylesheet">
 
   <link href="css/create_course.css" rel="stylesheet">
+  <link href="css/upload_video.css" rel="stylesheet">
+  
 
   <!--multi-select-->
   <link rel="stylesheet" type="text/css" href="js/jquery-multi-select/css/multi-select.css" />
@@ -435,15 +437,27 @@
                                         <fieldset title="步骤1">
                                             <legend>选择视频所在课程章节</legend>
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label col-lg-1" for="inputSuccess">课程</label>
+                                                <label class="col-sm-2 control-label col-lg-1" for="inputSuccess">章</label>
                                                 <div class="col-lg-4">
-                                                    <select multiple="" name="category_name" class="form-control" id="courses_names" onchange="createChapters()">
+                                                    <select multiple="" name="chapter_name" class="form-control" id="chapters_names" onchange="showSections()">
                                                     </select>
                                                 </div>
-                                                <label class="col-sm-2 control-label col-lg-1" for="inputSuccess">章节</label>
+                                                <label class="col-sm-2 control-label col-lg-1" for="inputSuccess">节</label>
                                                 <div class="col-lg-4">
-                                                    <select multiple="" name="chapter_name" class="form-control" id="chapters_names" onchange="selectChapter()">
+                                                    <select multiple="" name="chapter_name" class="form-control" id="sections_names" onchange="selectChapter()">
                                                     </select>
+                                                </div>
+                                                <div class="col-lg-2" style="height:250px;">
+                                                </div>
+                                                <div class="col-lg-1" style="height:20px;">
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-newchapter-modal-lg"><i class="fa fa-plus"></i>创建章</button>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-newsection-modal-lg"><i class="fa fa-plus"></i>创建节</button>
                                                 </div>
                                             </div>
                                         </fieldset>
@@ -489,6 +503,38 @@
 
 
     </div>
+    <!-- 模态框1 -->
+    <div class="modal fade bs-newchapter-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myLargeModalLabel">创建章</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="new-chap-name" placeholder="请填写章名称" class="form-control">
+                    <input type="text" id="new-chap-id" placeholder="请填写章序号" class="form-control">
+                    <button id="add_chapter" class="btn btn-primary">创建</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 模态框2 -->
+    <div class="modal fade bs-newsection-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myLargeModalLabel">创建节</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="new-sec-name" placeholder="请填写节名称" class="form-control">
+                    <input type="text" id="new-sec-id" placeholder="请填写节序号" class="form-control">
+                    <button id="add_section" class="btn btn-primary">创建</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- main content end-->
 </section>
 
@@ -502,9 +548,10 @@
 <script src="js/modernizr.min.js"></script>
 <script src="js/jquery.nicescroll.js"></script>
 
-
-
 <script src="js/upload_video.js"></script>
+
+<!-- 右键插件 -->
+<script src="js/context.js"></script>
 
 <!--common scripts for all pages-->
 <script src="js/scripts.js"></script>

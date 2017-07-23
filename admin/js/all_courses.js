@@ -1,3 +1,20 @@
+$(document).ready(function(){
+    //右键初始化
+            context.init({
+                fadeSpeed: 100,
+                filter: function ($obj){},
+                above: 'auto',
+                preventDoubleContext: true,
+                compress: false
+            });
+            context.attach('.course-name', [
+                {text: '<span class="fa fa-file"></span>&nbsp;&nbsp;查看课程资料', action: function(e) {
+                    var courseid = $(context.target).prev().text();
+                    window.location.href="all_contents.html?course_id="+courseid;
+                }}
+            ]);
+});
+
 var EditableTable = function () {
 
     return {
@@ -22,13 +39,14 @@ var EditableTable = function () {
                     if(data.code==1000){
                         for (var i = 0; i < data.courses.length; i++) {
                             var $cou= $('<tr></tr>');
-                            $cou.append($('<td></td>',{class: "course-id",html:data.courses[i].id}));
-                            $cou.append($('<td></td>',{class: "course-name",html:data.courses[i].name}));
-                            $cou.append($('<td></td>',{class: "course-category",html:data.courses[i].category}));
-                            $cou.append($('<td></td>',{class: "course-introduce",html:data.courses[i].introduce}));
-                            $cou.append($('<td></td>',{class: "course-departments",html:"课程权限（尚未接入）"}));
+                            $cou.append($('<td></td>',{style: 'width:3%',class: "course-id",html:data.courses[i].id}));
+                            $cou.append($('<td></td>',{style: 'width:17%',class: "course-name",html:data.courses[i].name}));
+                            $cou.append($('<td></td>',{style: 'width:13%',class: "course-category",html:data.courses[i].category}));
+                            $cou.append($('<td></td>',{style: 'width:41%',class: "course-introduce",html:data.courses[i].introduce}));
+                            $cou.append($('<td></td>',{style: 'width:15%',class: "course-departments",html:"课程权限（尚未接入）"}));
+                            $cou.append($('<td></td>',{style: 'width:9%',class: "upload-video",html:'<a href="upload_content.html?course_id='+data.courses[i].id+'&course_name='+data.courses[i].name+'">上传</a>'}));
                             // $cou.append($('<td></td>',{html:data.courses[i].demaprtment}));
-                            $cou.append('<td><a class="edit" href="javascript:;">修改</a></td><td><a class="delete" href="javascript:;">删除</a></td>');
+                            $cou.append('<td style="width:6%"><a class="edit" href="javascript:;">修改</a></td><td style="width:6%"><a class="delete" href="javascript:;">删除</a></td>');
                             $('tbody').append($cou);
                         };
                     }else if(data.code==1001){
@@ -135,7 +153,7 @@ var EditableTable = function () {
 
                 $.ajax({
                 type: "POST",
-                url: "http://115.159.188.200:8000/delete_course/",
+                url: "http://115.159.188.200:8000/del_course/",
                 data: "course_name="+$(this).parent().parent().find(".course-name").text(),
                 dataType: "json",
                 async: false,
@@ -219,3 +237,4 @@ var EditableTable = function () {
     };
 
 }();
+

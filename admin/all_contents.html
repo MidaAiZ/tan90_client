@@ -7,7 +7,7 @@
   <meta name="author" content="ThemeBucket">
   <link rel="shortcut icon" href="#" type="image/png">
 
-  <title>全部部门</title>
+  <title>课程资料</title>
 
   <!--data table-->
   <link rel="stylesheet" href="js/data-tables/DT_bootstrap.css" />
@@ -16,6 +16,7 @@
   <link href="css/style-responsive.css" rel="stylesheet">
 
   <link href="css/all_categories.css" rel="stylesheet">
+  <link href="css/all_contents.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -65,7 +66,7 @@
             <ul class="nav nav-pills nav-stacked custom-nav">
                 <li class=""><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
 
-                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>课程管理</span></a>
+                <li class="menu-list active"><a href=""><i class="fa fa-book"></i> <span>课程管理</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="all_courses.html">全部课程</a></li>
                         <li><a href="all_categories.html">课程分类</a></li>
@@ -74,7 +75,7 @@
                     </ul>
                 </li>
                 
-                <li class="menu-list active"><a href=""><i class="fa fa-user"></i> <span>学员管理</span></a>
+                <li class="menu-list"><a href=""><i class="fa fa-user"></i> <span>学员管理</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="all_students.html">全部学员</a></li>
                         <li><a href="all_departments.html">部门管理</a></li>
@@ -305,13 +306,13 @@
         <!-- page heading start-->
         <div class="page-heading">
             <h3>
-               全部部门
+                课程资料
             </h3>
             <ul class="breadcrumb">
                 <li>
-                    <a href="all_students.html">学员管理</a>
+                    <a href="all_courses.html">课程管理</a>
                 </li>
-                <li class="active">全部部门</li>
+                <li class="active"> 课程资料 </li>
             </ul>
         </div>
         <!-- page heading end-->
@@ -322,15 +323,17 @@
                 <div class="col-sm-12">
                 <section class="panel">
                 <header class="panel-heading">
-                    全部部门
+                    课程资料
                 </header>
                 <div class="panel-body">
                 <div class="adv-table editable-table ">
                 <div class="clearfix">
                     <div class="btn-group">
-                        <button id="editable-sample_new" class="btn btn-primary">
-                            创建部门 <i class="fa fa-plus"></i>
-                        </button>
+                        <a href="create_course.html">
+                            <button  class="btn btn-primary">
+                                创建课程 <i class="fa fa-plus"></i>
+                            </button>
+                        </a>
                     </div>
                     <div class="btn-group pull-right">
                         <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">工具 <i class="fa fa-angle-down"></i>
@@ -346,14 +349,18 @@
                 <table class="table table-striped table-hover table-bordered" id="editable-sample">
                 <thead>
                 <tr>
-                    <th>部门id</th>
-                    <th>部门名称</th>
+                    <th>序号</th>
+                    <th>名称</th>
+                    <th>所属章</th>
+                    <th>所属节</th>
+                    <th>文件类型</th>
+                    <th>查看</th>
                     <th>修改</th>
                     <th>删除</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <!-- 动态生成部门列表 -->
+                    <!-- 此处动态生成 -->
                 </tbody>
                 </table>
                 </div>
@@ -390,7 +397,10 @@
 <!--common scripts for all pages-->
 <script src="js/scripts.js"></script>
 
-<script src="js/all_departments.js"></script>
+<script src="js/all_contents.js"></script>
+
+<!-- 右键插件 -->
+<script src="js/context.js"></script>
 
 <!-- END JAVASCRIPTS -->
 <script>

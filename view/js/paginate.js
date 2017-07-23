@@ -30,8 +30,9 @@ var myPaginate = function(limit, url, callBK, pageTag) {
         getLists(resUrl, paginate.find("li.active").find("a").data("value"));
     }
 
-    function changeUrl(url) {
+    function changeUrl(url, callb) {
         resUrl = url;
+        callb && (callBK = callb)
         update();
     }
 
