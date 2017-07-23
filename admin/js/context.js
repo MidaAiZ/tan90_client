@@ -101,7 +101,10 @@ var context = context || (function () {
 		$(document).on('contextmenu', selector, function (e) {
 			e.preventDefault();
 			e.stopPropagation();
+<<<<<<< a500dc65f1bf412fdaa5e1061488a5c8b7271180
 			context.target = e.target;
+=======
+>>>>>>> 学员端查找结果对接 增加章节添加功能
 			
 			$('.dropdown-context:not(.dropdown-context-sub)').hide();
 			
