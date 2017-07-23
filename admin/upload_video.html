@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="ThemeBucket">
+  <link rel="shortcut icon" href="#" type="image/png">
+
+  <title>上传视频</title>
+
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/jquery.stepy.css" rel="stylesheet">
+  <link href="css/style-responsive.css" rel="stylesheet">
+
+  <link href="css/create_course.css" rel="stylesheet">
+  <link href="css/upload_video.css" rel="stylesheet">
+  
+
+  <!--multi-select-->
+  <link rel="stylesheet" type="text/css" href="js/jquery-multi-select/css/multi-select.css" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+
+
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+        </div>
+
+        <div class="logo-icon text-center">
+            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+        </div>
+        <!--logo and iconic logo end-->
+
+
+        <div class="left-side-inner">
+
+            <!-- visible to small devices only -->
+            <div class="visible-xs hidden-sm hidden-md hidden-lg">
+                <div class="media logged-user">
+                    <img alt="" src="images/photos/user-avatar.png" class="media-object">
+                    <div class="media-body">
+                        <h4><a href="#">John Doe</a></h4>
+                        <span>"Hello There..."</span>
+                    </div>
+                </div>
+
+                <h5 class="left-nav-title">Account Information</h5>
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+                    <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+                    <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+                </ul>
+            </div>
+
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>布局</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="blank_page.html">空白页</a></li>
+                        <li><a href="boxed_view.html">盒子模型</a></li>
+                        <li><a href="leftmenu_collapsed_view.html">缩略导航</a></li>
+                        <li><a href="horizontal_menu.html">水平导航</a></li>
+
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>学员统计</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="blank_page.html">学习时间</a></li>
+                        <li><a href="boxed_view.html">课程数</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>课程统计</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="blank_page.html">学习人次</a></li>
+                        <li><a href="boxed_view.html">课程问答</a></li>
+                        <li><a href="leftmenu_collapsed_view.html">课程笔记</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>课程管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="all_courses.html">全部课程</a></li>
+                        <li><a href="all_categories.html">分类管理</a></li>
+                        <li><a href="create_course.html">新建课程</a></li>
+                        <li><a href="upload_video.html">上传视频</a></li>
+                        <li><a href="upload_pdf.html">上传PDF</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>企业信息管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="all_departments.html">部门管理</a></li>
+                        <li><a href="all_students.html">学员管理</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>UI 控件</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="general.html">概览</a></li>
+                        <li><a href="buttons.html">按钮</a></li>
+                        <li><a href="tabs-accordions.html"> 标签页</a></li>
+                        <li><a href="typography.html"> 介绍</a></li>
+                        <li><a href="slider.html"> 滑动条</a></li>
+                        <li><a href="panels.html"> 面板</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>组件</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="grids.html"> 栅格</a></li>
+                        <li><a href="gallery.html"> 图片展览</a></li>
+                        <li><a href="calendar.html"> 日历</a></li>
+                        <li><a href="tree_view.html"> 树状图</a></li>
+                        <li><a href="nestable.html"> 代码块</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a href="fontawesome.html"><i class="fa fa-bullhorn"></i> <span>图标</span></a></li>
+
+                <li class="menu-list"><a href=""><i class="fa fa-envelope"></i> <span>邮箱</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="mail.html"> 列表</a></li>
+                        <li><a href="mail_compose.html"> 编辑</a></li>
+                        <li><a href="mail_view.html"> 查看</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span> 表单</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="form_layouts.html"> 布局</a></li>
+                        <li><a href="form_advanced_components.html"> 组件</a></li>
+                        <li><a href="form_wizard.html"> 样板</a></li>
+                        <li><a href="form_validation.html"> 验证</a></li>
+                        <li><a href="editors.html"> 编辑</a></li>
+                        <li><a href="inline_editors.html"> 内联编辑</a></li>
+                        <li><a href="pickers.html"> 选择器</a></li>
+                        <li><a href="dropzone.html"> 文件上传</a></li>
+                        <li><a href="http://www.weidea.net"> 更多</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-bar-chart-o"></i> <span>图表</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="flot_chart.html"> Flot Charts</a></li>
+                        <li><a href="morris.html"> Morris Charts</a></li>
+                        <li><a href="chartjs.html"> Chartjs</a></li>
+                        <li><a href="c3chart.html"> C3 Charts</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href="#"><i class="fa fa-th-list"></i> <span>数据报表</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="basic_table.html"> Basic Table</a></li>
+                        <li><a href="dynamic_table.html"> Advanced Table</a></li>
+                        <li><a href="responsive_table.html"> Responsive Table</a></li>
+                        <li><a href="editable_table.html"> Edit Table</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-list"><a href="#"><i class="fa fa-map-marker"></i> <span>地图</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="google_map.html"> Google Map</a></li>
+                        <li><a href="vector_map.html"> Vector Map</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>杂项</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="profile.html"> Profile</a></li>
+                        <li><a href="invoice.html"> Invoice</a></li>
+                        <li><a href="pricing_table.html"> Pricing Table</a></li>
+                        <li><a href="timeline.html"> Timeline</a></li>
+                        <li><a href="blog_list.html"> Blog List</a></li>
+                        <li><a href="blog_details.html"> Blog Details</a></li>
+                        <li><a href="directory.html"> Directory </a></li>
+                        <li><a href="chat.html"> Chat </a></li>
+                        <li><a href="404.html"> 404 Error</a></li>
+                        <li><a href="500.html"> 500 Error</a></li>
+                        <li><a href="registration.html"> Registration Page</a></li>
+                        <li><a href="lock_screen.html"> Lockscreen </a></li>
+                    </ul>
+                </li>
+                <li><a href="login.html"><i class="fa fa-sign-in"></i> <span>登录页</span></a></li>
+
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>
+    </div>
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <div class="header-section">
+
+        <!--toggle button start-->
+        <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+        <!--toggle button end-->
+
+        <!--search start-->
+        <form class="searchform" action="index.html" method="post">
+            <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+        </form>
+        <!--search end-->
+
+        <!--notification menu start -->
+        <div class="menu-right">
+            <ul class="notification-menu">
+                <li>
+                    <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                        <i class="fa fa-tasks"></i>
+                        <span class="badge">8</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-head pull-right">
+                        <h5 class="title">You have 8 pending task</h5>
+                        <ul class="dropdown-list user-list">
+                            <li class="new">
+                                <a href="#">
+                                    <div class="task-info">
+                                        <div>Database update</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-warning">
+                                            <span class="">40%</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="new">
+                                <a href="#">
+                                    <div class="task-info">
+                                        <div>Dashboard done</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div style="width: 90%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" role="progressbar" class="progress-bar progress-bar-success">
+                                            <span class="">90%</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="task-info">
+                                        <div>Web Development</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div style="width: 66%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="66" role="progressbar" class="progress-bar progress-bar-info">
+                                            <span class="">66% </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="task-info">
+                                        <div>Mobile App</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div style="width: 33%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="33" role="progressbar" class="progress-bar progress-bar-danger">
+                                            <span class="">33% </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="task-info">
+                                        <div>Issues fixed</div>
+                                    </div>
+                                    <div class="progress progress-striped">
+                                        <div style="width: 80%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" class="progress-bar">
+                                            <span class="">80% </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="new"><a href="">See All Pending Task</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                        <i class="fa fa-envelope-o"></i>
+                        <span class="badge">5</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-head pull-right">
+                        <h5 class="title">You have 5 Mails </h5>
+                        <ul class="dropdown-list normal-list">
+                            <li class="new">
+                                <a href="">
+                                    <span class="thumb"><img src="images/photos/user1.png" alt="" /></span>
+                                        <span class="desc">
+                                          <span class="name">John Doe <span class="badge badge-success">new</span></span>
+                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                                        </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="thumb"><img src="images/photos/user2.png" alt="" /></span>
+                                        <span class="desc">
+                                          <span class="name">Jonathan Smith</span>
+                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                                        </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="thumb"><img src="images/photos/user3.png" alt="" /></span>
+                                        <span class="desc">
+                                          <span class="name">Jane Doe</span>
+                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                                        </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="thumb"><img src="images/photos/user4.png" alt="" /></span>
+                                        <span class="desc">
+                                          <span class="name">Mark Henry</span>
+                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                                        </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="thumb"><img src="images/photos/user5.png" alt="" /></span>
+                                        <span class="desc">
+                                          <span class="name">Jim Doe</span>
+                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                                        </span>
+                                </a>
+                            </li>
+                            <li class="new"><a href="">Read All Mails</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                        <i class="fa fa-bell-o"></i>
+                        <span class="badge">4</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-head pull-right">
+                        <h5 class="title">Notifications</h5>
+                        <ul class="dropdown-list normal-list">
+                            <li class="new">
+                                <a href="">
+                                    <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                    <span class="name">Server #1 overloaded.  </span>
+                                    <em class="small">34 mins</em>
+                                </a>
+                            </li>
+                            <li class="new">
+                                <a href="">
+                                    <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                    <span class="name">Server #3 overloaded.  </span>
+                                    <em class="small">1 hrs</em>
+                                </a>
+                            </li>
+                            <li class="new">
+                                <a href="">
+                                    <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                    <span class="name">Server #5 overloaded.  </span>
+                                    <em class="small">4 hrs</em>
+                                </a>
+                            </li>
+                            <li class="new">
+                                <a href="">
+                                    <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                    <span class="name">Server #31 overloaded.  </span>
+                                    <em class="small">4 hrs</em>
+                                </a>
+                            </li>
+                            <li class="new"><a href="">See All Notifications</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" class="u-info btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <img class="u-avatar" />
+                        <span class="u-name"></span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                        <li><a href="/admin/profile.html"><i class="fa fa-user"></i>  个人中心</a></li>
+                        <li><a href="#"><i class="fa fa-cog"></i>  设置</a></li>
+                        <li><a href="javascript:void(0)" id="logout-btn"><i class="fa fa-sign-out"></i> 退出</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <!--notification menu end -->
+
+        </div>
+        <!-- header section end-->
+
+        <!-- page heading start-->
+        <div class="page-heading">
+            <h3>
+                上传视频
+            </h3>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="all_courses.html">课程管理</a>
+                </li>
+                <li class="active">上传视频</li>
+            </ul>
+        </div>
+        <!-- page heading end-->
+        <hr/>
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box-widget">
+                        <div class="widget-head clearfix">
+                            <div id="top_tabby" class="block-tabby pull-left">
+                            </div>
+                        </div>
+                        <div class="widget-container">
+                            <div class="widget-block">
+                                <div class="widget-content box-padding">
+                                    <form id="stepy_form" name="upload" enctype="MULTIPART/FORM-DATA" class=" form-horizontal left-align form-well" method="post">
+                                        <fieldset title="步骤1">
+                                            <legend>选择视频所在课程章节</legend>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label col-lg-1" for="inputSuccess">章</label>
+                                                <div class="col-lg-4">
+                                                    <select multiple="" name="chapter_name" class="form-control" id="chapters_names" onchange="showSections()">
+                                                    </select>
+                                                </div>
+                                                <label class="col-sm-2 control-label col-lg-1" for="inputSuccess">节</label>
+                                                <div class="col-lg-4">
+                                                    <select multiple="" name="chapter_name" class="form-control" id="sections_names" onchange="selectChapter()">
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-2" style="height:250px;">
+                                                </div>
+                                                <div class="col-lg-1" style="height:20px;">
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-newchapter-modal-lg"><i class="fa fa-plus"></i>创建章</button>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-newsection-modal-lg"><i class="fa fa-plus"></i>创建节</button>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset title="步骤2">
+                                            <legend>填写视频相关信息</legend>
+                                            <div class="form-group">
+                                                <label class="col-md-2 col-sm-2 control-label">视频名称</label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <input type="text" name="name" placeholder="请填写视频名称" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 col-sm-2 control-label">视频在章节内顺序</label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <input type="number" name="index" placeholder="请填写视频在章节内顺序" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputVideo" class="col-lg-2 col-sm-2 control-label">视频</label>
+                                                <div class="col-lg-10">
+                                                    <input type="hidden" name="chapter_id" id="hiddenId">
+                                                    <input type="file" id="inputVideo" name="video" class="default">
+                                                </div>
+                                            </div>
+                                        </fieldset>
+
+                                        <button id="uploadVideo" class="finish btn btn-success btn-extend">上传视频</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--body wrapper end-->
+
+        <!--footer section start-->
+        <footer class="sticky-footer">
+            2014 &copy; AdminEx by ThemeBucket
+        </footer>
+        <!--footer section end-->
+
+
+    </div>
+    <!-- 模态框1 -->
+    <div class="modal fade bs-newchapter-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myLargeModalLabel">创建章</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="new-chap-name" placeholder="请填写章名称" class="form-control">
+                    <input type="text" id="new-chap-id" placeholder="请填写章序号" class="form-control">
+                    <button id="add_chapter" class="btn btn-primary">创建</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 模态框2 -->
+    <div class="modal fade bs-newsection-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myLargeModalLabel">创建节</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="new-sec-name" placeholder="请填写节名称" class="form-control">
+                    <input type="text" id="new-sec-id" placeholder="请填写节序号" class="form-control">
+                    <button id="add_section" class="btn btn-primary">创建</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/jquery.stepy.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+
+<script src="js/upload_video.js"></script>
+
+<!-- 右键插件 -->
+<script src="js/context.js"></script>
+
+<!--common scripts for all pages-->
+<script src="js/scripts.js"></script>
+
+
+
+
+<script>
+    /*=====STEPY WIZARD WITH VALIDATION====*/
+    $(function() {
+        $('#stepy_form').stepy({
+            backLabel: '上一步',
+            nextLabel: '下一步',
+            errorImage: true,
+            block: true,
+            description: true,
+            legend: false,
+            titleClick: true,
+            titleTarget: '#top_tabby',
+            validate: true
+        });
+        $('#stepy_form').validate({
+            errorPlacement: function(error, element) {
+                $('#stepy_form div.stepy-error').append(error);
+            },
+            rules: {
+                'chapter_name': 'required',
+                'name': 'required',
+                'index': 'required',
+                'video': 'required'
+            },
+            messages: {
+                'chapter_name': {
+                    required: '视频所在章节必须选择！'
+                },
+                'name': {
+                    required: '视频名称不可为空！'
+                },
+                'index': {
+                    required: '课程在章节内顺序不可为空！'
+                },
+                'video': {
+                    required: '视频不可为空！'
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

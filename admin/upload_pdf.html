@@ -7,22 +7,24 @@
   <meta name="author" content="ThemeBucket">
   <link rel="shortcut icon" href="#" type="image/png">
 
-  <title>全部课程信息</title>
-
-  <!--data table-->
-  <link rel="stylesheet" href="js/data-tables/DT_bootstrap.css" />
+  <title>上传PDF</title>
 
   <link href="css/style.css" rel="stylesheet">
+  <link href="css/jquery.stepy.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
 
-  <link href="css/all_categories.css" rel="stylesheet">
-  <link href="css/all_courses.css" rel="stylesheet">
+  <link href="css/create_course.css" rel="stylesheet">
+
+  <!--multi-select-->
+  <link rel="stylesheet" type="text/css" href="js/jquery-multi-select/css/multi-select.css" />
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
   <script src="js/respond.min.js"></script>
   <![endif]-->
+
+
 </head>
 
 <body class="sticky-header">
@@ -64,30 +66,129 @@
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class=""><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+                <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>布局</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="blank_page.html">空白页</a></li>
+                        <li><a href="boxed_view.html">盒子模型</a></li>
+                        <li><a href="leftmenu_collapsed_view.html">缩略导航</a></li>
+                        <li><a href="horizontal_menu.html">水平导航</a></li>
 
-                <li class="menu-list active"><a href=""><i class="fa fa-book"></i> <span>课程管理</span></a>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>学员统计</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="blank_page.html">学习时间</a></li>
+                        <li><a href="boxed_view.html">课程数</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>课程统计</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="blank_page.html">学习人次</a></li>
+                        <li><a href="boxed_view.html">课程问答</a></li>
+                        <li><a href="leftmenu_collapsed_view.html">课程笔记</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>课程管理</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="all_courses.html">全部课程</a></li>
-                        <li><a href="all_categories.html">课程分类</a></li>
-                        <li><a href="create_course.html">创建课程</a></li>
-                        <li><a href="#">课程推送</a></li>
+                        <li><a href="all_categories.html">分类管理</a></li>
+                        <li><a href="create_course.html">新建课程</a></li>
+                        <li><a href="upload_video.html">上传视频</a></li>
+                        <li><a href="upload_pdf.html">上传PDF</a></li>
                     </ul>
                 </li>
-                
-                <li class="menu-list"><a href=""><i class="fa fa-user"></i> <span>学员管理</span></a>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>企业信息管理</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="all_students.html">全部学员</a></li>
                         <li><a href="all_departments.html">部门管理</a></li>
+                        <li><a href="all_students.html">学员管理</a></li>
                     </ul>
                 </li>
-                <li class="menu-list"><a href=""><i class="fa fa-cog"></i> <span>系统设置</span></a>
+                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>UI 控件</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="#">网站信息统计</a></li>
-                        <li><a href="infoSet_manager.html">管理员信息设置</a></li>
-                        <li><a href="#">注册码</a></li>
+                        <li><a href="general.html">概览</a></li>
+                        <li><a href="buttons.html">按钮</a></li>
+                        <li><a href="tabs-accordions.html"> 标签页</a></li>
+                        <li><a href="typography.html"> 介绍</a></li>
+                        <li><a href="slider.html"> 滑动条</a></li>
+                        <li><a href="panels.html"> 面板</a></li>
                     </ul>
                 </li>
+                <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>组件</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="grids.html"> 栅格</a></li>
+                        <li><a href="gallery.html"> 图片展览</a></li>
+                        <li><a href="calendar.html"> 日历</a></li>
+                        <li><a href="tree_view.html"> 树状图</a></li>
+                        <li><a href="nestable.html"> 代码块</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a href="fontawesome.html"><i class="fa fa-bullhorn"></i> <span>图标</span></a></li>
+
+                <li class="menu-list"><a href=""><i class="fa fa-envelope"></i> <span>邮箱</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="mail.html"> 列表</a></li>
+                        <li><a href="mail_compose.html"> 编辑</a></li>
+                        <li><a href="mail_view.html"> 查看</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span> 表单</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="form_layouts.html"> 布局</a></li>
+                        <li><a href="form_advanced_components.html"> 组件</a></li>
+                        <li><a href="form_wizard.html"> 样板</a></li>
+                        <li><a href="form_validation.html"> 验证</a></li>
+                        <li><a href="editors.html"> 编辑</a></li>
+                        <li><a href="inline_editors.html"> 内联编辑</a></li>
+                        <li><a href="pickers.html"> 选择器</a></li>
+                        <li><a href="dropzone.html"> 文件上传</a></li>
+                        <li><a href="http://www.weidea.net"> 更多</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-bar-chart-o"></i> <span>图表</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="flot_chart.html"> Flot Charts</a></li>
+                        <li><a href="morris.html"> Morris Charts</a></li>
+                        <li><a href="chartjs.html"> Chartjs</a></li>
+                        <li><a href="c3chart.html"> C3 Charts</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href="#"><i class="fa fa-th-list"></i> <span>数据报表</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="basic_table.html"> Basic Table</a></li>
+                        <li><a href="dynamic_table.html"> Advanced Table</a></li>
+                        <li><a href="responsive_table.html"> Responsive Table</a></li>
+                        <li><a href="editable_table.html"> Edit Table</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-list"><a href="#"><i class="fa fa-map-marker"></i> <span>地图</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="google_map.html"> Google Map</a></li>
+                        <li><a href="vector_map.html"> Vector Map</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>杂项</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="profile.html"> Profile</a></li>
+                        <li><a href="invoice.html"> Invoice</a></li>
+                        <li><a href="pricing_table.html"> Pricing Table</a></li>
+                        <li><a href="timeline.html"> Timeline</a></li>
+                        <li><a href="blog_list.html"> Blog List</a></li>
+                        <li><a href="blog_details.html"> Blog Details</a></li>
+                        <li><a href="directory.html"> Directory </a></li>
+                        <li><a href="chat.html"> Chat </a></li>
+                        <li><a href="404.html"> 404 Error</a></li>
+                        <li><a href="500.html"> 500 Error</a></li>
+                        <li><a href="registration.html"> Registration Page</a></li>
+                        <li><a href="lock_screen.html"> Lockscreen </a></li>
+                    </ul>
+                </li>
+                <li><a href="login.html"><i class="fa fa-sign-in"></i> <span>登录页</span></a></li>
 
             </ul>
             <!--sidebar nav end-->
@@ -307,73 +408,76 @@
         <!-- page heading start-->
         <div class="page-heading">
             <h3>
-                全部课程信息
+                上传PDF
             </h3>
             <ul class="breadcrumb">
                 <li>
                     <a href="all_courses.html">课程管理</a>
                 </li>
-                <li class="active"> 全部课程信息 </li>
+                <li class="active">上传PDF</li>
             </ul>
         </div>
         <!-- page heading end-->
-
+        <hr/>
         <!--body wrapper start-->
         <div class="wrapper">
-             <div class="row">
-                <div class="col-sm-12">
-                <section class="panel">
-                <header class="panel-heading">
-                    全部课程信息
-                </header>
-                <div class="panel-body">
-                <div class="adv-table editable-table ">
-                <div class="clearfix">
-                    <div class="btn-group">
-                        <a href="create_course.html">
-                            <button  class="btn btn-primary">
-                                创建课程 <i class="fa fa-plus"></i>
-                            </button>
-                        </a>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box-widget">
+                        <div class="widget-head clearfix">
+                            <div id="top_tabby" class="block-tabby pull-left">
+                            </div>
+                        </div>
+                        <div class="widget-container">
+                            <div class="widget-block">
+                                <div class="widget-content box-padding">
+                                    <form id="stepy_form" name="upload" enctype="MULTIPART/FORM-DATA" class=" form-horizontal left-align form-well" method="post">
+                                        <fieldset title="步骤1">
+                                            <legend>选择PDF所在课程章节</legend>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label col-lg-1" for="inputSuccess">章节</label>
+                                                <div class="col-lg-8">
+                                                    <select multiple="" name="chapter_name" class="form-control" id="chapters_names" onchange="selectChapter()">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset title="步骤2">
+                                            <legend>填写PDF相关信息</legend>
+                                            <div class="form-group">
+                                                <label class="col-md-2 col-sm-2 control-label">PDF名称</label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <input type="text" name="name" placeholder="请填写PDF名称" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 col-sm-2 control-label">PDF在章节内顺序</label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <input type="number" name="index" placeholder="请填写PDF在章节内顺序" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputVideo" class="col-lg-2 col-sm-2 control-label">PDF</label>
+                                                <div class="col-lg-10">
+                                                    <input type="hidden" name="chapter_id" id="hiddenId">
+                                                    <input type="file" id="inputVideo" name="pdf" class="default">
+                                                </div>
+                                            </div>
+                                        </fieldset>
+
+                                        <button id="uploadVideo" class="finish btn btn-success btn-extend">上传PDF</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="btn-group pull-right">
-                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">工具 <i class="fa fa-angle-down"></i>
-                        </button>
-                        <ul class="dropdown-menu pull-right">
-                            <li><a href="#">打印</a></li>
-                            <li><a href="#">保存为PDF</a></li>
-                            <li><a href="#">导出为Excel</a></li>
-                        </ul>
-                    </div>
                 </div>
-                <div class="space15"></div>
-                <table class="table table-striped table-hover table-bordered" id="editable-sample">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>课程名称</th>
-                    <th>所属分类</th>
-                    <th>课程简介</th>
-                    <th>课程权限</th>
-                    <th>上传</th>
-                    <th>修改</th>
-                    <th>删除</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <!-- 此处动态生成 -->
-                </tbody>
-                </table>
-                </div>
-                </div>
-                </section>
-                </div>
-                </div>
+            </div>
         </div>
         <!--body wrapper end-->
 
         <!--footer section start-->
-        <footer>
+        <footer class="sticky-footer">
             2014 &copy; AdminEx by ThemeBucket
         </footer>
         <!--footer section end-->
@@ -387,26 +491,61 @@
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
 <script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/jquery.stepy.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/modernizr.min.js"></script>
 <script src="js/jquery.nicescroll.js"></script>
 
-<!--data table-->
-<script type="text/javascript" src="js/data-tables/jquery.dataTables.js"></script>
-<script type="text/javascript" src="js/data-tables/DT_bootstrap.js"></script>
+
+
+<script src="js/upload_pdf.js"></script>
 
 <!--common scripts for all pages-->
 <script src="js/scripts.js"></script>
 
-<!-- 右键插件 -->
-<script src="js/context.js"></script>
 
-<script src="js/all_courses.js"></script>
 
-<!-- END JAVASCRIPTS -->
+
 <script>
-    jQuery(document).ready(function() {
-        EditableTable.init();
+    /*=====STEPY WIZARD WITH VALIDATION====*/
+    $(function() {
+        $('#stepy_form').stepy({
+            backLabel: '上一步',
+            nextLabel: '下一步',
+            errorImage: true,
+            block: true,
+            description: true,
+            legend: false,
+            titleClick: true,
+            titleTarget: '#top_tabby',
+            validate: true
+        });
+        $('#stepy_form').validate({
+            errorPlacement: function(error, element) {
+                $('#stepy_form div.stepy-error').append(error);
+            },
+            rules: {
+                'chapter_name': 'required',
+                'name': 'required',
+                'index': 'required',
+                'video': 'required'
+            },
+            messages: {
+                'chapter_name': {
+                    required: 'PDF所在章节必须选择！'
+                },
+                'name': {
+                    required: 'PDF名称不可为空！'
+                },
+                'index': {
+                    required: '课程在章节内顺序不可为空！'
+                },
+                'video': {
+                    required: 'PDF不可为空！'
+                }
+            }
+        });
     });
 </script>
 

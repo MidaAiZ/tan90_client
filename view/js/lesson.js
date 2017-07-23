@@ -33,9 +33,6 @@ $(function() {
 
     var lessonIdx = GetQueryString("lesson_index");
     var chapterIdx = GetQueryString("chapter_index");
-    window.chapterid = -1;
-    window.videoid = -1;
-    window.pdfid = -1;
 
     //设置catalog数组
     function setCatalogArray(data){
