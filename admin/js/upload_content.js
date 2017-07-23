@@ -99,23 +99,23 @@ $(document).ready(function(){
 
     context.attach('.chapter', [
         {text: '<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;删除', action: function(e) {
-            // 向服务器请求删除章
+            //向服务器请求删除章
             var chapterid = $(context.target).attr('chapterid');
         }},
         {text: '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;修改', action: function(e) {
-            // 向服务器请求修改章
+            //向服务器请求修改章
             var chapterid = $(context.target).attr('chapterid');
         }}
     ]);
 
     context.attach('.section', [
         {text: '<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;删除', action: function(e) {
-            // 向服务器请求删除节
+            //向服务器请求删除节
             var sectionid = $(context.target).attr('sectionid');
             $.ajax({
                 type: "POST",
                 url: "http://115.159.188.200:8000/del_section/",
-                data: 'session_id='+sectionid,
+                data: 'section_id='+sectionid,
                 dataType: "json",
                 async: false,
                 //下面2个参数用于解决跨域问题  
