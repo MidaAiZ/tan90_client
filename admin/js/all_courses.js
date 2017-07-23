@@ -1,3 +1,20 @@
+$(document).ready(function(){
+    //右键初始化
+            context.init({
+                fadeSpeed: 100,
+                filter: function ($obj){},
+                above: 'auto',
+                preventDoubleContext: true,
+                compress: false
+            });
+            context.attach('.course-name', [
+                {text: '<span class="fa fa-file"></span>&nbsp;&nbsp;查看课程资料', action: function(e) {
+                    var courseid = $(context.target).prev().text();
+                    window.location.href="all_contents.html?course_id="+courseid;
+                }}
+            ]);
+});
+
 var EditableTable = function () {
 
     return {
@@ -136,7 +153,7 @@ var EditableTable = function () {
 
                 $.ajax({
                 type: "POST",
-                url: "http://115.159.188.200:8000/delete_course/",
+                url: "http://115.159.188.200:8000/del_course/",
                 data: "course_name="+$(this).parent().parent().find(".course-name").text(),
                 dataType: "json",
                 async: false,
@@ -220,3 +237,4 @@ var EditableTable = function () {
     };
 
 }();
+

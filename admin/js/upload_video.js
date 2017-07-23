@@ -2,7 +2,7 @@
     function GetQueryString(name){
         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
-        if(r!=null)return  decodeURI(r[2]); return null;
+        if(r!=null)return  unescape(r[2]); return null;
     }
 
     function setChapters () {
@@ -81,10 +81,10 @@
 
     
 
-//点击节后，设置要提交的节id
+//点击章节后，设置要提交的章节id
     function selectChapter(){
-        var cour = $("#sections_names option:selected");
-        $('#hiddenId').val(cour.attr('sectionid'));
+        var cour = $("#chapters_names option:selected");
+        $('#hiddenId').val(cour.attr('chapterid'));
     }
 
 $(document).ready(function(){
@@ -99,23 +99,23 @@ $(document).ready(function(){
 
     context.attach('.chapter', [
         {text: '<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;删除', action: function(e) {
-            //向服务器请求删除章
+            // 向服务器请求删除章
             var chapterid = $(context.target).attr('chapterid');
         }},
         {text: '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;修改', action: function(e) {
-            //向服务器请求修改章
+            // 向服务器请求修改章
             var chapterid = $(context.target).attr('chapterid');
         }}
     ]);
 
     context.attach('.section', [
         {text: '<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;删除', action: function(e) {
-            //向服务器请求删除节
+            // 向服务器请求删除节
             var sectionid = $(context.target).attr('sectionid');
             $.ajax({
                 type: "POST",
                 url: "http://115.159.188.200:8000/del_section/",
-                data: 'section_id='+sectionid,
+                data: 'session_id='+sectionid,
                 dataType: "json",
                 async: false,
                 //下面2个参数用于解决跨域问题  
@@ -149,8 +149,6 @@ $(document).ready(function(){
 });
 
 $(function() {
-
-    $('#course-name').text("上传课程资料 至 "+(GetQueryString('course_name')));
 
     setChapters();
 
@@ -223,7 +221,7 @@ $(function() {
 
     console.log($("#uploadVideo"));
 
-    //点击“上传”提交信息给服务器
+    //点击“上传视频”提交信息给服务器
     $("#uploadVideo").on('click', function(){
         var formData =  new FormData(document.forms.namedItem("upload"));
         //视频名和index不为空
@@ -233,7 +231,7 @@ $(function() {
         
         $.ajax({
                 type: "POST",
-                url: "http://115.159.188.200:8000/add_content/",
+                url: "http://115.159.188.200:8000/add_video/",
                 data: formData,
                 dataType: "json",
                 async: false, 
@@ -249,7 +247,7 @@ $(function() {
                 success: function(data){
                     console.log(data);
                     if(data.code==1000){
-                        window.alert("上传课程资料成功");
+                        window.alert("上传视频成功");
                     }else if(data.code==1001){
                         window.alert("您尚未登录。");
                     }else if(data.code==1002){
