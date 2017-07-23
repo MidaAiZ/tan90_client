@@ -1,11 +1,16 @@
-//点击单门课程后，获取该门课程的所有章节列表
-    function createChapters(){
-        var cour = $("#courses_names option:selected");
-        // console.log(cour.attr('courseid'));
+    //获取参数方法
+    function GetQueryString(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+
+    function setChapters () {
+        //获取该门课程的所有章节列表
         $.ajax({
                 type: "POST",
                 url: "http://115.159.188.200:8000/get_chapter/",
-                data: 'id='+cour.attr('courseid'),
+                data: 'id='+GetQueryString('course_id'),
                 dataType: "json",
                 async: false,
                 //下面2个参数用于解决跨域问题  
@@ -34,8 +39,9 @@
                     window.alert(textStatus);
                 }
         });
-        
     }
+
+    
 
 //点击章节后，设置要提交的章节id
     function selectChapter(){
@@ -43,41 +49,65 @@
         $('#hiddenId').val(cour.attr('chapterid'));
     }
 
+$(document).ready(function(){
+    //右键初始化
+    context.init({
+        fadeSpeed: 100,
+        filter: function ($obj){},
+        above: 'auto',
+        preventDoubleContext: true,
+        compress: false
+    });
+
+    context.attach('.chapter', [
+        {text: '<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;删除', action: function function_name (argument) {
+            // 向服务器请求删除
+        }},
+        {text: '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;修改', action: function function_name (argument) {
+            // 向服务器请求修改
+        }}
+    ]);
+
+   
+});
+
 $(function() {
 
-    //从服务器获取所有课程并自动生成
-    $.ajax({
-        type: "POST",
-        url: "http://115.159.188.200:8000/get_all_courses/",
-        data: "limit=100&page=1",
-        dataType: "json",
-        //下面2个参数用于解决跨域问题  
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true,
-        success: function(data){
-            console.log("获取所有课程：");
-            console.log(data);
-            if(data.code==1000){
-                for (var i = 0; i < data.courses.length; i++) {
-                    var $opt = $('<option></option>',{class: 'course',html: data.courses[i].name});
-                    $opt.text(data.courses[i].name);
-                    $opt.attr('courseid', data.courses[i].id);
-                    $("#courses_names").append($opt);
-                };
-            }else if(data.code==1001){
-                window.alert("您尚未登录。");
-            }else if(data.code==1002){
-                window.alert("您不是管理员，没有此权限。");
-            }else{
-                window.alert(data.msg);
+    setChapters();
+
+    
+
+    $("#add_chapter").on('click',function(){
+        var newname = $('#new-chap-name').val();
+        var newid = $('#new-chap-id').val();
+
+        $.ajax({
+            type: "POST",
+            url: "http://115.159.188.200:8000/add_chapter/",
+            data: "course_id="+GetQueryString('course_id')+"&chapter_id="+newid+"&name="+newname,
+            dataType: "json",
+            //下面2个参数用于解决跨域问题  
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            success: function(data){
+                if(data.code==1000){
+                    setChapters();
+                    $('.bs-newchapter-modal-lg').modal('hide');
+                }else if(data.code==1001){
+                    window.alert("您尚未登录。");
+                }else if(data.code==1002){
+                    window.alert("您不是管理员，没有此权限。");
+                }else{
+                    window.alert(data.msg);
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                window.alert(textStatus);
             }
-        },
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-            window.alert(textStatus);
-        }
-    });
+        });
+    })
 
 
     console.log($("#uploadVideo"));

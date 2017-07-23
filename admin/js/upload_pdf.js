@@ -1,11 +1,15 @@
-//点击单门课程后，获取该门课程的所有章节列表
-    function createChapters(){
-        var cour = $("#courses_names option:selected");
-        // console.log(cour.attr('courseid'));
+//获取参数方法
+    function GetQueryString(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+
+    //获取该门课程的所有章节列表
         $.ajax({
                 type: "POST",
                 url: "http://115.159.188.200:8000/get_chapter/",
-                data: 'id='+cour.attr('courseid'),
+                data: 'id='+GetQueryString('course_id'),
                 dataType: "json",
                 async: false,
                 //下面2个参数用于解决跨域问题  
@@ -34,8 +38,6 @@
                     window.alert(textStatus);
                 }
         });
-        
-    }
 
 //点击章节后，设置要提交的章节id
     function selectChapter(){

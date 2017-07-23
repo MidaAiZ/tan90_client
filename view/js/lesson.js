@@ -8,7 +8,6 @@ $(function() {
         var r = window.location.search.substr(1).match(reg);
         if(r!=null)return  unescape(r[2]); return null;
     }
-    //
 
     //计算数组长度
     function count(str){
