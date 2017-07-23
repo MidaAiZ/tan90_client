@@ -7,13 +7,15 @@
   <meta name="author" content="ThemeBucket">
   <link rel="shortcut icon" href="#" type="image/png">
 
-  <title>上传视频</title>
+  <title>上传课程资料</title>
 
   <link href="css/style.css" rel="stylesheet">
   <link href="css/jquery.stepy.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
 
   <link href="css/create_course.css" rel="stylesheet">
+  <link href="css/upload_content.css" rel="stylesheet">
+  
 
   <!--multi-select-->
   <link rel="stylesheet" type="text/css" href="js/jquery-multi-select/css/multi-select.css" />
@@ -66,129 +68,29 @@
 
             <!--sidebar nav start-->
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
-                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>布局</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="blank_page.html">空白页</a></li>
-                        <li><a href="boxed_view.html">盒子模型</a></li>
-                        <li><a href="leftmenu_collapsed_view.html">缩略导航</a></li>
-                        <li><a href="horizontal_menu.html">水平导航</a></li>
+                <li class=""><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
 
-                    </ul>
-                </li>
-                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>学员统计</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="blank_page.html">学习时间</a></li>
-                        <li><a href="boxed_view.html">课程数</a></li>
-                    </ul>
-                </li>
-                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>课程统计</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="blank_page.html">学习人次</a></li>
-                        <li><a href="boxed_view.html">课程问答</a></li>
-                        <li><a href="leftmenu_collapsed_view.html">课程笔记</a></li>
-                    </ul>
-                </li>
-
-                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>课程管理</span></a>
+                <li class="menu-list active"><a href=""><i class="fa fa-book"></i> <span>课程管理</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="all_courses.html">全部课程</a></li>
-                        <li><a href="all_categories.html">分类管理</a></li>
-                        <li><a href="create_course.html">新建课程</a></li>
-                        <li><a href="upload_video.html">上传视频</a></li>
-                        <li><a href="upload_pdf.html">上传PDF</a></li>
+                        <li><a href="all_categories.html">课程分类</a></li>
+                        <li><a href="create_course.html">创建课程</a></li>
+                        <li><a href="#">课程推送</a></li>
                     </ul>
                 </li>
-                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>企业信息管理</span></a>
+                
+                <li class="menu-list"><a href=""><i class="fa fa-user"></i> <span>学员管理</span></a>
                     <ul class="sub-menu-list">
+                        <li><a href="all_students.html">全部学员</a></li>
                         <li><a href="all_departments.html">部门管理</a></li>
-                        <li><a href="all_students.html">学员管理</a></li>
                     </ul>
                 </li>
-                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>UI 控件</span></a>
+                <li class="menu-list"><a href=""><i class="fa fa-cog"></i> <span>系统设置</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="general.html">概览</a></li>
-                        <li><a href="buttons.html">按钮</a></li>
-                        <li><a href="tabs-accordions.html"> 标签页</a></li>
-                        <li><a href="typography.html"> 介绍</a></li>
-                        <li><a href="slider.html"> 滑动条</a></li>
-                        <li><a href="panels.html"> 面板</a></li>
+                        <li><a href="#">网站信息统计</a></li>
+                        <li><a href="#">注册码</a></li>
                     </ul>
                 </li>
-                <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>组件</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="grids.html"> 栅格</a></li>
-                        <li><a href="gallery.html"> 图片展览</a></li>
-                        <li><a href="calendar.html"> 日历</a></li>
-                        <li><a href="tree_view.html"> 树状图</a></li>
-                        <li><a href="nestable.html"> 代码块</a></li>
-
-                    </ul>
-                </li>
-
-                <li><a href="fontawesome.html"><i class="fa fa-bullhorn"></i> <span>图标</span></a></li>
-
-                <li class="menu-list"><a href=""><i class="fa fa-envelope"></i> <span>邮箱</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="mail.html"> 列表</a></li>
-                        <li><a href="mail_compose.html"> 编辑</a></li>
-                        <li><a href="mail_view.html"> 查看</a></li>
-                    </ul>
-                </li>
-
-                <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span> 表单</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="form_layouts.html"> 布局</a></li>
-                        <li><a href="form_advanced_components.html"> 组件</a></li>
-                        <li><a href="form_wizard.html"> 样板</a></li>
-                        <li><a href="form_validation.html"> 验证</a></li>
-                        <li><a href="editors.html"> 编辑</a></li>
-                        <li><a href="inline_editors.html"> 内联编辑</a></li>
-                        <li><a href="pickers.html"> 选择器</a></li>
-                        <li><a href="dropzone.html"> 文件上传</a></li>
-                        <li><a href="http://www.weidea.net"> 更多</a></li>
-                    </ul>
-                </li>
-                <li class="menu-list"><a href=""><i class="fa fa-bar-chart-o"></i> <span>图表</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="flot_chart.html"> Flot Charts</a></li>
-                        <li><a href="morris.html"> Morris Charts</a></li>
-                        <li><a href="chartjs.html"> Chartjs</a></li>
-                        <li><a href="c3chart.html"> C3 Charts</a></li>
-                    </ul>
-                </li>
-                <li class="menu-list"><a href="#"><i class="fa fa-th-list"></i> <span>数据报表</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="basic_table.html"> Basic Table</a></li>
-                        <li><a href="dynamic_table.html"> Advanced Table</a></li>
-                        <li><a href="responsive_table.html"> Responsive Table</a></li>
-                        <li><a href="editable_table.html"> Edit Table</a></li>
-                    </ul>
-                </li>
-
-                <li class="menu-list"><a href="#"><i class="fa fa-map-marker"></i> <span>地图</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="google_map.html"> Google Map</a></li>
-                        <li><a href="vector_map.html"> Vector Map</a></li>
-                    </ul>
-                </li>
-                <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>杂项</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="profile.html"> Profile</a></li>
-                        <li><a href="invoice.html"> Invoice</a></li>
-                        <li><a href="pricing_table.html"> Pricing Table</a></li>
-                        <li><a href="timeline.html"> Timeline</a></li>
-                        <li><a href="blog_list.html"> Blog List</a></li>
-                        <li><a href="blog_details.html"> Blog Details</a></li>
-                        <li><a href="directory.html"> Directory </a></li>
-                        <li><a href="chat.html"> Chat </a></li>
-                        <li><a href="404.html"> 404 Error</a></li>
-                        <li><a href="500.html"> 500 Error</a></li>
-                        <li><a href="registration.html"> Registration Page</a></li>
-                        <li><a href="lock_screen.html"> Lockscreen </a></li>
-                    </ul>
-                </li>
-                <li><a href="login.html"><i class="fa fa-sign-in"></i> <span>登录页</span></a></li>
 
             </ul>
             <!--sidebar nav end-->
@@ -407,14 +309,14 @@
 
         <!-- page heading start-->
         <div class="page-heading">
-            <h3>
-                上传视频
+            <h3 id="course-name">
+                上传课程资料 至 课程
             </h3>
             <ul class="breadcrumb">
                 <li>
                     <a href="all_courses.html">课程管理</a>
                 </li>
-                <li class="active">上传视频</li>
+                <li class="active">上传课程资料</li>
             </ul>
         </div>
         <!-- page heading end-->
@@ -433,44 +335,64 @@
                                 <div class="widget-content box-padding">
                                     <form id="stepy_form" name="upload" enctype="MULTIPART/FORM-DATA" class=" form-horizontal left-align form-well" method="post">
                                         <fieldset title="步骤1">
-                                            <legend>选择视频所在课程章节</legend>
+                                            <legend>选择课程资料所在课程章节</legend>
                                             <div class="form-group">
-                                                <label class="col-sm-2 control-label col-lg-1" for="inputSuccess">课程</label>
+                                                <label class="col-sm-2 control-label col-lg-1" for="inputSuccess">章</label>
                                                 <div class="col-lg-4">
-                                                    <select multiple="" name="category_name" class="form-control" id="courses_names" onchange="createChapters()">
+                                                    <select multiple="" name="chapter_name" class="form-control" id="chapters_names" onchange="showSections()">
                                                     </select>
                                                 </div>
-                                                <label class="col-sm-2 control-label col-lg-1" for="inputSuccess">章节</label>
+                                                <label class="col-sm-2 control-label col-lg-1" for="inputSuccess">节</label>
                                                 <div class="col-lg-4">
-                                                    <select multiple="" name="chapter_name" class="form-control" id="chapters_names" onchange="selectChapter()">
+                                                    <select multiple="" name="chapter_name" class="form-control" id="sections_names" onchange="selectChapter()">
                                                     </select>
+                                                </div>
+                                                <div class="col-lg-2" style="height:250px;">
+                                                </div>
+                                                <div class="col-lg-1" style="height:20px;">
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-newchapter-modal-lg"><i class="fa fa-plus"></i>创建章</button>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-newsection-modal-lg"><i class="fa fa-plus"></i>创建节</button>
                                                 </div>
                                             </div>
                                         </fieldset>
                                         <fieldset title="步骤2">
-                                            <legend>填写视频相关信息</legend>
+                                            <legend>填写课程资料相关信息</legend>
                                             <div class="form-group">
-                                                <label class="col-md-2 col-sm-2 control-label">视频名称</label>
-                                                <div class="col-md-6 col-sm-6">
-                                                    <input type="text" name="name" placeholder="请填写视频名称" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-2 col-sm-2 control-label">视频在章节内顺序</label>
-                                                <div class="col-md-6 col-sm-6">
-                                                    <input type="number" name="index" placeholder="请填写视频在章节内顺序" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputVideo" class="col-lg-2 col-sm-2 control-label">视频</label>
+                                                <label for="inputVideo" class="col-lg-2 col-sm-2 control-label">文件类型</label>
                                                 <div class="col-lg-10">
-                                                    <input type="hidden" name="chapter_id" id="hiddenId">
-                                                    <input type="file" id="inputVideo" name="video" class="default">
+                                                    <label class="radio-inline"><input name="type" type="radio" value="V" />视频</label> 
+                                                    <label class="radio-inline"><input name="type" type="radio" value="A" />音频</label> 
+                                                    <label class="radio-inline"><input name="type" type="radio" value="P" />PDF</label> 
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 col-sm-2 control-label">名称</label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <input type="text" name="name" placeholder="请填写名称" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 col-sm-2 control-label">在章节内顺序</label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <input type="number" name="index" placeholder="请填写资料在章节内顺序" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputVideo" class="col-lg-2 col-sm-2 control-label">文件</label>
+                                                <div class="col-lg-10">
+                                                    <input type="hidden" name="section_id" id="hiddenId">
+                                                    <input type="file" id="inputVideo" name="content" class="default">
                                                 </div>
                                             </div>
                                         </fieldset>
 
-                                        <button id="uploadVideo" class="finish btn btn-success btn-extend">上传视频</button>
+                                        <button id="uploadVideo" class="finish btn btn-success btn-extend">上传</button>
                                     </form>
                                 </div>
                             </div>
@@ -489,6 +411,38 @@
 
 
     </div>
+    <!-- 模态框1 -->
+    <div class="modal fade bs-newchapter-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myLargeModalLabel">创建章</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="new-chap-name" placeholder="请填写章名称" class="form-control">
+                    <input type="text" id="new-chap-id" placeholder="请填写章序号" class="form-control">
+                    <button id="add_chapter" class="btn btn-primary">创建</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 模态框2 -->
+    <div class="modal fade bs-newsection-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myLargeModalLabel">创建节</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="new-sec-name" placeholder="请填写节名称" class="form-control">
+                    <input type="text" id="new-sec-id" placeholder="请填写节序号" class="form-control">
+                    <button id="add_section" class="btn btn-primary">创建</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- main content end-->
 </section>
 
@@ -502,9 +456,10 @@
 <script src="js/modernizr.min.js"></script>
 <script src="js/jquery.nicescroll.js"></script>
 
+<script src="js/upload_content.js"></script>
 
-
-<script src="js/upload_video.js"></script>
+<!-- 右键插件 -->
+<script src="js/context.js"></script>
 
 <!--common scripts for all pages-->
 <script src="js/scripts.js"></script>

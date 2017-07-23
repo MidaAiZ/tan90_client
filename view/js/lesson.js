@@ -8,7 +8,6 @@ $(function() {
         var r = window.location.search.substr(1).match(reg);
         if(r!=null)return  unescape(r[2]); return null;
     }
-    //
 
     //计算数组长度
     function count(str){
@@ -42,43 +41,46 @@ $(function() {
     function setCatalogArray(data){
         //将返回数据存入catalog数组
         for (var i = 0; i < data.chapters.length; i++) {
-            chapsname[i] = (data.chapters[i]).name;
-            for (var h = 0; h < ((data.chapters[i]).video).length; h++){
-                catalog[t] = {"chapterId":(data.chapters[i]).id,
-                            "chapterIndex": (data.chapters[i]).index,
-                            "idx":((data.chapters[i]).video[h]).index, 
-                            "videoId": ((data.chapters[i]).video[h]).id,
-                            "videoName": ((data.chapters[i]).video[h]).name,
-                            "pdfId": -1,
-                            "pdfName":""
-                        };
-                t++;
-            };
+                chapsname[i] = (data.chapters[i]).name;
+                var chapterid = (data.chapters[i]).id;
+                var chaptername = (data.chapters[i]).name;
+                var chapterindex = (data.chapters[i]).index;
 
-            for (var j = 0; j < ((data.chapters[i]).pdf).length; j++){
-            //console.log("j="+j);
-            // 遍历本章中的video的index看是否有相等的，如果有则修改pdf属性，若没有则新建一个
-            var exsited = false; //用于标识是否找到相同index
-                for (var k in catalog) {
-                    if(catalog[k].chapterIndex == (data.chapters[i]).index && catalog[k].idx == ((data.chapters[i]).pdf[j]).index){
-                        catalog[k].pdfId = ((data.chapters[i]).pdf[j]).id;
-                        catalog[k].pdfName = ((data.chapters[i]).pdf[j]).name;
-                        exsited = true;
-                    }
-                };
-                if(exsited == false){
-                    catalog[t] = {"chapterId":(data.chapters[i]).id,
-                                "chapterIndex": (data.chapters[i]).index,
-                                "idx":((data.chapters[i]).pdf[j]).index, 
-                                "videoId": -1, 
-                                "videoName": "",
-                                "pdfId": ((data.chapters[i]).pdf[j]).id,
-                                "pdfName":((data.chapters[i]).pdf[j]).name
+
+                $.ajax({  
+                    type: 'POST',  
+                    url: "http://115.159.188.200:8000/get_section/",  
+                    dataType: 'json',  
+                    data: "chapter_id="+chapterid,
+                    //下面2个参数用于解决跨域问题  
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    crossDomain: true,
+                    async: false,
+                    complete: function(XMLHttpRequest, textStatus) { 
+                    },  
+                    success: function(data) { 
+                        console.log(data); 
+                        for (var i = 0; i < data.sections.length; i++) {
+                            catalog[t] = {"chapterId": chapterid,
+                                "chapterIndex": chapterindex,
+                                "chapterName": chaptername,
+                                "sectionId":(data.sections[i]).id,
+                                "sectionIndex":(data.sections[i]).index, 
+                                "sectionName":(data.sections[i]).name
                             };
-                    t++;
-                }
-            };
-            
+                            t++;
+                        };
+                        
+                    },
+                    //error:function(XMLHttpRequest, textStatus, errorThrown){
+                    //通常情况下textStatus和errorThrown只有其中一个包含信息
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        window.alert(textStatus);
+                    }
+                });
+
         };
         
     }
@@ -96,18 +98,14 @@ $(function() {
                     $("#chapter").append('<h3>第'+chaps[i].index+'章 '+chaps[i].name+'</h3>');
                     var $list = $('<ul></ul>');
                     $("#chapter").append($list);
-                    var pdf = chaps[i].pdf;
-                    //console.log("pdf.length="+pdf.length);
-                    var video = chaps[i].video;
-
-                    var max = count(pdf) > count(video) ? count(pdf) : count(video);
                     for (var j=0; j<count(catalog);j++) {
                         if(catalog[j].chapterId==chaps[i].id){
-                            var na = (catalog[j].videoId==-1) ? catalog[j].pdfName : catalog[j].videoName ;
                             var $part = $('<a></a>',{class: 'part',
-                                    html: '<li>'+catalog[j].chapterIndex+'-'+catalog[j].idx+'  '+na+'</li>'});
+                                    html: '<li>'+catalog[j].chapterIndex+'-'+catalog[j].sectionIndex+'  '+catalog[j].sectionName+'</li>'});
                             $part.attr('chapter-index', catalog[j].chapterIndex);
-                            $part.attr('lesson-index', catalog[j].idx);
+                            $part.attr('chapter-id', catalog[j].chapterId);
+                            $part.attr('section-index', catalog[j].sectionIndex);
+                            $part.attr('section-id', catalog[j].sectionId);
                             $list.append($part);
                         }
 
@@ -116,7 +114,7 @@ $(function() {
 
                 $(".part").on("click", function(event){
                     var $this = $(this);
-                    window.location.href='lesson.html?course_id='+GetQueryString("course_id")+'&chapter_index='+$this.attr("chapter-index")+'&lesson_index='+$this.attr("lesson-index");
+                    window.location.href='lesson.html?course_id='+GetQueryString("course_id")+'&chapter_index='+$this.attr("chapter-index")+'&lesson_index='+$this.attr("section-index");
                 });
     }
 
@@ -148,42 +146,101 @@ $(function() {
                 console.log("chapsname如下：");
                 console.log(chapsname);
 
-
                 for (var i=0;i<count(catalog);i++) {
-                    if(chapterIdx==catalog[i].chapterIndex&&lessonIdx==catalog[i].idx){
-                        if(catalog[i].videoId!=-1&&catalog[i].pdfId==-1){
-                            setVideo(catalog[i].videoId);
-                            $("#lesson-title").text(chapterIdx+'-'+lessonIdx+' '+catalog[i].videoName);
-                            //删除pdf选项卡
-                            var $pdf = document.getElementById("tab2");
-                            $pdf.parentNode.removeChild($pdf);
-                            $(".tab-group").tabify();
-                        }
-                        if(catalog[i].videoId==-1&&catalog[i].pdfId!=-1){
-                            setPdf(catalog[i].pdfId);
-                            $("#lesson-title").text(chapterIdx+'-'+lessonIdx+' '+catalog[i].pdfName);
-                            //删除视频选项卡
-                            var $video = document.getElementById("tab1");
-                            $video.parentNode.removeChild($video);
-                            $(".tab-group").tabify();
-                        }
-                        if(catalog[i].videoId!=-1&&catalog[i].pdfId!=-1){
-                            $("#lesson-title").text(chapterIdx+'-'+lessonIdx+' '+catalog[i].videoName);
-                            setVideo(catalog[i].videoId);
-                            setPdf(catalog[i].pdfId);
-                            $(".tab-group").tabify();
-                        }    
+                    if(chapterIdx==catalog[i].chapterIndex&&lessonIdx==catalog[i].sectionIndex){
+                        $("#lesson-title").text(chapterIdx+'-'+lessonIdx+' '+catalog[i].sectionName);
+                        
+                        $.ajax({  
+                            type: 'POST',  
+                            url: "http://115.159.188.200:8000/get_content/",  
+                            dataType: 'json',  
+                            data: "section_id="+catalog[i].sectionId,
+                            //下面2个参数用于解决跨域问题  
+                            xhrFields: {
+                                withCredentials: true
+                            },
+                            crossDomain: true,
+                            async: false,
+                            complete: function(XMLHttpRequest, textStatus) { 
+                            },  
+                            success: function(data) { 
+                                console.log(data); 
+                                if(data.code==1000){
+                                    var flagV = false;
+                                    var flagA = false;
+                                    var flagP = false;
+                                    for (var i = 0; i < data.contents.length; i++) {
+                                        if(data.contents[i].type=="V"){
+                                            flagV = true;
+                                            videoUrl = data.contents[i].url;
+                                            console.log(videoUrl);
+                                            //视频插件加载
+                                            var flashvars={
+                                                p:0,
+                                                e:1,
+                                                h:0,
+                                                i:'http://115.159.188.200:8000/media/cover/default.png'
+                                            };
+                                            var video=['http://115.159.188.200:8000'+videoUrl+'->video/mp4'];
+                                            var support=['all'];
+                                            CKobject.embedHTML5('a1','ckplayer_a1',650,433,video,flashvars,support);
+                                        }else if(data.contents[i].type=="A"){
+                                            flagA = true;
+                                            audioUrl = data.contents[i].url;
+                                            console.log(audioUrl);
+                                            //视频插件加载
+                                            var flashvars={
+                                                p:0,
+                                                e:1,
+                                                h:0,
+                                                i:'http://115.159.188.200:8000/media/cover/default.png'
+                                            };
+                                            var video=['http://115.159.188.200:8000'+audioUrl];
+                                            var support=['all'];
+                                            CKobject.embedHTML5('a2','ckplayer_a1',650,433,video,flashvars,support);
+                                        }else if(data.contents[i].type=="P"){
+                                            flagP = true;
+                                            pdfUrl = data.contents[i].url;
+                                            console.log(pdfUrl);
+                                            $('#pdf-iframe').attr('src', 'http://115.159.188.200:8000'+pdfUrl);
+                                        }
+                                    };
+                                    if(flagV==false) {
+                                        // 删除video选项卡
+                                        var $pdf = document.getElementById("tab1");
+                                        $pdf.parentNode.removeChild($pdf);
+                                    }
+                                    if(flagA==false) {
+                                        // 删除pdf选项卡
+                                        var $audio = document.getElementById("tab2");
+                                        $audio.parentNode.removeChild($audio);
+                                    }
+                                    if(flagP==false) {
+                                        // 删除pdf选项卡
+                                        var $video = document.getElementById("tab3");
+                                        $video.parentNode.removeChild($video);
+                                    }
+                                }
+                                
+                            },
+                            //error:function(XMLHttpRequest, textStatus, errorThrown){
+                            //通常情况下textStatus和errorThrown只有其中一个包含信息
+                            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                                window.alert(textStatus);
+                            }
+                        });
 
+                        $(".tab-group").tabify();
 
                         //配置上一节下一节
                         if(i==0){
                             $("#last-lesson").remove();
                         }
                         if(i>0){
-                            $("#last-lesson").attr('href','lesson.html?course_id='+GetQueryString("course_id")+'&chapter_index='+catalog[i-1].chapterIndex+'&lesson_index='+catalog[i-1].idx);
+                            $("#last-lesson").attr('href','lesson.html?course_id='+GetQueryString("course_id")+'&chapter_index='+catalog[i-1].chapterIndex+'&lesson_index='+catalog[i-1].sectionIndex);
                         }
                         if(i<count(catalog)-1){
-                            $("#next-lesson").attr('href','lesson.html?course_id='+GetQueryString("course_id")+'&chapter_index='+catalog[i+1].chapterIndex+'&lesson_index='+catalog[i+1].idx);
+                            $("#next-lesson").attr('href','lesson.html?course_id='+GetQueryString("course_id")+'&chapter_index='+catalog[i+1].chapterIndex+'&lesson_index='+catalog[i+1].sectionIndex);
                         }
                         if(i==count(catalog)-1){
                             $("#next-lesson").remove();
@@ -210,80 +267,6 @@ $(function() {
 
     
 
-    /**
-    下面是视频和pdf的获取
-    **/
-
-    function setVideo(videoid){
-        //连接服务器获取视频地址
-        var videoParams = {"video_id": videoid};
-        var videoUrl;
-        $.ajax({  
-            type: 'POST',  
-            url: "http://115.159.188.200:8000/get_video/",  
-            dataType: 'json',  
-            data: videoParams,
-            //下面2个参数用于解决跨域问题  
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true,
-
-            complete: function(XMLHttpRequest, textStatus) { 
-            },  
-            success: function(data) {  
-                
-                videoUrl = data.url;
-                console.log(videoUrl);
-                //视频插件加载
-                var flashvars={
-                    p:0,
-                    e:1,
-                    h:0,
-                    i:'http://115.159.188.200:8000/media/cover/default.png'
-                };
-                var video=['http://115.159.188.200:8000'+videoUrl+'->video/mp4'];
-                var support=['all'];
-                CKobject.embedHTML5('a1','ckplayer_a1',650,433,video,flashvars,support);
-            },
-            //error:function(XMLHttpRequest, textStatus, errorThrown){
-            //通常情况下textStatus和errorThrown只有其中一个包含信息
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
-                window.alert(textStatus);
-            }
-        });
-    }
-    
-    
-    function setPdf(pdfId){
-        //连接服务器获取pdf地址
-        var pdfParams = {"pdf_id": pdfId}
-        var pdfUrl;
-        $.ajax({  
-            type: 'POST',  
-            url: "http://115.159.188.200:8000/get_pdf/",  
-            dataType: 'json',  
-            data: pdfParams,
-            //下面2个参数用于解决跨域问题  
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true,
-
-            complete: function(XMLHttpRequest, textStatus) { 
-            },  
-            success: function(data) {  
-                pdfUrl = data.url;
-                console.log(pdfUrl);
-                $('#pdf-iframe').attr('src', 'http://115.159.188.200:8000'+pdfUrl);
-            },
-            //error:function(XMLHttpRequest, textStatus, errorThrown){
-            //通常情况下textStatus和errorThrown只有其中一个包含信息
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
-                window.alert(textStatus);
-            }
-        });
-    }
 
       
 
