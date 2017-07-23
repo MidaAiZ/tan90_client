@@ -116,7 +116,7 @@ $(document).ready(function(){
                     console.log(data);
                     if(data.code==1000){
                         //删除章成功
-                        showChapters();
+                        setChapters();
                     }else if(data.code==1001){
                         window.alert("您尚未登录。");
                     }else if(data.code==4000){
