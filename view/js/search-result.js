@@ -31,7 +31,6 @@ $(function() {
             $($(".class-pic")[i]).attr("course-id", course[i].course_id);
             $($(".class-intro")[i]).text(course[i].course_introduce);
             $($(".img-responsive")[i]).attr("src", "http://115.159.188.200:8000" + course[i].url);
-
         };
     }
 

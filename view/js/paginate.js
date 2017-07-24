@@ -32,7 +32,7 @@ var myPaginate = function(limit, url, callBK, pageTag) {
 
     function changeUrl(url, callb) {
         resUrl = url;
-        callb && callBK = callb
+        callb && (callBK = callb)
         update();
     }
 
