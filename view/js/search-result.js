@@ -38,12 +38,12 @@ $(function() {
     $(".class-pic").on("click", function(event) {
         var $this = $(this);
         var id = $this.attr("course-id");
-        window.location.href = 'lesson.html?course_id=' + id + '&chapter_index=1&lesson_index=1';
+        window.location.href = 'about.html?course_id=' + id ;
     });
     $(".class-name").on("click", function(event) {
         var $this = $(this);
         var id = $this.attr("course-id");
-        window.location.href = 'lesson.html?course_id=' + id + '&chapter_index=1&lesson_index=1';
+        window.location.href = 'about.html?course_id=' + id ;
     });
 
     $(".filter-category-text").on("click", function(event) {

@@ -1,7 +1,5 @@
 $(function() {
 
-    
-
     //获取参数方法
     function GetQueryString(name){
         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -33,9 +31,6 @@ $(function() {
 
     var lessonIdx = GetQueryString("lesson_index");
     var chapterIdx = GetQueryString("chapter_index");
-    window.chapterid = -1;
-    window.videoid = -1;
-    window.pdfid = -1;
 
     //设置catalog数组
     function setCatalogArray(data){
@@ -169,6 +164,9 @@ $(function() {
                                     var flagV = false;
                                     var flagA = false;
                                     var flagP = false;
+                                    if(data.contents.length==0){
+                                        $('.abt-pic').append("<p style='margin-top:60px'>该节尚未有课程资料，请等待管理员上传。</p>")
+                                    }
                                     for (var i = 0; i < data.contents.length; i++) {
                                         if(data.contents[i].type=="V"){
                                             flagV = true;

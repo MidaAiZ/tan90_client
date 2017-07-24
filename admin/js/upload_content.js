@@ -101,11 +101,37 @@ $(document).ready(function(){
         {text: '<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;删除', action: function(e) {
             //向服务器请求删除章
             var chapterid = $(context.target).attr('chapterid');
-        }},
-        {text: '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;修改', action: function(e) {
-            //向服务器请求修改章
-            var chapterid = $(context.target).attr('chapterid');
+            $.ajax({
+                type: "POST",
+                url: "http://115.159.188.200:8000/del_chapter/",
+                data: 'chapter_id='+chapterid,
+                dataType: "json",
+                async: false,
+                //下面2个参数用于解决跨域问题  
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function(data){
+                    console.log(data);
+                    if(data.code==1000){
+                        //删除章成功
+                        setChapters();
+                    }else if(data.code==1001){
+                        window.alert("您尚未登录。");
+                    }else if(data.code==4000){
+                        window.alert(data.msg);
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    window.alert(textStatus);
+                }
+            });
         }}
+        // {text: '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;修改', action: function(e) {
+        //     //向服务器请求修改章
+        //     var chapterid = $(context.target).attr('chapterid');
+        // }}
     ]);
 
     context.attach('.section', [
@@ -130,6 +156,8 @@ $(document).ready(function(){
                         showSections();
                     }else if(data.code==1001){
                         window.alert("您尚未登录。");
+                    }else if(data.code==1003){
+                        window.alert("该节不为空，不可删除，请先删除节内资料。");
                     }else{
                         window.alert(data.msg);
                     }
@@ -138,11 +166,11 @@ $(document).ready(function(){
                     window.alert(textStatus);
                 }
             });
-        }},
-        {text: '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;修改', action: function(e) {
-            // 向服务器请求修改节
-            var sectionid = $(context.target).attr('sectionid');
         }}
+        // {text: '<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;修改', action: function(e) {
+        //     // 向服务器请求修改节
+        //     var sectionid = $(context.target).attr('sectionid');
+        // }}
     ]);
 
    

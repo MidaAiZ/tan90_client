@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>课程详情</title>
+		<link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+		<!-- jQuery (necessary JavaScript plugins) -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<!-- Custom Theme files -->
+		<link href="css/style.css" rel='stylesheet' type='text/css'/>
+		<!-- style  -->
+		<link href="css/course-catalog.css" rel="stylesheet">
+		<!-- Custom Theme files -->
+		<!--//theme-style-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta
+			name="keywords"
+			content="Game Box  Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design"/>
+		<script type="application/x-javascript">
+			addEventListener("load", function () {
+				setTimeout(hideURLbar, 0);
+			}, false);
+			function hideURLbar() {
+				window.scrollTo(0, 1);
+			}
+		</script>
+
+		<script src="js/catalog.js"></script>
+
+	</head>
+	<body>
+		<!-- header -->
+		<div class="top-banner">
+			<div class="header">
+				<div class="container">
+					<div class="headr-left">
+						<div class="social">
+							<a href="#">
+								<i class="facebook"></i>
+							</a>
+							<a href="#">
+								<i class="twitter"></i>
+							</a>
+							<a href="#">
+								<i class="gplus"></i>
+							</a>
+							<a href="#">
+								<i class="pin"></i>
+							</a>
+							<a href="#">
+								<i class="youtube"></i>
+							</a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="headr-right">
+						<div class="search">
+							<form>
+								<input type="submit" value="">
+								<input type="text" value="" placeholder="Search...">
+							</form>
+						</div>
+						<div class="details collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="" style="float: right">
+								<li class="active">
+									<a href="/view">主页</a>
+								</li>
+								<li>
+									<a href="/view/courses.html">所有课程</a>
+								</li>
+								<li>
+									<a href="/view/gallery.html">考试管理</a>
+								</li>
+								<li>
+									<a href="/view/usercenter">个人中心</a>
+								</li>
+								<li style="display: none;" id="user-info">
+									<div class="dropdown">
+										<a id="dLabel" data-target="#" href="javascript: void(0)" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+											<span class="glyphicon glyphicon-menu-down"></span>
+										</a>
+
+										<ul class="dropdown-menu" aria-labelledby="dLabel">
+											<li class="m-option">观看记录</li>
+											<li role="separator" class="divider"></li>
+											<li class="m-option">我的课程</li>
+											<li class="m-option">我的笔记</li>
+											<li class="m-option">我的提问</li>
+											<li role="separator" class="divider"></li>
+											<li class="m-option" id="logout">退出</li>
+										</ul>
+									</div>
+								</li>
+								<li style="display: none;" id="session-info">
+									<a id="login-btn" type="button" data-toggle="modal" data-target=".login">登录</a>
+									<a id="signin-btn" type="button" data-toggle="modal" data-target=".login">注册</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- header end -->
+		<!-- About -->
+		<div class="about">
+			<div class="container">
+				<h2>课程详情</h2>
+				<div class="about-info-grids">
+					<div class="col-md-5 abt-pic">
+						<img src="images/course.png" class="img-responsive" alt=""/>
+					</div>
+					<div class="col-md-7 abt-info-pic">
+						<h3 id="course-name">课程名称</h3>
+						<ul>
+							<li id="course-intro">课程简介：XXXXXXXXXXXXXXXXXXXXXXXXXXx</li>
+						</ul>
+						<button class="btn btn-success" id="choose-course">开始学习 <i class="glyphicon glyphicon-heart"></i></button>
+						<button class="btn btn-danger" id="withdraw-course">退选课程 <i class="glyphicon glyphicon-remove"></i></button>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="testimonals">
+					<h3>课程目录</h3>
+					<div class="testimonal-grids">
+						<div id="chapter"></div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+		<div class="footer">
+			<div class="container">
+				<div class="footer-grids">
+					<div class="col-md-3 ftr-info">
+						<h3>About Us</h3>
+						<p>Sed faucibus mollis laoreet. Sed vehicula faucibus tristique lectus a orci molestie finibus. Suspendisse pharetra, metus sed rutrum pretium.</p>
+					</div>
+					<div class="col-md-3 ftr-grid">
+						<h3>Categories</h3>
+						<ul class="ftr-list">
+							<li>
+								<a href="#">Action</a>
+							</li>
+							<li>
+								<a href="#">Racing</a>
+							</li>
+							<li>
+								<a href="#">Adventure</a>
+							</li>
+							<li>
+								<a href="#">Simulation</a>
+							</li>
+							<li>
+								<a href="#">Bike</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-3 ftr-grid">
+						<h3>Platform</h3>
+						<ul class="ftr-list">
+							<li>
+								<a href="#">Pc</a>
+							</li>
+							<li>
+								<a href="#">Ps4</a>
+							</li>
+							<li>
+								<a href="#">XBOX 360</a>
+							</li>
+							<li>
+								<a href="#">XBOX ONE</a>
+							</li>
+							<li>
+								<a href="#">PSP</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-3 ftr-grid">
+						<h3>Information</h3>
+						<ul class="ftr-list">
+							<li>
+								<a href="#">Contact Us</a>
+							</li>
+							<li>
+								<a href="#">Wish Lists</a>
+							</li>
+							<li>
+								<a href="#">Site Map</a>
+							</li>
+							<li>
+								<a href="#">Terms & Conditions</a>
+							</li>
+						</ul>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<!---->
+		<div class="copywrite">
+			<div class="container">
+				<p>Copyright &copy; 2015.Company name All rights reserved.More Templates
+					<a href="http://www.genban.org/" target="_blank" title="跟版网模板">跟版网模板</a>
+					- Collect from
+					<a href="http://www.genban.org/" title="网页模板" target="_blank">网页模板</a>
+				</p>
+			</div>
+		</div>
+		<!---->
+	</body>
+</html>

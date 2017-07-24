@@ -139,34 +139,23 @@ var EditableTable = function () {
             function editRow(oTable, nRow) {
                 var aData = oTable.fnGetData(nRow);
                 var jqTds = $('>td', nRow);
-                jqTds[0].innerHTML = '<input type="text" class="form-control small" value="' + aData[0] + '">';
-                jqTds[1].innerHTML = '<input type="text" class="form-control small" value="' + aData[1] + '">';
-                jqTds[2].innerHTML = '<input type="text" class="form-control small" value="' + aData[2] + '">';
-                jqTds[3].innerHTML = '<input type="text" class="form-control small" value="' + aData[3] + '">';
-                jqTds[4].innerHTML = '<input type="text" class="form-control small" value="' + aData[4] + '">';
-                jqTds[5].innerHTML = '<a class="edit" href="">保存</a>';
-                jqTds[6].innerHTML = '<a class="cancel" href="">取消</a>';
+                jqTds[1].innerHTML = '<input type="text" class="form-control small editname" value="' + aData[1] + '">';
+                jqTds[6].innerHTML = '<a class="edit" href="">保存</a>';
+                jqTds[7].innerHTML = '<a class="cancel" href="">取消</a>';
             }
 
             function saveRow(oTable, nRow) {
                 var jqInputs = $('input', nRow);
-                oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
-                oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-                oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
-                oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
-                oTable.fnUpdate(jqInputs[4].value, nRow, 4, false);
-                oTable.fnUpdate('<a class="edit" href="">修改</a>', nRow, 5, false);
-                oTable.fnUpdate('<a class="delete" href="">删除</a>', nRow, 6, false);
+                oTable.fnUpdate(jqInputs[0].value, nRow, 1, false);
+                oTable.fnUpdate('<a class="edit" href="">修改</a>', nRow, 6, false);
+                oTable.fnUpdate('<a class="delete" href="">删除</a>', nRow, 7, false);
                 oTable.fnDraw();
             }
 
             function cancelEditRow(oTable, nRow) {
                 var jqInputs = $('input', nRow);
-                oTable.fnUpdate(jqInputs[0].value, nRow, 0, false);
                 oTable.fnUpdate(jqInputs[1].value, nRow, 1, false);
-                oTable.fnUpdate(jqInputs[2].value, nRow, 2, false);
-                oTable.fnUpdate(jqInputs[3].value, nRow, 3, false);
-                oTable.fnUpdate('<a class="edit" href="">Edit</a>', nRow, 4, false);
+                oTable.fnUpdate('<a class="edit" href="">修改</a>', nRow, 6, false);
                 oTable.fnDraw();
             }
 
@@ -216,7 +205,7 @@ var EditableTable = function () {
 
                 $.ajax({
                     type: "POST",
-                    url: "http://115.159.188.200:8000/delete_course/",
+                    url: "http://115.159.188.200:8000/del_content/",
                     data: "course_name="+$(this).parent().parent().find(".course-name").text(),
                     dataType: "json",
                     async: false,
@@ -278,20 +267,51 @@ var EditableTable = function () {
                 if (nEditing !== null && nEditing != nRow) {
                     /* Currently editing - but not this row - restore the old before continuing to edit mode */
                     restoreRow(oTable, nEditing);
-                    //跳转到修改页面
-                    window.location.href=url;
-                    //editRow(oTable, nRow);
+                    editRow(oTable, nRow);
                     nEditing = nRow;
                 } else if (nEditing == nRow && this.innerHTML == "保存") {
                     /* Editing this row and want to save it */
-                    saveRow(oTable, nEditing);
-                    nEditing = null;
-                    alert("Updated! Do not forget to do some ajax to sync with backend :)");
+                    var flag2 = false;
+                    $.ajax({
+                        type: "POST",
+                        url: "http://115.159.188.200:8000/modify_content/",
+                        data: "content_id="+$(this).parent().parent().find(".content-id").text()+"&name="+$('.editname').val(),
+                        dataType: "json",
+                        async: false,
+                        //下面2个参数用于解决跨域问题  
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        crossDomain: true,
+                        success: function(data){
+                            console.log("删除课程：");
+                            console.log(data);
+                            if(data.code==1000){
+                                flag2=true;
+                            }else if(data.code==1001){
+                                window.alert("您尚未登录。");
+                            }else if(data.code==1002){
+                                window.alert("您不是管理员，没有此权限。");
+                            }else if(data.code==1003){
+                            window.alert("不存在此门课程，请刷新页面。");
+                            }else{
+                                window.alert(data.msg);
+                            }
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                            window.alert(textStatus);
+                        }
+                    });
+                    if(flag2==true){
+                        saveRow(oTable, nEditing);
+                        nEditing = null;
+                    }else{
+                        return;
+                    }
+                    
                 } else {
                     /* No edit in progress - let's start one */
-                    //跳转到修改页面
-                    window.location.href=url;
-                    //editRow(oTable, nRow);
+                    editRow(oTable, nRow);
                     nEditing = nRow;
                 }
             });
