@@ -16,7 +16,6 @@ var EditableTable = function () {
 
             var chapname = "";
             var secname = "";
-            var t=0;
 
             $('#heading').text(GetQueryString("course_name")+'：课程资料');
 
@@ -74,9 +73,8 @@ var EditableTable = function () {
                                                     if(data.code==1000){
 
                                                         for (var i = 0; i < data.contents.length; i++) {
-                                                            t++;
                                                             var $con= $('<tr></tr>');
-                                                            $con.append($('<td></td>',{style: '',class: "content-id",html:t}));
+                                                            $con.append($('<td></td>',{style: '',class: "content-id",html:data.contents[i].id}));
                                                             $con.append($('<td></td>',{style: '',class: "content-name",html:data.contents[i].name}));
                                                             $con.append($('<td></td>',{style: '',class: "chapter-name",html:chapname}));
                                                             $con.append($('<td></td>',{style: '',class: "section-name",html:secname}));
