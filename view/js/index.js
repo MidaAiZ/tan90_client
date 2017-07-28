@@ -125,3 +125,97 @@ function createTrailer(course) {
 	"
 	return $(liStr);
 }
+
+
+////////////////////////////////////////////////
+//                 热门讨论                    //
+///////////////////////////////////////////////
+
+$(function() {
+	// ajax获取课程信息
+	createDisc();
+})
+function createDisc() {
+	$.ajax({
+		url: ROOT + 'hot_discussions/?limit=6',
+		type: 'POST',
+		dataType: 'JSON',
+		crossDomain: true,
+		xhrFields: {
+			withCredentials: true
+		},
+		success: function(res) {
+			if (res.code == 1000) {
+				console.log(res.hot_discussions);
+				discBK(res);
+			} else {
+				console.log(res.msg);
+			}
+		},
+		error: function(err) {
+			console.log(err);
+		}
+	})
+}
+
+function discBK(data) {
+	var discs = data.hot_discussions;
+	var $c = $("#ask-list");
+	for(var i in discs) {
+		var $e = $('\
+		<li class="clearfix" data-id="' + discs[i].id + '">\
+			<a class="label" href="">'+ discs[i].course_name +'\
+			</a>\
+			<i>•</i>\
+			<a target="_blank" href="" data-track="syrmsj-1-2" class="text">' + discs[i].content  + '</a>\
+		</li>\
+		');
+		$c.append($e);
+	}
+}
+
+////////////////////////////////////////////////
+//                 热门笔记                    //
+///////////////////////////////////////////////
+
+$(function() {
+	// ajax获取课程信息
+	createNotes();
+})
+function createNotes() {
+	$.ajax({
+		url: ROOT + 'newest_note/?limit=6',
+		type: 'POST',
+		dataType: 'JSON',
+		crossDomain: true,
+		xhrFields: {
+			withCredentials: true
+		},
+		success: function(res) {
+			if (res.code == 1000) {
+				console.log(res.notes);
+				discBK(res);
+			} else {
+				console.log(res.msg);
+			}
+		},
+		error: function(err) {
+			console.log(err);
+		}
+	})
+}
+function noteBK(data) {
+	var notes = data.notes;
+	var $c = $("#note-list");
+	for(var i in notes) {
+		var $e = $('\
+		<li class="clearfix" data-id="' + notes[i].id + '">\
+			<a class="label" href="">'+ notes[i].title +'\
+			</a>\
+			<i>•</i>\
+			<a target="_blank" href="" data-track="syrmsj-1-2" class="text">' + notes[i].content  + '</a>\
+		</li>\
+		');
+		$c.append($e);
+	}
+}

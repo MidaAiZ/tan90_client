@@ -181,8 +181,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="info-item">
 							<span>姓名</span>
 							<div role="info-content">
-								<em role="info" data-attr="name">mida</em>
+								<em role="info" data-attr="name"></em>
 								<input type="text-field" name="name" class="edit" role="edit">
+							</div>
+							<div class="revise-group" role="revise-group">
+								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
+								<div class="control-group">
+									<a href="javascript:void(0)" class="revise" role="cancel">取消</a>
+									<a href="javascript:void(0)" class="revise" role="conform" data-target="usercenter/revise">确定</a>
+								</div>
+							</div>
+						</li>
+						<li class="info-item">
+							<span>部门</span>
+							<div role="info-content">
+								<em role="info" name="department" data-attr="department"></em>
+								<input type="text-field" name="department" class="edit" role="edit">
 							</div>
 							<div class="revise-group" role="revise-group">
 								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
@@ -225,34 +239,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div role="info-content">
 								<em role="info" data-attr="address"></em>
 								<input type="text-field" name="address" class="edit" role="edit">
-							</div>
-							<div class="revise-group" role="revise-group">
-								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
-								<div class="control-group">
-									<a href="javascript:void(0)" class="revise" role="cancel">取消</a>
-									<a href="javascript:void(0)" class="revise" role="conform" data-target="usercenter/revise">确定</a>
-								</div>
-							</div>
-						</li>
-						<li class="info-item">
-							<span>学校</span>
-							<div role="info-content">
-								<em role="info" data-attr="school"></em>
-								<input type="text-field" name="school" class="edit" role="edit">
-							</div>
-							<div class="revise-group" role="revise-group">
-								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
-								<div class="control-group">
-									<a href="javascript:void(0)" class="revise" role="cancel">取消</a>
-									<a href="javascript:void(0)" class="revise" role="conform" data-target="usercenter/revise">确定</a>
-								</div>
-							</div>
-						</li>
-						<li class="info-item">
-							<span>年级</span>
-							<div role="info-content">
-								<em role="info" data-attr="grade"></em>
-								<input type="text-field" name="grade" class="edit" role="edit">
 							</div>
 							<div class="revise-group" role="revise-group">
 								<a href="javascript:void(0)" class="revise" role="revise">修改</a>
@@ -347,7 +333,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						});
 				});
 			</script>
-		</div>
+			<script>
+			  $(function() {
+				  var $name = $("em[data-attr=name]");
+				  var $gender = $("em[data-attr=gender]");
+				  var $depart = $("em[data-attr=department]");
+				  var $birth = $("em[data-attr=birthday]");
+				  var $addr = $("em[data-attr=address]");
+				  var $intro = $("em[data-attr=introduce]");
+				  var $avatar = $("#navAvatar");
+				  var $phone = $("#phone-info");
+				  var $mail = $("#email-info");
 
+				  $.ajax({
+					  url: ROOT + "get_user_info/",
+					  type: "post",
+					  dataType: "JSON",
+					  crossDomain: true,
+			  		  xhrFields: {
+ 			  			withCredentials: true
+  			  		  },
+					  success: function(res) {
+						$phone.text(res.phone);
+						$mail.text(res.mail);
+						$name.text(res.nmae);
+						$gender.text(res.gender);
+						$depart.text(res.department);
+						$birth.text("");
+						$addr.text("");
+						$intro.text(res.introduce);
+						$avatar.attr("src", res.face);
+					  }
+				  })
+			  })
+			</script>
+		</div>
 	</body>
 </html>

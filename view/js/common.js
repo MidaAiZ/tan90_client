@@ -82,6 +82,7 @@ function getLoginModal() {
 					  <input type='text' name='name' placeholder='用户名' id='r_user_name'/>\
 					  <input type='password' name='pwd' placeholder='密码' id='r_password' />\
 					  <input type='text' name='mail' placeholder='电子邮件' id='r_emial'/>\
+                      <input type='text' name='code' placeholder='注册码' id='r_code'/>\
                       <select type='text' name='department' placeholder='所属部门' id='r_department' class='select'>\
                       </select>\
 					  <button id='create'>创建账户</button>\

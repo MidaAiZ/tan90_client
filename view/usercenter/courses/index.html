@@ -164,5 +164,61 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 		<script src="/view/js/lightbox-plus-jquery.min.js"></script>
+		<script type="text/javascript">
+
+		// 获取用户课程
+		// 首页课程第一部分
+		$(function() {
+			getCourses(ROOT + "user_course_list/", courseBK);
+		})
+
+		// 动态添加课程
+		function getCourses(url, callBK) {
+			$.ajax({
+				url: url,
+				type: "POST",
+				dataType: "json",
+				crossDomain: true,
+				xhrFields: {
+					withCredentials: true
+				},
+				success: function(res) {
+					if (res.code == 1000) {
+						console.log(res.courses);
+						callBK(res);
+					} else {
+						console.log(res.msg);
+					}
+				},
+				error: function(err) {
+					console.log(err);
+				}
+			})
+		}
+
+		// 回调函数
+		function courseBK(res) {
+			var $box = $("#user-course");
+			var courses = res.courses
+			var size = courses.length
+			for(var i in courses) {
+				$box.append(createCourse(courses[i]));
+			}
+			$box.on("click", "a", function() {
+				window.location = $(this).data("href");
+			})
+		}
+
+		// 生成课程节点
+		function createCourse(course) {
+			var liStr = "\
+				<div class='col-md-3 gallery-grid'>\
+					<a data-href='/ view/lesson.html?chapter_index=1&lesson_index=1&course_id=" + course.course_id + "' class='example-image-link' data-lightbox='example-set' target='_blank' >\
+					<img class='example-image' src='" + IMGROOT + course.cover_url + "'/></a>\
+				</div>\
+			"
+			return $(liStr);
+		}
+		</script>
 	</body>
 </html>
