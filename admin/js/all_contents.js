@@ -16,7 +16,10 @@ var EditableTable = function () {
 
             var chapname = "";
             var secname = "";
-            var t=0;
+
+            $('#heading').text(GetQueryString("course_name")+'：课程资料');
+
+            $('#new-content').attr('href','upload_content.html?course_id='+GetQueryString("course_id")+'&course_name='+GetQueryString("course_name"));
 
             //连接服务器动态生成课程资料表格
             $.ajax({
@@ -25,7 +28,7 @@ var EditableTable = function () {
                 data: "id="+GetQueryString("course_id"),
                 dataType: "json",
                 async: false,
-                //下面2个参数用于解决跨域问题  
+                //下面2个参数用于解决跨域问题
                 xhrFields: {
                     withCredentials: true
                 },
@@ -42,7 +45,7 @@ var EditableTable = function () {
                                 data: "chapter_id="+data.chapters[i].id,
                                 dataType: "json",
                                 async: false,
-                                //下面2个参数用于解决跨域问题  
+                                //下面2个参数用于解决跨域问题
                                 xhrFields: {
                                     withCredentials: true
                                 },
@@ -59,7 +62,7 @@ var EditableTable = function () {
                                                 data: "section_id="+data.sections[i].id,
                                                 dataType: "json",
                                                 async: false,
-                                                //下面2个参数用于解决跨域问题  
+                                                //下面2个参数用于解决跨域问题
                                                 xhrFields: {
                                                     withCredentials: true
                                                 },
@@ -68,11 +71,10 @@ var EditableTable = function () {
                                                     console.log("获取内容：");
                                                     console.log(data);
                                                     if(data.code==1000){
-                                                        
+
                                                         for (var i = 0; i < data.contents.length; i++) {
-                                                            t++;
                                                             var $con= $('<tr></tr>');
-                                                            $con.append($('<td></td>',{style: '',class: "content-id",html:t}));
+                                                            $con.append($('<td></td>',{style: '',class: "content-id",html:data.contents[i].id}));
                                                             $con.append($('<td></td>',{style: '',class: "content-name",html:data.contents[i].name}));
                                                             $con.append($('<td></td>',{style: '',class: "chapter-name",html:chapname}));
                                                             $con.append($('<td></td>',{style: '',class: "section-name",html:secname}));
@@ -209,7 +211,7 @@ var EditableTable = function () {
                     data: "course_name="+$(this).parent().parent().find(".course-name").text(),
                     dataType: "json",
                     async: false,
-                    //下面2个参数用于解决跨域问题  
+                    //下面2个参数用于解决跨域问题
                     xhrFields: {
                         withCredentials: true
                     },
@@ -239,7 +241,7 @@ var EditableTable = function () {
                     oTable.fnDeleteRow(nRow);
                     window.alert("删除课程成功");
                 }
-                
+
             });
 
             $('#editable-sample a.cancel').live('click', function (e) {
@@ -278,7 +280,7 @@ var EditableTable = function () {
                         data: "content_id="+$(this).parent().parent().find(".content-id").text()+"&name="+$('.editname').val(),
                         dataType: "json",
                         async: false,
-                        //下面2个参数用于解决跨域问题  
+                        //下面2个参数用于解决跨域问题
                         xhrFields: {
                             withCredentials: true
                         },
@@ -308,7 +310,7 @@ var EditableTable = function () {
                     }else{
                         return;
                     }
-                    
+
                 } else {
                     /* No edit in progress - let's start one */
                     editRow(oTable, nRow);
@@ -320,4 +322,3 @@ var EditableTable = function () {
     };
 
 }();
-

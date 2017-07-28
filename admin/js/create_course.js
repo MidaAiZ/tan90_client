@@ -6,7 +6,7 @@ $(function() {
         url: "http://115.159.188.200:8000/get_category/",
         data: "limit=100&page=1",
         dataType: "json",
-        //下面2个参数用于解决跨域问题  
+        //下面2个参数用于解决跨域问题
         xhrFields: {
             withCredentials: true
         },
@@ -34,21 +34,32 @@ $(function() {
         }
     });
 
-    
     //点击“创建课程”提交信息给服务器
     $("#sub").on('click', function(){
-        var params = $('#stepy_form').serialize();
         //课程名和课程介绍不为空
         if($('input[name="course_name"]').val()==""||$('input[name="introduce"]').val()==""){
             return;
         }
+
+        var params = "";
+        params +=  "category_name=";
+        params +=  $('#cate_names>option:selected').text();
+        params +=  "&course_name=";
+        params +=  $('#course_name').val();
+        params +=  "&introduce=";
+        params +=  $('#introduce').val();
+        $('#my_multi_select3>option:selected').each(function(index,element){
+            params += "&department_names=";
+            params += $(this)[0].innerHTML;
+        });
+
         $.ajax({
                 type: "POST",
                 url: "http://115.159.188.200:8000/add_course/",
                 data: params,
                 dataType: "json",
                 async: false,
-                //下面2个参数用于解决跨域问题  
+                //下面2个参数用于解决跨域问题
                 xhrFields: {
                     withCredentials: true
                 },
@@ -72,18 +83,13 @@ $(function() {
                     window.alert(textStatus);
                 }
         });
-        
+
     });
 
 
-    
-    
+
+
 });
-
-
-
-
-
 
 
 
@@ -101,7 +107,6 @@ $(function() {
 !function ($) {
 
   "use strict";
-
 
 
  /* MULTISELECT CLASS DEFINITION
@@ -125,39 +130,41 @@ $(function() {
     constructor: MultiSelect,
 
     init: function(){
-        //从服务器获取所有部门信息并自动生成
-    $.ajax({
-        type: "POST",
-        url: "http://115.159.188.200:8000/get_department/",
-        data: "",
-        dataType: "json",
-        async: false,
-        //下面2个参数用于解决跨域问题  
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true,
-        success: function(data){
-            console.log(data);
-            if(data.code=="1000"){
-                for (var i = 0; i < data.departments.length; i++) {
-                    var $opt = $('<option></option>',{value: data.departments[i].name, html: data.departments[i].name});
-                    //$opt.text(data.departments[0].name);
-                    $opt.attr('depId', data.departments[i].id);
-                    $("#my_multi_select3").append($opt);
-                };
-            }else if(data.code==1001){
-                window.alert("您尚未登录。");
-            }else if(data.code==1002){
-                window.alert("您不是管理员，没有此权限。");
-            }else{
-                window.alert(data.msg);
-            }
-        },
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-            window.alert(textStatus);
-        }
-    });
+
+      //从服务器获取所有部门信息并自动生成
+      $.ajax({
+          type: "POST",
+          url: "http://115.159.188.200:8000/get_department/",
+          data: "",
+          dataType: "json",
+          async: false,
+          //下面2个参数用于解决跨域问题
+          xhrFields: {
+              withCredentials: true
+          },
+          crossDomain: true,
+          success: function(data){
+              console.log(data);
+              if(data.code=="1000"){
+                  for (var i = 0; i < data.departments.length; i++) {
+                      var $opt = $('<option></option>',{value: data.departments[i].id, html: data.departments[i].name});
+                      //$opt.text(data.departments[0].name);
+                      $opt.attr('depId', data.departments[i].id);
+                      $("#my_multi_select3").append($opt);
+                  };
+              }else if(data.code==1001){
+                  window.alert("您尚未登录。");
+              }else if(data.code==1002){
+                  window.alert("您不是管理员，没有此权限。");
+              }else{
+                  window.alert(data.msg);
+              }
+          },
+          error: function(XMLHttpRequest, textStatus, errorThrown) {
+              window.alert(textStatus);
+          }
+      });
+
       var that = this,
           ms = this.$element;
 
@@ -168,6 +175,7 @@ $(function() {
 
         ms.find('option').each(function(){
           that.generateLisFromOption(this);
+          console.log(this);
         });
 
         this.$selectionUl.find('.ms-optgroup-label').hide();
@@ -261,11 +269,11 @@ $(function() {
             optgroupId = that.sanitize(optgroupLabel, that.sanitizeRegexp),
             $selectableOptgroup = that.$selectableUl.find('#optgroup-selectable-'+optgroupId),
             $selectionOptgroup = that.$selectionUl.find('#optgroup-selection-'+optgroupId);
-        
+
         if ($selectableOptgroup.length === 0){
           var optgroupContainerTpl = '<li class="ms-optgroup-container"></li>',
               optgroupTpl = '<ul class="ms-optgroup"><li class="ms-optgroup-label"><span>'+optgroupLabel+'</span></li></ul>';
-          
+
           $selectableOptgroup = $(optgroupContainerTpl);
           $selectionOptgroup = $(optgroupContainerTpl);
           $selectableOptgroup.attr('id', 'optgroup-selectable-'+optgroupId);
@@ -379,7 +387,7 @@ $(function() {
       }
       if ($nextElem.length > 0){
         $nextElem.addClass('ms-hover');
-        var scrollTo = $list.scrollTop() + $nextElem.position().top - 
+        var scrollTo = $list.scrollTop() + $nextElem.position().top -
                        containerHeight / 2 + elemHeight / 2;
 
         $list.scrollTop(scrollTo);
@@ -465,7 +473,7 @@ $(function() {
           });
         } else {
           if (that.options.keepOrder){
-            var selectionLiLast = that.$selectionUl.find('.ms-selected'); 
+            var selectionLiLast = that.$selectionUl.find('.ms-selected');
             if((selectionLiLast.length > 1) && (selectionLiLast.last().get(0) != selections.get(0))) {
               selections.insertAfter(selectionLiLast.last());
             }

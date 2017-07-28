@@ -10,7 +10,8 @@ $(document).ready(function(){
             context.attach('.course-name', [
                 {text: '<span class="fa fa-file"></span>&nbsp;&nbsp;查看课程资料', action: function(e) {
                     var courseid = $(context.target).prev().text();
-                    window.location.href="all_contents.html?course_id="+courseid;
+                    var coursename = $(context.target).text();
+                    window.location.href="all_contents.html?course_id="+courseid+"&course_name="+coursename;
                 }}
             ]);
 });
@@ -28,7 +29,7 @@ var EditableTable = function () {
                 data: "limit=100&page=1",
                 dataType: "json",
                 async: false,
-                //下面2个参数用于解决跨域问题  
+                //下面2个参数用于解决跨域问题
                 xhrFields: {
                     withCredentials: true
                 },
@@ -157,7 +158,7 @@ var EditableTable = function () {
                 data: "course_name="+$(this).parent().parent().find(".course-name").text(),
                 dataType: "json",
                 async: false,
-                //下面2个参数用于解决跨域问题  
+                //下面2个参数用于解决跨域问题
                 xhrFields: {
                     withCredentials: true
                 },
@@ -187,7 +188,7 @@ var EditableTable = function () {
                     oTable.fnDeleteRow(nRow);
                     window.alert("删除课程成功");
                 }
-                
+
             });
 
             $('#editable-sample a.cancel').live('click', function (e) {
@@ -237,4 +238,3 @@ var EditableTable = function () {
     };
 
 }();
-
