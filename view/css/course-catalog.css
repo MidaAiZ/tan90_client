@@ -1,11 +1,15 @@
 .chapter{
     padding:30px;
 }
-li{
+.part>li{
     margin-left: 50px;
     font-size: 20px;
 }
 .testimonals h3{
     padding-top: 10px;
     margin-bottom: 0.2em;
+}
+
+.col-1{
+  margin-top: 20px;
 }
