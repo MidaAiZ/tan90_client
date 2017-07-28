@@ -84,7 +84,7 @@ $(function() {
 
                 $("#course-name").text(data.course_name);
                 $("#course-intro").text("课程简介："+data.course_introduce);
-                $(".img-responsive").attr('src','http://115.159.188.200:8000'+data.cover);
+                $("#cover").attr('src','http://115.159.188.200:8000'+data.cover);
 
                 var chaps = data.chapters;
                 for (var i=0; i<data.chapters.length;i++){

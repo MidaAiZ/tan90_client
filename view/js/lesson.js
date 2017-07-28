@@ -1,3 +1,4 @@
+var secIdx;
 $(function() {
 
     //获取参数方法
@@ -142,38 +143,36 @@ $(function() {
 
     //动态生成课程目录
     function createCatalogItems(data){
-            //动态生成课程内容及目录
+        //动态生成课程内容及目录
+        $("#course-name").text(data.course_name);
+        $("#course-intro").text("课程简介："+data.course_introduce);
+        $(".img-responsive").attr('src','http://115.159.188.200:8000'+data.cover);
 
-                $("#course-name").text(data.course_name);
-                $("#course-intro").text("课程简介："+data.course_introduce);
-                $(".img-responsive").attr('src','http://115.159.188.200:8000'+data.cover);
-
-                var chaps = data.chapters;
-                if(data.code==1000){
-                for (var i=0; i<data.chapters.length;i++){
-                    $("#chapter").append('<h3>第'+chaps[i].index+'章 '+chaps[i].name+'</h3>');
-                    var $list = $('<ul></ul>');
-                    $("#chapter").append($list);
-                    for (var j=0; j<count(catalog);j++) {
-                        if(catalog[j].chapterId==chaps[i].id){
-                            var $part = $('<a></a>',{class: 'part',
-                                    html: '<li>'+catalog[j].chapterIndex+'-'+catalog[j].sectionIndex+'  '+catalog[j].sectionName+'</li>'});
-                            $part.attr('chapter-index', catalog[j].chapterIndex);
-                            $part.attr('chapter-id', catalog[j].chapterId);
-                            $part.attr('section-index', catalog[j].sectionIndex);
-                            $part.attr('section-id', catalog[j].sectionId);
-                            $list.append($part);
-                        }
-
-                    };
+        var chaps = data.chapters;
+        if(data.code==1000){
+            for (var i=0; i<data.chapters.length;i++){
+                $("#chapter").append('<h3>第'+chaps[i].index+'章 '+chaps[i].name+'</h3>');
+                var $list = $('<ul></ul>');
+                $("#chapter").append($list);
+                for (var j=0; j<count(catalog);j++) {
+                    if(catalog[j].chapterId==chaps[i].id){
+                        var $part = $('<a></a>',{class: 'part',
+                                html: '<li>'+catalog[j].chapterIndex+'-'+catalog[j].sectionIndex+'  '+catalog[j].sectionName+'</li>'});
+                        $part.attr('chapter-index', catalog[j].chapterIndex);
+                        $part.attr('chapter-id', catalog[j].chapterId);
+                        $part.attr('section-index', catalog[j].sectionIndex);
+                        $part.attr('section-id', catalog[j].sectionId);
+                        $list.append($part);
+                    }
                 };
+            };
 
 
-                $(".part").on("click", function(event){
-                    var $this = $(this);
-                    window.location.href='lesson.html?course_id='+GetQueryString("course_id")+'&chapter_index='+$this.attr("chapter-index")+'&lesson_index='+$this.attr("section-index");
-                });
-                }
+            $(".part").on("click", function(event){
+                var $this = $(this);
+                window.location.href='lesson.html?course_id='+GetQueryString("course_id")+'&chapter_index='+$this.attr("chapter-index")+'&lesson_index='+$this.attr("section-index");
+            });
+        }
     }
 
 
@@ -190,7 +189,7 @@ $(function() {
                 withCredentials: true
             },
             crossDomain: true,
-
+            async: false,
             complete: function(XMLHttpRequest, textStatus) {
             },
             success: function(data) {
@@ -244,7 +243,9 @@ $(function() {
                                             };
                                             var video=['http://115.159.188.200:8000'+videoUrl+'->video/mp4'];
                                             var support=['all'];
-                                            CKobject.embedHTML5('a1','ckplayer_a1',650,433,video,flashvars,support);
+                                            CKobject.embedHTML5('a1','ckplayer_a1','100%','100%',video,flashvars,support);
+                                            $('#a1')[0].style.height = '100%';
+                                            $('#a1')[0].style.width = '92%';
                                         }else if(data.contents[i].type=="A"){
                                             flagA = true;
                                             audioUrl = data.contents[i].url;
@@ -258,7 +259,9 @@ $(function() {
                                             };
                                             var video=['http://115.159.188.200:8000'+audioUrl];
                                             var support=['all'];
-                                            CKobject.embedHTML5('a2','ckplayer_a1',650,433,video,flashvars,support);
+                                            CKobject.embedHTML5('a2','ckplayer_a1','100%','100%',video,flashvars,support);
+                                            $('#a2')[0].style.height = '100%';
+                                            $('#a2')[0].style.width = '92%';
                                         }else if(data.contents[i].type=="P"){
                                             flagP = true;
                                             pdfUrl = data.contents[i].url;
@@ -307,6 +310,7 @@ $(function() {
                             $("#next-lesson").remove();
                         }
 
+                        secIdx = catalog[i].sectionId;
 
                         setDiscussion(catalog[i].chapterId);
                     }
@@ -327,7 +331,71 @@ $(function() {
     });
 
 
+    var noteparam = 'section_id=' + secIdx + '&page=1&limit=80';
+    //获取笔记
+    $.ajax({
+            type: 'POST',
+            url: 'http://115.159.188.200:8000/my_note/',
+            dataType: 'json',
+            data: noteparam,
+            //下面2个参数用于解决跨域问题
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            complete: function(XMLHttpRequest, textStatus) {
+            },
+            success: function(data) {
+                if(data.code==1000){
+                    console.log(data);
+                    for (var i = 0; i < data.notes.length; i++) {
+                        var content = data.notes[i].content.substring(3,data.notes[i].content.length-4);
+                        $($('#content1')[0]).append('<p class="note">'+content+'<span class="glyphicon glyphicon-remove deleteNote"></span></p>');
+                    }
+                    console.log($($('#content1')[0]).children());
 
+                }else{
+                    console.log(data.msg);
+                }
+            },
+            //error:function(XMLHttpRequest, textStatus, errorThrown){
+            //通常情况下textStatus和errorThrown只有其中一个包含信息
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                window.alert(textStatus);
+            }
+    });
+
+    //记笔记
+    $('.editNote').on('click',function functionName() {
+      var params = 'section_id=' + secIdx + '&title=' + $('#newNote').val() + '&content=' + $('#newNote').val();
+      $.ajax({
+              type: 'POST',
+              url: 'http://115.159.188.200:8000/add_note/',
+              dataType: 'json',
+              data: params,
+              //下面2个参数用于解决跨域问题
+              xhrFields: {
+                  withCredentials: true
+              },
+              crossDomain: true,
+              complete: function(XMLHttpRequest, textStatus) {
+              },
+              success: function(data) {
+                  if(data.code==1000){
+                      console.log(data);
+                      $('.mCSB_container.mCS_touch.mCS_no_scrollbar').append('<p class="note">'+$('#newNote').val()+'<span class="glyphicon glyphicon-remove deleteNote"></span></p>');
+                      $('#newNote').val('');
+                  }else{
+                      console.log(data.msg);
+                  }
+              },
+              //error:function(XMLHttpRequest, textStatus, errorThrown){
+              //通常情况下textStatus和errorThrown只有其中一个包含信息
+              error: function(XMLHttpRequest, textStatus, errorThrown) {
+                  window.alert(textStatus);
+              }
+      });
+    });
 
 
 

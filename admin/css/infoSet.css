@@ -1,11 +1,14 @@
 select{
-        width: 883.33px;
-        height: 34px;
-        padding: 6px 12px;
-        font-size: 14px;
-        line-height: 1.42857143;
-        margin-left: 15px;
-        margin-right: 15px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    margin-left: 15px;
+    margin-right: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+#gender, #department{
+    float: left;
+    width:80.3%;
 }

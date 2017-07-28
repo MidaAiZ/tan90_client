@@ -76,9 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li>
 									<a href="/view/courses.html">所有课程</a>
 								</li>
-								<li>
-									
-								</li>
+								<li></li>
 								<li>
 									<a href="/view/usercenter">个人中心</a>
 								</li>
@@ -87,138 +85,164 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<a id="dLabel" data-target="#" href="javascript: void(0)" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 											<span class="glyphicon glyphicon-menu-down"></span>
 										</a>
+									<li class="m-option">观看记录</li>
+									<li role="separator" class="divider"></li>
+									<li class="m-option">我的课程</li>
+									<li class="m-option">我的笔记</li>
+									<li class="m-option">我的提问</li>
+									<li role="separator" class="divider"></li>
+									<li class="m-option" id="logout">退出</li>
+								</ul>
+							</div>
+						</li>
+						<li style="display: none;" id="session-info">
+							<a id="login-btn" type="button" data-toggle="modal" data-target=".login">登录</a>
+							<a id="signin-btn" type="button" data-toggle="modal" data-target=".login">注册</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
 
-										<ul class="dropdown-menu" aria-labelledby="dLabel">
-											<li class="m-option">观看记录</li>
-											<li role="separator" class="divider"></li>
-											<li class="m-option">我的课程</li>
-											<li class="m-option">我的笔记</li>
-											<li class="m-option">我的提问</li>
-											<li role="separator" class="divider"></li>
-											<li class="m-option" id="logout">退出</li>
-										</ul>
-									</div>
-								</li>
-								<li style="display: none;" id="session-info">
-									<a id="login-btn" type="button" data-toggle="modal" data-target=".login">登录</a>
-									<a id="signin-btn" type="button" data-toggle="modal" data-target=".login">注册</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-				</div>
+<!-- header end -->
+<!-- About -->
+<div class="about">
+	<div class="container">
+		<h2>课程详情</h2>
+		<div class="about-info-grids">
+			<div class="col-md-5 abt-pic">
+				<img src="images/course.png" id="cover" class="img-responsive" alt=""/>
+			</div>
+			<div class="col-md-7 abt-info-pic">
+				<h3 id="course-name">课程名称</h3>
+				<ul>
+					<li id="course-intro">课程简介：XXXXXXXXXXXXXXXXXXXXXXXXXXx</li>
+				</ul>
+				<button class="btn btn-success" id="choose-course">开始学习
+					<i class="glyphicon glyphicon-heart"></i>
+				</button>
+				<button class="btn btn-danger" id="withdraw-course">退选课程
+					<i class="glyphicon glyphicon-remove"></i>
+				</button>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="testimonals col-md-8">
+			<h3>课程目录</h3>
+			<div class="testimonal-grids">
+				<div id="chapter"></div>
+				<div class="clearfix"></div>
 			</div>
 		</div>
-
-		<!-- header end -->
-		<!-- About -->
-		<div class="about">
-			<div class="container">
-				<h2>课程详情</h2>
-				<div class="about-info-grids">
-					<div class="col-md-5 abt-pic">
-						<img src="images/course.png" class="img-responsive" alt=""/>
-					</div>
-					<div class="col-md-7 abt-info-pic">
-						<h3 id="course-name">课程名称</h3>
-						<ul>
-							<li id="course-intro">课程简介：XXXXXXXXXXXXXXXXXXXXXXXXXXx</li>
-						</ul>
-						<button class="btn btn-success" id="choose-course">开始学习 <i class="glyphicon glyphicon-heart"></i></button>
-						<button class="btn btn-danger" id="withdraw-course">退选课程 <i class="glyphicon glyphicon-remove"></i></button>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="testimonals">
-					<h3>课程目录</h3>
-					<div class="testimonal-grids">
-						<div id="chapter"></div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
+		<div class="col-md-3 sed-md testimonals">
+			<h3>相关课程推荐</h3>
+			<div class=" col-1">
+				<a class="class-pic" href="#"><img class="img-responsive" src="http://115.159.188.200:8000/media/cover/%E6%A3%80%E6%B5%8B%E8%BF%90%E5%8A%A8%E4%B8%AD%E7%9A%84%E7%89%A9%E4%BD%93.jpg" alt=""></a>
+				<h4>
+					<a class="class-name" href="#">检测运动物体技术</a>
+				</h4>
+				<p class="class-intro">这门课程讲解了检测运动物体技术。</p>
+			</div>
+			<div class="col-1">
+				<a class="class-pic" href="#"><img class="img-responsive" src="http://115.159.188.200:8000/media/cover/%E6%A3%80%E6%B5%8B%E8%BF%90%E5%8A%A8%E4%B8%AD%E7%9A%84%E7%89%A9%E4%BD%93.jpg" alt=""></a>
+				<h4>
+					<a class="class-name" href="#">AR增强现实技术</a>
+				</h4>
+				<p class="class-intro">这门课程讲解了AR增强现实技术。</p>
+			</div>
+			<div class="col-1">
+				<a class="class-pic" href="#"><img class="img-responsive" src="http://115.159.188.200:8000/media/cover/%E6%A3%80%E6%B5%8B%E8%BF%90%E5%8A%A8%E4%B8%AD%E7%9A%84%E7%89%A9%E4%BD%93.jpg" alt=""></a>
+				<h4>
+					<a class="class-name" href="#">VR虚拟现实技术</a>
+				</h4>
+				<p class="class-intro">这门课程讲解了VR虚拟现实技术。</p>
 			</div>
 		</div>
-		<!-- footer -->
-		<div class="footer">
-			<div class="container">
-				<div class="footer-grids">
-					<div class="col-md-3 ftr-info">
-						<h3>About Us</h3>
-						<p>Sed faucibus mollis laoreet. Sed vehicula faucibus tristique lectus a orci molestie finibus. Suspendisse pharetra, metus sed rutrum pretium.</p>
-					</div>
-					<div class="col-md-3 ftr-grid">
-						<h3>Categories</h3>
-						<ul class="ftr-list">
-							<li>
-								<a href="#">Action</a>
-							</li>
-							<li>
-								<a href="#">Racing</a>
-							</li>
-							<li>
-								<a href="#">Adventure</a>
-							</li>
-							<li>
-								<a href="#">Simulation</a>
-							</li>
-							<li>
-								<a href="#">Bike</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-3 ftr-grid">
-						<h3>Platform</h3>
-						<ul class="ftr-list">
-							<li>
-								<a href="#">Pc</a>
-							</li>
-							<li>
-								<a href="#">Ps4</a>
-							</li>
-							<li>
-								<a href="#">XBOX 360</a>
-							</li>
-							<li>
-								<a href="#">XBOX ONE</a>
-							</li>
-							<li>
-								<a href="#">PSP</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-md-3 ftr-grid">
-						<h3>Information</h3>
-						<ul class="ftr-list">
-							<li>
-								<a href="#">Contact Us</a>
-							</li>
-							<li>
-								<a href="#">Wish Lists</a>
-							</li>
-							<li>
-								<a href="#">Site Map</a>
-							</li>
-							<li>
-								<a href="#">Terms & Conditions</a>
-							</li>
-						</ul>
-					</div>
-					<div class="clearfix"></div>
-				</div>
+	</div>
+</div>
+<!-- footer -->
+<div class="footer">
+	<div class="container">
+		<div class="footer-grids">
+			<div class="col-md-3 ftr-info">
+				<h3>About Us</h3>
+				<p>Sed faucibus mollis laoreet. Sed vehicula faucibus tristique lectus a orci molestie finibus. Suspendisse pharetra, metus sed rutrum pretium.</p>
 			</div>
-		</div>
-		<!---->
-		<div class="copywrite">
-			<div class="container">
-				<p>Copyright &copy; 2015.Company name All rights reserved.More Templates
-					<a href="http://www.genban.org/" target="_blank" title="跟版网模板">跟版网模板</a>
-					- Collect from
-					<a href="http://www.genban.org/" title="网页模板" target="_blank">网页模板</a>
-				</p>
+			<div class="col-md-3 ftr-grid">
+				<h3>Categories</h3>
+				<ul class="ftr-list">
+					<li>
+						<a href="#">Action</a>
+					</li>
+					<li>
+						<a href="#">Racing</a>
+					</li>
+					<li>
+						<a href="#">Adventure</a>
+					</li>
+					<li>
+						<a href="#">Simulation</a>
+					</li>
+					<li>
+						<a href="#">Bike</a>
+					</li>
+				</ul>
 			</div>
+			<div class="col-md-3 ftr-grid">
+				<h3>Platform</h3>
+				<ul class="ftr-list">
+					<li>
+						<a href="#">Pc</a>
+					</li>
+					<li>
+						<a href="#">Ps4</a>
+					</li>
+					<li>
+						<a href="#">XBOX 360</a>
+					</li>
+					<li>
+						<a href="#">XBOX ONE</a>
+					</li>
+					<li>
+						<a href="#">PSP</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-3 ftr-grid">
+				<h3>Information</h3>
+				<ul class="ftr-list">
+					<li>
+						<a href="#">Contact Us</a>
+					</li>
+					<li>
+						<a href="#">Wish Lists</a>
+					</li>
+					<li>
+						<a href="#">Site Map</a>
+					</li>
+					<li>
+						<a href="#">Terms & Conditions</a>
+					</li>
+				</ul>
+			</div>
+			<div class="clearfix"></div>
 		</div>
-		<!---->
-	<script src="/view/js/common.js"></script>
-  </body>
+	</div>
+</div>
+<!---->
+<div class="copywrite">
+	<div class="container">
+		<p>Copyright &copy; 2015.Company name All rights reserved.More Templates
+			<a href="http://www.genban.org/" target="_blank" title="跟版网模板">跟版网模板</a>
+			- Collect from
+			<a href="http://www.genban.org/" title="网页模板" target="_blank">网页模板</a>
+		</p>
+	</div>
+</div>
+<!---->
+<script src="/view/js/common.js"></script>
+</body>
 </html>
