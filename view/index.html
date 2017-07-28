@@ -10,7 +10,6 @@
 		<!-- jQuery (necessary JavaScript plugins) -->
 		<script src="js/bootstrap.js"></script>
 		<script src="js/index.js"></script>
-		<script src="js/common.js"></script>
 		<script src="js/flow_tag.js"></script>
 		<!-- Custom Theme files -->
 		<!--//theme-style-->
@@ -58,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="search">
 							<form>
 								<input type="submit" value="">
-								<input type="text" value="" placeholder="Search...">
+								<input type="text" value="" id="nav-search" placeholder="搜索课程...">
 							</form>
 						</div>
 						<div class="details collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -70,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<a href="/view/courses.html">所有课程</a>
 								</li>
 								<li>
-									<a href="/view/gallery.html">考试管理</a>
+									
 								</li>
 								<li>
 									<a href="/view/usercenter">个人中心</a>
@@ -146,8 +145,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="content">
 			<div class="container">
 				<div class="top-courses">
-					<a href="/view/courses.html"><h3>热门课程</h3></a>
-					<span>这是推荐课程啊啊啊啊</span>
+					<a href="/view/courses.html"><h3>推荐课程</h3></a>
+					<span>公司推荐课程，多学一些涨工资哦</span>
 				</div>
 				<div class="top-course-grids">
 					<ul id="courseUl"></ul>
@@ -162,8 +161,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-4 col-sm-5 col-xs-12">
 					<div class="inner-panel">
 						<div class="searcher animated">
-							<form action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
-								<input type="search" name="condition" ,="" placeholder="搜索教员或课程">
+							<form action="/search" accept-charset="UTF-8" method="get" id="search-form">
+								<input name="utf8" type="hidden" value="✓">
+								<input type="search" name="condition"  placeholder="搜索课程" id="search-input" value="搜索课程">
 								<button type="submit" class="btn-sm btn-danger">
 									<sapn class="glyphicon glyphicon-search"></sapn>
 								</button>
@@ -175,14 +175,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="inner-panel">
 						<div class="flowshow animated">
 							<div id="flow_tag_widget" class="flow-widget" role="label-container">
-								<a class="item btn btn-primary" title="精品课程" href="/courses/12" style="left: 345.403px; top: 225.036px; z-index: 147; opacity: 1.4289;">小白先生的英语课</a>
-								<a class="item btn btn-primary" title="精品课程" href="/courses/11" style="left: 332.394px; top: 123.126px; z-index: 208; opacity: 17.089;">其它课程</a>
-								<a class="item btn btn-primary" title="精品课程" href="/courses/10" style="left: 208.192px; top: 136.644px; z-index: 156; opacity: 2.0528;">作业辅导课程</a>
-								<a class="item btn btn-primary" title="精品课程" href="/courses/9" style="left: 244.028px; top: 46.9929px; z-index: 102; opacity: 0.114063; display: none;">艺术课程</a>
-								<a class="item btn btn-primary" title="名师推荐" href="/teachers/2" style="left: 382.295px; top: 44.3469px; z-index: 102; opacity: 0.109273; display: none;">WMD</a>
-								<a class="item btn btn-primary" title="名师推荐" href="/teachers/1" style="left: 399.289px; top: 81.8269px; z-index: 102; opacity: 0.108264; display: none;">明新教育官方</a>
-								<a class="item btn btn-primary" title="新闻热点" href="/articles" style="left: 291.077px; top: 27.1607px; z-index: 111; opacity: 0.239074; color: rgb(255, 255, 255); padding: 5px; background: rgb(48, 137, 155);">测试文章</a>
-								<a class="item btn btn-primary" title="学习资料" href="/articles" style="left: 282.793px; top: 34.0593px; z-index: 101; opacity: 0.105404; display: none;">test</a>
 							</div>
 						</div>
 					</div>
@@ -342,6 +334,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<link rel="stylesheet" href="css/select-theme-default.css" />
 		<script src="js/tether.js"></script>
 		<script src="js/select.min.js"></script>
-	</body>
+	<script src="/view/js/common.js"></script>
+  </body>
 
 </html>

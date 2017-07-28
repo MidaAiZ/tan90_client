@@ -9,7 +9,6 @@ $(function() {
 
     //获取页面关闭事件
     window.onbeforeunload = function(){
-        console.log('关闭页面');
         $.ajax({
                 type: 'POST',
                 url: 'http://115.159.188.200:8000/exit_course/',
@@ -35,7 +34,6 @@ $(function() {
                     window.alert(textStatus);
                 }
         });
-        return "hhhhhh确认退出?";
     }
     window.onload = function(){
         console.log('打开页面');

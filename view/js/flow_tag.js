@@ -14,8 +14,8 @@ var tagParams = {
     aA: null,
     oDiv: null
 }
-
-window.onload = function() {
+// window.onload = function()
+function setupTag() {
     var i = 0;
     var oTag = null;
     tagParams.oDiv = document.getElementById('flow_tag_widget');
@@ -126,6 +126,8 @@ function positionAll() {
     var phi = 0;
     var theta = 0;
     var max = tagParams.mcList.length;
+    console.log(max);
+    console.log(tagParams.aA.length);
     for (var i = 0; i < max; i++) {
         if (tagParams.distr) {
             phi = Math.acos(-1 + (2 * (i + 1) - 1) / max);
@@ -138,7 +140,7 @@ function positionAll() {
         tagParams.mcList[i].cx = tagParams.radius * Math.cos(theta) * Math.sin(phi);
         tagParams.mcList[i].cy = tagParams.radius * Math.sin(theta) * Math.sin(phi);
         tagParams.mcList[i].cz = tagParams.radius * Math.cos(phi);
-
+        console.log(tagParams.aA[i]);
         tagParams.aA[i].style.left = tagParams.mcList[i].cx + tagParams.oDiv.offsetWidth / 2 - tagParams.mcList[i].offsetWidth / 2 + 'px';
         tagParams.aA[i].style.top = tagParams.mcList[i].cy + tagParams.oDiv.offsetHeight / 2 - tagParams.mcList[i].offsetHeight / 2 + 'px';
     }

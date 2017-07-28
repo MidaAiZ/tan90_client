@@ -2539,7 +2539,7 @@ rangy.createModule("DomUtil", function(api, module) {
 
             var iframeDoc = dom.getIframeDocument(iframe);
             iframeDoc.open();
-            iframeDoc.write("<html><head></head><body>12</body></html>");
+            iframeDoc.write("<html><head></head><body>12  </body></html>");
             iframeDoc.close();
 
             var sel = dom.getIframeWindow(iframe).getSelection();
@@ -5511,7 +5511,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
       return wysihtml5.lang.string(
         '<!DOCTYPE html><html><head>'
         + '<meta charset="#{charset}">#{stylesheets}</head>'
-        + '<body></body></html>'
+        + '<body>  </body></html>'
       ).interpolate(templateVars);
     },
 

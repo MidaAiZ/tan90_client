@@ -179,7 +179,6 @@ function initDepart() {
         },
 		success: function(res) {
             departs = res.departments
-			console.log(departs);
             var $select = $("#r_department");
             departs.forEach(function(p) {
                 var $e = $("<option value=" + p.name + ">" + p.name + "</option>")
@@ -196,3 +195,13 @@ function initDepart() {
 		}
     })
 };
+
+// 监听搜索栏
+$(function() {
+    var search = $("#nav-search");
+    var form = search.parent("form");
+    form.on("submit", function() {
+        window.location = "/view/courses.html?course_name=" + search.val();
+        return false;
+    })
+})

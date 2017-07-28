@@ -55,5 +55,5 @@ foreach ( $postArray as $sForm => $value )
 			Copyright &copy; 2003-2013, <a class="samples" href="http://cksource.com/">CKSource</a> - Frederico Knabben. All rights reserved.
 		</p>
 	</div>
-</body>
+  </body>
 </html>

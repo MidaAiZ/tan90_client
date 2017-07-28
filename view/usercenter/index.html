@@ -64,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="search">
 							<form>
 								<input type="submit" value="">
-								<input type="text" value="" placeholder="Search...">
+								<input type="text" value="" id="nav-search" placeholder="搜索课程...">
 							</form>
 						</div>
 						<div class="details collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -76,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<a href="/view/courses.html">所有课程</a>
 								</li>
 								<li>
-									<a href="/view/gallery.html">考试管理</a>
+
 								</li>
 								<li>
 									<a href="/view/usercenter">个人中心</a>
@@ -141,8 +141,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="user-info">
 					<div class="info-box">
 						<div class="ico-box">
-							<img src="../images/default/avatar.png" alt="用户中心首页头像" id="navAvatar" class="info-ico" data-id="3">
-							<button data-toggle="modal" ,="" id="cropfile" class="cropfile">
+							<img alt="用户中心首页头像" id="navAvatar" class="info-ico" data-id="3">
+							<button data-toggle="modal" id="cropfile" class="cropfile">
 								<span class="glyphicon glyphicon-pencil">修改</span>
 							</button>
 						</div>
@@ -155,21 +155,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="phone-email info-box">
 						<div class="phone">
-							<div class="ico-box"><img src="../images/default/phone.jpg" class="info-ico"></div>
+							<div class="ico-box"><img src="../images/default/avatar.png" class="info-ico"></div>
 							<ul class="fix-ico-right">
 								<li class="fix-item">
 									<p>手机已验证</p>
-									<span id="phone-info">15850680010</span>
+									<span id="phone-info"></span>
 									<a id="edit-phone" href="javascript:void(0)" class="state-ture">修改手机号</a>
 								</li>
 							</ul>
 						</div>
 						<div class="email">
-							<div class="ico-box"><img src="../images/default/avatar.png" class="info-ico loader" src="/assets/index/email"></div>
+							<div class="ico-box"><img src="../images/default/avatar.png" class="info-ico loader"></div>
 							<ul class="fix-ico-right">
 								<li class="fix-item">
 									<p>邮箱未验证</p>
-									<span id="email-info">302711074@qq.com</span>
+									<span id="email-info"></span>
 									<a id="valid-email" href="javascript:void(0)" class="state-false">点击验证</a>
 								</li>
 							</ul>
@@ -362,11 +362,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						$birth.text("");
 						$addr.text("");
 						$intro.text(res.introduce);
-						$avatar.attr("src", res.face);
+						$avatar.attr("src", ROOT + res.face);
 					  }
 				  })
 			  })
 			</script>
 		</div>
-	</body>
+	<script src="/view/js/common.js"></script>
+</body>
 </html>

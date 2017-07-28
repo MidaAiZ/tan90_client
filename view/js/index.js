@@ -15,6 +15,10 @@ function getCourses(url, callBK) {
 	$.ajax({
 		url: url,
 		type: "POST",
+		data: {
+		    page: 1,
+			limit: 8
+		},
 		dataType: "json",
 		crossDomain: true,
 		xhrFields: {
@@ -22,14 +26,12 @@ function getCourses(url, callBK) {
 		},
 		success: function(res) {
 			if (res.code == 1000) {
-				console.log(res.courses);
 				callBK(res);
 			} else {
-				console.log(res.msg);
 			}
 		},
 		error: function(err) {
-			console.log(err);
+			$.console.error(err);
 		}
 	})
 }
@@ -37,8 +39,8 @@ function getCourses(url, callBK) {
 // 回调函数
 function courseBK(res) {
 	var $box = $("#courseUl");
-	var courses = res.courses
-	var size = courses.length
+	var courses = res.courses;
+
 	for(var i in courses) {
 		$box.append(createCourse(courses[i]));
 	}
@@ -67,6 +69,7 @@ function courseBK(res) {
 			}
 		}
 	});
+	setLabelCourse(courses);
 }
 
 // 生成课程节点
@@ -93,7 +96,7 @@ function createCourse(course) {
 // 部分课程列表
 $(function() {
 	// ajax获取课程信息
-	getCourses(ROOT + "get_all_courses/?count=4", trailerBK);
+	getCourses(ROOT + "get_all_courses/?page=1&limit=4", trailerBK);
 })
 
 function trailerBK(res) {
@@ -117,7 +120,7 @@ function createTrailer(course) {
 		</div>\
 		<div class='col-md-8 sub-text'>\
 			<a data-href='/view/lesson.html?chapter_id=1&course_id=" + course.id + "'>" + course.name +
-			"<span style='margin-top: -5px; border: 2px solid #ddd; border-radius: 30%; padding: 3px; float: right;'>"+ course.category +"</span></a>\
+			"<span class='c-label'>"+ course.category +"</span></a>\
 			<p>" + course.introduce + "</p>\
 		</div>\
 		<div class='clearfix'></div>\
@@ -137,8 +140,12 @@ $(function() {
 })
 function createDisc() {
 	$.ajax({
-		url: ROOT + 'hot_discussions/?limit=6',
+		url: ROOT + 'hot_discussions/',
 		type: 'POST',
+		data: {
+			page: 1,
+			limit: 8
+		},
 		dataType: 'JSON',
 		crossDomain: true,
 		xhrFields: {
@@ -146,14 +153,12 @@ function createDisc() {
 		},
 		success: function(res) {
 			if (res.code == 1000) {
-				console.log(res.hot_discussions);
 				discBK(res);
 			} else {
-				console.log(res.msg);
 			}
 		},
 		error: function(err) {
-			console.log(err);
+			$.console.error(err);
 		}
 	})
 }
@@ -184,8 +189,12 @@ $(function() {
 })
 function createNotes() {
 	$.ajax({
-		url: ROOT + 'newest_note/?limit=6',
+		url: ROOT + 'newest_note/',
 		type: 'POST',
+		data: {
+			page: 1,
+			limit: 8
+		},
 		dataType: 'JSON',
 		crossDomain: true,
 		xhrFields: {
@@ -193,14 +202,12 @@ function createNotes() {
 		},
 		success: function(res) {
 			if (res.code == 1000) {
-				console.log(res.notes);
 				discBK(res);
 			} else {
-				console.log(res.msg);
 			}
 		},
 		error: function(err) {
-			console.log(err);
+			$.console.error(err);
 		}
 	})
 }
@@ -218,4 +225,24 @@ function noteBK(data) {
 		');
 		$c.append($e);
 	}
+}
+
+// 监听搜索
+$(function() {
+	$("#search-form").on("submit", function() {
+		window.location = '/view/courses.html?course_name=' + $('#search-input').val();
+		return false;
+	})
+})
+
+// 设置浮动标签
+function setLabelCourse(data) {
+	var floatPane = $("#flow_tag_widget");
+	for(var i in data) {
+		var label = $('\
+  		  <a class="item btn btn-primary" title="精品课程" href="/view/lesson.html?chapter_index=1&lesson_index=1&course_id=' + data[i].id + '">' + data[i].name + '</a>\
+		')
+		floatPane.append(label);
+	}
+	setupTag();
 }
