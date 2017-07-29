@@ -1,6 +1,125 @@
-
+@media (min-width: 150px){ 
+    /*>=150的设备*/ 
+    .abt-pic{
+        height: 150px;
+        width: 100%;
+    }
+    .abt-pic-side{
+        display: none;
+    }
+    .abt-info-pic{
+        width: 100%;
+    }
+    .testimonals{
+        width: 100%;
+    }
+}
+@media (min-width: 340px){ 
+    /*>=340的设备*/ 
+    .abt-pic{
+        height: 300px;
+        width: 100%;
+    }
+    .abt-pic-side{
+        display: none;
+    }
+    .abt-info-pic{
+        width: 100%;
+    }
+    .testimonals{
+        width: 100%;
+    }
+}
+@media (min-width: 420px){ 
+    /*<=768的设备*/ 
+    .abt-pic{
+        height: 400px;
+        width: 100%;
+    }
+    .abt-pic-side{
+        display: none;
+    }
+    .abt-info-pic{
+        width: 100%;
+    }
+    .testimonals{
+        width: 100%;
+    }
+}
+@media (min-width: 768px){ 
+    /*<=768的设备*/ 
+    .abt-pic{
+        height: 480px;
+        width: 100%;
+    }
+    .abt-pic-side{
+        display: none;
+    }
+    .abt-info-pic{
+        width: 100%;
+    }
+    .testimonals{
+        width: 100%;
+    }
+}
+@media (min-width: 992px){ 
+    /*<=992的设备*/ 
+    .abt-pic{
+        height: 505px;
+        width: 66.66666667%;
+    }
+    .abt-pic-side{
+        display: inline-block;
+    }
+    .abt-info-pic{
+        width: 100%;
+    }
+    .testimonals{
+        width: 100%;
+    }
+}
+@media (min-width: 1200px){
+    /*<=1200的设备*/ 
+    .abt-pic{
+        height: 505px;
+        width: 66.66666667%;
+    }
+    .abt-pic-side{
+        display: inline-block;
+    }
+    .abt-info-pic{
+        width: 100%;
+    }
+    .col-md-7{
+        width: 57%;
+    }
+    .col-md-5{
+        width: 41%;
+        margin-left: 2%;
+    }
+}
+@media (min-width: 1500px){
+    /*<=1200的设备*/ 
+    .abt-pic{
+        height: 505px;
+        width: 66.66666667%;
+    }
+    .abt-pic-side{
+        display: inline-block;
+    }
+    .abt-info-pic{
+        width: 100%;
+    }
+    .col-md-7{
+        width: 57%;
+    }
+    .col-md-5{
+        width: 41%;
+        margin-left: 2%;
+    }
+}
 .abt-pic{
-    height: 505px;
+    /*height: 505px;*/
     float: left;
     text-align: center;
     text-align: -webkit-center;
@@ -11,7 +130,7 @@
 }
 
 .abt-info-pic{
-    border: 1px solid #d0d6d9;
+    border: 1px solid #eeeeee;
     padding: 15px;
 }
 
@@ -24,7 +143,7 @@
     margin-top: 1em;
     margin-bottom: 1em;
     padding: 15px;
-    border: 1px solid #d0d6d9;
+    border: 1px solid #eeeeee;
 }
 
 #last-lesson{
@@ -46,7 +165,7 @@
 
 .tab-group {
       position: relative;
-      border: 1px solid #bdbdbd;
+      border: 1px solid #eeeeee;
       margin-top: 2.5em;
       border-radius: 0 0 10px 10px;
     }
@@ -97,13 +216,6 @@
 /*选项卡style完毕*/
 
 
-.col-md-5{
-    width:42%;
-    margin-left: 2%;
-}
-.col-md-7{
-    width:56%;
-}
 .col-md-2{
     height: 505px;
 }

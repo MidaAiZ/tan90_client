@@ -1,3 +1,18 @@
+@media (max-width: 1500px){ 
+    .filter{
+        display: inline-block;
+    }
+}
+@media (max-width: 750px){ 
+    .filter{
+        display: none;
+    }
+}
+@media (max-width: 150px){ 
+    .filter{
+        display: none;
+    }
+}
 #title{
     padding-bottom: 15px;
 }
