@@ -481,7 +481,8 @@ ul.callbacks_tabs.callbacks1_tabs {
     font-family: 'Play-Regular';
     line-height: 1.4em;
     text-decoration: none;
-    display: block;
+    display: inline-block;
+    width: 100%;
 }
 
 .sub-text p {
@@ -3055,18 +3056,6 @@ p.center{
 }
 a {
     cursor: pointer;
-}
-
-.c-label {
-  margin-top: -5px;
-  border: 2px solid #ddd;
-  border-radius: 30%;
-  padding: 3px;
-  float: right;
-  max-width: 100px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 
 .file-beautify {

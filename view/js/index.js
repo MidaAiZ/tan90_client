@@ -119,7 +119,8 @@ function createTrailer(course) {
 			<a data-href='/view/catalog.html?course_id=" + course.id + "'><img src='" + IMGROOT + course.cover + "' alt='img07'/></a>\
 		</div>\
 		<div class='col-md-8 sub-text'>\
-			<a data-href='/view/lesson.html?chapter_id=1&course_id=" + course.id + "'>" + course.name +
+			<a data-href='/view/lesson.html?chapter_id=1&course_id=" + course.id + "'>" +
+			"<span class='c-text'>" + course.name + "</span>" +
 			"<span class='c-label'>"+ course.category +"</span></a>\
 			<p>" + course.introduce + "</p>\
 		</div>\
@@ -202,7 +203,7 @@ function createNotes() {
 		},
 		success: function(res) {
 			if (res.code == 1000) {
-				discBK(res);
+				noteBK(res);
 			} else {
 			}
 		},
@@ -213,6 +214,7 @@ function createNotes() {
 }
 function noteBK(data) {
 	var notes = data.notes;
+	console.log(notes);
 	var $c = $("#note-list");
 	for(var i in notes) {
 		var $e = $('\

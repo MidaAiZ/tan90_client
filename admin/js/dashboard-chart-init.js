@@ -2,10 +2,10 @@
 Morris.Donut({
     element: 'graph-donut',
     data: [
-        {value: 40, label: 'New Visit', formatted: 'at least 70%' },
-        {value: 30, label: 'Unique Visits', formatted: 'approx. 15%' },
-        {value: 20, label: 'Bounce Rate', formatted: 'approx. 10%' },
-        {value: 10, label: 'Up Time', formatted: 'at most 99.99%' }
+        {value: 40, label: 'PPT课程', formatted: '占比 40%' },
+        {value: 30, label: '视频课程', formatted: '占比 30%' },
+        {value: 20, label: '音频课程', formatted: '占比 20%' },
+        {value: 10, label: '其它', formatted: '占比 10%' }
     ],
     backgroundColor: false,
     labelColor: '#fff',

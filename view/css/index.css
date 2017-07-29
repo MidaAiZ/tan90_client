@@ -158,12 +158,20 @@
     border: 1px solid #b9bdc1;
     border-radius: 20px;
     margin-right: 12px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 20%;
 }
 .container-types li .text {
     float: left;
     color: #000;
     font-size: 14px;
     line-height: 24px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 70%;
 }
 .container-types li .text:hover {
 	cursor: pointer;
@@ -198,4 +206,22 @@
     /*color: #b7bbbf;*/
     line-height: 58px;
     margin-left: 10px;
+}
+.c-text {
+	float: left;
+	max-width: 75%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.c-label {
+  margin-top: -5px;
+  border: 2px solid #ddd;
+  border-radius: 30%;
+  padding: 3px;
+  float: right;
+  max-width: 25%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
