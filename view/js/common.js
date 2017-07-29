@@ -5,6 +5,16 @@ $(function() {
         initUInfo();
     } else {
         initSession();
+        // 强行转跳到首页
+        if (window.location.pathname == "/view/") {
+            $(".modal.login").modal({
+                show: true,
+                keyboard: false
+            })
+            $(".modal.login").off("click");
+        } else {
+            window.location = "/view/"
+        }
     }
 })
 
@@ -15,8 +25,7 @@ function initUInfo() {
 
 function initSession() {
 	$("#session-info").show()
-
-    $("body").append(getLoginModal());
+    $("html").append(getLoginModal());
 
     $('#create').click(function() {
         register();
