@@ -335,7 +335,7 @@ $(function() {
     //获取笔记
     $.ajax({
             type: 'POST',
-            url: 'http://115.159.188.200:8000/my_note/',
+            url: 'http://115.159.188.200:8000/note_in_section/',
             dataType: 'json',
             data: noteparam,
             //下面2个参数用于解决跨域问题
