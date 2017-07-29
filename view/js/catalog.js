@@ -148,6 +148,10 @@ $(function() {
 
                     //动态生成课程内容及目录
                     createCatalogItems(data);
+                }else if(data.code==4000){
+                    window.alert("服务器内部错误");
+                }else{
+                    window.alert(data.msg);
                 }
             },
             //error:function(XMLHttpRequest, textStatus, errorThrown){
@@ -189,8 +193,12 @@ $(function() {
                     window.alert("您已选过该课程。");
                     $('#choose-course').hide();
                     $('#withdraw-course').show();
-                }else{
+                }else if(data.code==1005){
+                    window.alert("空课程不可选。");
+                }else if(data.code==4000){
                     window.alert("服务器内部错误");
+                }else{
+                    window.alert(data.msg);
                 }
 
             },
@@ -230,8 +238,10 @@ $(function() {
                     window.alert("您尚未选中该课程。");
                     $('#withdraw-course').hide();
                     $('#choose-course').show();
-                }else{
+                }else if(data.code==4000){
                     window.alert("服务器内部错误");
+                }else{
+                    window.alert(data.msg);
                 }
 
             },
