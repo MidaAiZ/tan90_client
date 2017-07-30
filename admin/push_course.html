@@ -7,24 +7,16 @@
   <meta name="author" content="ThemeBucket">
   <link rel="shortcut icon" href="#" type="image/png">
 
-  <title>创建新课程</title>
+  <title>课程推送</title>
 
   <link href="css/style.css" rel="stylesheet">
-  <link href="css/jquery.stepy.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
-
-  <link href="css/create_course.css" rel="stylesheet">
-
-  <!--multi-select-->
-  <link rel="stylesheet" type="text/css" href="js/jquery-multi-select/css/multi-select.css" />
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
   <script src="js/respond.min.js"></script>
   <![endif]-->
-
-
 </head>
 
 <body class="sticky-header">
@@ -68,16 +60,16 @@
             <ul class="nav nav-pills nav-stacked custom-nav">
                 <li class=""><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
 
-                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>课程管理</span></a>
+                <li class="menu-list active"><a href=""><i class="fa fa-book"></i> <span>课程管理</span></a>
                     <ul class="sub-menu-list active">
                         <li><a href="all_courses.html">全部课程</a></li>
                         <li><a href="all_categories.html">课程分类</a></li>
                         <li><a href="create_course.html">创建课程</a></li>
-                        <li><a href="/admin/push_course.html">课程推送</a></li>
+                        <li><a href="push_course.html">课程推送</a></li>
                     </ul>
                 </li>
 
-                <li class="menu-list active"><a href=""><i class="fa fa-user"></i> <span>学员管理</span></a>
+                <li class="menu-list"><a href=""><i class="fa fa-user"></i> <span>学员管理</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="all_students.html">全部学员</a></li>
                         <li><a href="all_departments.html">部门管理</a></li>
@@ -309,73 +301,79 @@
         <!-- page heading start-->
         <div class="page-heading">
             <h3>
-                创建课程
+                课程推送
             </h3>
             <ul class="breadcrumb">
                 <li>
                     <a href="all_courses.html">课程管理</a>
                 </li>
-                <li class="active">创建课程</li>
+                <li class="active"> 课程推送 </li>
             </ul>
         </div>
         <!-- page heading end-->
-        <hr/>
-        <!--body wrapper start-->
-        <div class="wrapper">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="box-widget">
-                        <div class="widget-head clearfix">
-                            <div id="top_tabby" class="block-tabby pull-left">
-                            </div>
-                        </div>
-                        <div class="widget-container">
-                            <div class="widget-block">
-                                <div class="widget-content box-padding">
-                                    <form id="stepy_form" class=" form-horizontal left-align form-well" method="post">
-                                        <fieldset title="步骤1">
-                                            <legend>选择课程所在分类</legend>
-                                            <div class="form-group">
-                                                <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">课程分类</label>
-                                                <div class="col-lg-8">
-                                                    <select multiple="" name="category_name" class="form-control" id="cate_names">
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                        <fieldset title="步骤2">
-                                            <legend>填写课程相关信息</legend>
-                                            <div class="form-group">
-                                                <label class="col-md-2 col-sm-2 control-label">课程名称</label>
-                                                <div class="col-md-6 col-sm-6">
-                                                    <input type="text" id="course_name" name="course_name" placeholder="请填写课程名称" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-2 col-sm-2 control-label">课程介绍</label>
-                                                <div class="col-md-6 col-sm-6">
-                                                    <input type="text" id="introduce" name="introduce" placeholder="请填写课程介绍" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="form-group last">
-                                                <label class="control-label col-md-2">部门权限<br>(选择哪些部门可见,若不选择则默认课程对所有部门公开)</label>
-                                                <div class="col-md-8">
-                                                    <select name="department_names" class="multi-select" multiple="" id="my_multi_select3">
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </fieldset>
 
-                                        <button id="sub" class="finish btn btn-success btn-extend"> 创建课程</button>
-                                    </form>
+        <!--body wrapper start-->
+        <section class="wrapper">
+        <!-- page start-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        课程推送
+                    </header>
+                    <div class="panel-body">
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="course">课程</label>
+                                    <select multiple class="form-control" id="course" style="height:250px;">
+                                        <option couid="3">3D立体成像技术</option>
+                                        <option couid="4">人脸识别技术</option>
+                                        <option couid="5">检测运动物体技术</option>
+                                        <option couid="6">HDR原理与实现</option>
+                                        <option couid="7">图像识别技术</option>
+                                        <option couid="8">拍照防抖技术</option>
+                                        <option couid="9">全景技术</option>
+                                        <option couid="10">AR增强现实技术</option>
+                                        <option couid="11">VR虚拟现实技术</option>
+                                        <option couid="12">体感技术</option>
+                                        <option couid="13">暗光高清拍摄技术</option>
+                                        <option couid="14">手势识别技术</option>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="student">学员</label>
+                                    <select multiple class="form-control" id="student" style="height:250px;">
+                                        <option stuid="1">wenwenla</option>
+                                        <option stuid="2">mida</option>
+                                        <option stuid="3">Crystal</option>
+                                        <option stuid="4">张三</option>
+                                        <option stuid="5">李四</option>
+                                        <option stuid="6">王五</option>
+                                        <option stuid="7">Nico</option>
+                                        <option stuid="8">赵大</option>
+                                        <option stuid="9">钱玉</option>
+                                        <option stuid="10">孙彬</option>
+                                        <option stuid="11">李建军</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button id="push" class="btn btn-primary">推送</button>
+
                     </div>
-                </div>
+                </section>
             </div>
+
         </div>
+        <!-- page end-->
+        </section>
         <!--body wrapper end-->
+
+
 
     </div>
     <!-- main content end-->
@@ -385,61 +383,45 @@
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
 <script src="js/jquery-migrate-1.2.1.min.js"></script>
-<script src="js/jquery.validate.min.js"></script>
-<script src="js/jquery.stepy.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/modernizr.min.js"></script>
 <script src="js/jquery.nicescroll.js"></script>
 
-
-
-<script src="js/create_course.js"></script>
-
-<!--multi-select-->
-<script type="text/javascript" src="js/jquery-multi-select/js/jquery.quicksearch.js"></script>
-<script src="js/multi-select-init.js"></script>
-
 <!--common scripts for all pages-->
 <script src="js/scripts.js"></script>
-
-
-
-
-<script>
-    /*=====STEPY WIZARD WITH VALIDATION====*/
-    $(function() {
-        $('#stepy_form').stepy({
-            backLabel: '上一步',
-            nextLabel: '下一步',
-            errorImage: true,
-            block: true,
-            description: true,
-            legend: false,
-            titleClick: true,
-            titleTarget: '#top_tabby',
-            validate: true
-        });
-        $('#stepy_form').validate({
-            errorPlacement: function(error, element) {
-                $('#stepy_form div.stepy-error').append(error);
-            },
-            rules: {
-                'category_name': 'required',
-                'course_name': 'required',
-                'introduce': 'required'
-            },
-            messages: {
-                'category_name': {
-                    required: '课程分类必须选择！'
+<script type="text/javascript">
+    $('#push').on('click',function(){
+        var param = "user_id="+$('#student option:selected').attr("stuid")+"&course_id="+$('#course option:selected').attr("couid");
+        $.ajax({
+                type: "POST",
+                url: "http://115.159.188.200:8000/assign_course/",
+                data: param,
+                dataType: "json",
+                async: false,
+                //下面2个参数用于解决跨域问题
+                xhrFields: {
+                    withCredentials: true
                 },
-                'course_name': {
-                    required: '课程名称不可为空！'
+                crossDomain: true,
+                success: function(data){
+                    console.log("导出：");
+                    console.log(data);
+                    if(data.code==1000){
+                        alert("课程推送成功");
+                    }else if(data.code==1001){
+                        window.alert("您尚未登录。");
+                    }else if(data.code==1002){
+                        window.alert("您不是管理员，没有此权限。");
+                    }else{
+                        window.alert(data.msg);
+                    }
+
                 },
-                'introduce': {
-                    required: '课程介绍不可为空！'
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    window.alert(textStatus);
                 }
-            }
         });
+
     });
 </script>
 

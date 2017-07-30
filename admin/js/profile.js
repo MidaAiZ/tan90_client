@@ -1,11 +1,11 @@
 $(document).ready(function() {
     STUID = location.search.substr(8);
-	initInfo();
-	initCourse();
+    initInfo();
+    initCourse();
 })
 
 function initInfo() {
-	$.ajax({
+    $.ajax({
         type: "POST",
         url: "", // 获取学生基本信息
         dataType: "json",
@@ -62,5 +62,44 @@ function setInfo(data) {
 }
 
 function setCourse(data) {
-	// 显示学员课程信息
+    // 显示学员课程信息
 }
+
+// 图表
+$(function() {
+    var chart = c3.generate({
+
+        bindto: '#chart',
+
+        data: {
+            columns: [
+                ['开始时间', 19.33, 12.13, 8.01, 20.24, 12.03, 9.21, 18.22, 12.09],
+                ['结束时间', 19.37, 12.38, 8.18, 20.45, 12.19, 9.35, 18.32, 12.12]
+            ],
+            types: {
+                data1: 'line',
+                data2: 'line'
+            }
+        },
+
+        axis: {
+            x: {
+                type: 'categorized'
+            }
+        }
+
+    });
+});
+
+// 打印信息
+$(function() {
+    $("#print").click(function() {
+        bdhtml = window.document.body.innerHTML;
+        sprnstr = "<!--startprint-->";
+        eprnstr = "<!--endprint-->";
+        prnhtml = bdhtml.substr(bdhtml.indexOf(sprnstr) + 17);
+        prnhtml = prnhtml.substring(0, prnhtml.indexOf(eprnstr));
+        window.document.body.innerHTML = prnhtml;
+        window.print();
+    })
+})
