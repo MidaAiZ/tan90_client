@@ -213,8 +213,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		function createCourse(course) {
 			var liStr = "\
 				<div class='col-md-3 gallery-grid'>\
-					<a data-href='/ view/lesson.html?chapter_index=1&lesson_index=1&course_id=" + course.course_id + "' class='example-image-link' data-lightbox='example-set' target='_blank' >\
-					<img class='example-image' src='" + IMGROOT + course.cover_url + "'/></a>\
+					<a data-href='/view/lesson.html?chapter_index=1&lesson_index=1&course_id=" + course.course_id + "' class='example-image-link' data-lightbox='example-set' target='_blank' >\
+					<img class='example-image' src='" + IMGROOT + course.cover_url + "'/>\
+					<h4 style='padding: 10px 0;text-align: center;background: #eee'>" + course.course_name + "</h4>\
+					</a>\
 				</div>\
 			"
 			return $(liStr);

@@ -141,11 +141,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<table class="table">
 					<thead>
 						<tr class="tr">
-							<td class="td" width="20%">课程</td>
-							<td class="td" width="20%">章节</td>
+							<td class="td" width="30%">问题</td>
+							<td class="td" width="40%">内容</td>
 							<td class="td" width="20%">时间</td>
-							<td class="td" width="20%">状态</td>
-							<td class="td" width="20%">查看</td>
+							<td class="td" width="10%">回复数</td>
 						</tr>
 					</thead>
 					<tbody class="ctr" id="question"></tbody>
@@ -154,7 +153,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 		<script type="text/javascript">
 			$(function() {
-			  var $notes = $("#question");
+			  var $ques = $("#question");
 			  $.ajax({
 				  url: ROOT + "my_discussion//",
 				  type: "POST",
@@ -164,16 +163,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     				withCredentials: true
   				  },
 				  success: function(res) {
-					  console.log(res)
 					  var questions = res.discussion_list;
 					  for (var i in questions) {
 						  var q = questions[i];
-						  var $tr = $("<tr data-id='" + n.id + "'>\
-							<td>" + 课程名 + "</td>\
-							<td>" + n.title + "</td>\
-							<td>" + n.time + "</td>\
-							<td>" + n.public == true ? '公开' : '私有' + "</td>\
+						  var $tr = $("<tr data-id='" + q.id + "'>\
+							<td>" + q.title + "</td>\
+							<td>" + q.question_content + "</td>\
+							<td>" + q.question_time + "</td>\
+							<td>" + q.response_cnt + "</td>\
 						  </tr>")
+						$ques.append($tr);
 					  }
 				  }
 			  })

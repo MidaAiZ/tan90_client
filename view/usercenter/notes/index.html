@@ -140,11 +140,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<table class="table">
 						<thead>
 							<tr class="tr">
-								<td class="td" width="20%">课程</td>
-								<td class="td" width="20%">章节</td>
-								<td class="td" width="20%">时间</td>
-								<td class="td" width="20%">状态</td>
-								<td class="td" width="20%">查看</td>
+								<td class="td" width="15%">课程</td>
+								<td class="td" width="20%">标题</td>
+								<td class="td" width="30%">内容</td>
+								<td class="td" width="15%">时间</td>
+								<td class="td" width="10%">状态</td>
 							</tr>
 						</thead>
 						<tbody class="ctr" id="notes"></tbody>
@@ -168,11 +168,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					  for (var i in notes) {
 						  var n = notes[i];
 						  var $tr = $("<tr data-id='" + n.id + "'>\
-							<td>" + 课程名 + "</td>\
+							<td><a href='/view/lesson.html?chapter_index=1&lesson_index=1&course_id='" + n.course_id + "'>" + n.course_name + "</a></td>\
 							<td>" + n.title + "</td>\
+							<td>" + n.content + "</td>\
 							<td>" + n.time + "</td>\
-							<td>" + n.public == true ? '公开' : '私有' + "</td>\
+							<td>" + (n.public == true ? '已公开' : '未分享') + "</td>\
 						  </tr>")
+						  $notes.append($tr);
 					  }
 				  }
 			  })
