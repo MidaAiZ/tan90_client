@@ -8,7 +8,7 @@ $(document).ready(function(){
                 compress: false
             });
             context.attach('.course-name', [
-                {text: '<span class="fa fa-file"></span>&nbsp;&nbsp;查看课程资料', action: function(e) {
+                {text: '<span class="fa fa-file"></span>&nbsp;&nbsp;查看课程详情', action: function(e) {
                     var courseid = $(context.target).prev().text();
                     var coursename = $(context.target).text();
                     window.location.href="all_contents.html?course_id="+courseid+"&course_name="+coursename;
@@ -238,3 +238,31 @@ var EditableTable = function () {
     };
 
 }();
+var ROOT = 'http://115.159.188.200:8000/'
+// 导出excel
+$(function() {
+    $("#export").click(function() {
+        $.ajax({
+            url: ROOT + 'export_course_info/',
+            crossDomain: true,
+            //下面2个参数用于解决跨域问题
+            xhrFields: {
+                withCredentials: true
+            },
+            success: function(res) {
+                var url = res.url;
+                var $form = $("<form action='" + ROOT + url + "'></form>")
+                $form.trigger("submit");
+            }
+        })
+    })
+    $("#print").click(function() {
+       bdhtml=window.document.body.innerHTML;
+       sprnstr="<!--startprint-->";
+       eprnstr="<!--endprint-->";
+       prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17);
+       prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));
+       window.document.body.innerHTML=prnhtml;
+       window.print();
+    })
+})

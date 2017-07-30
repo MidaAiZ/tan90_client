@@ -1,407 +1,577 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="ThemeBucket">
-  <link rel="shortcut icon" href="#" type="image/png">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
 
-  <title>课程资料</title>
+    <title>课程详情</title>
 
-  <!--data table-->
-  <link rel="stylesheet" href="js/data-tables/DT_bootstrap.css" />
+    <!--data table-->
+    <link rel="stylesheet" href="js/data-tables/DT_bootstrap.css"/>
 
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
 
-  <link href="css/all_categories.css" rel="stylesheet">
-  <link href="css/all_contents.css" rel="stylesheet">
+    <link href="css/all_categories.css" rel="stylesheet">
+    <link href="css/all_contents.css" rel="stylesheet">
 
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <script src="js/html5shiv.js"></script>
-  <script src="js/respond.min.js"></script>
-  <![endif]-->
-</head>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]> <script src="js/html5shiv.js"></script> <script src="js/respond.min.js"></script> <![endif]-->
+  </head>
 
-<body class="sticky-header">
+  <body class="sticky-header">
 
-<section>
-    <!-- left side start-->
-    <div class="left-side sticky-left-side">
+    <section>
+      <!-- left side start-->
+      <div class="left-side sticky-left-side">
 
         <!--logo and iconic logo start-->
         <div class="logo">
-            <a href="index.html"><img src="images/logo.png" alt=""></a>
+          <a href="index.html"><img src="images/logo.png" alt=""></a>
         </div>
 
         <div class="logo-icon text-center">
-            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+          <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
         </div>
         <!--logo and iconic logo end-->
 
-
         <div class="left-side-inner">
 
-            <!-- visible to small devices only -->
-            <div class="visible-xs hidden-sm hidden-md hidden-lg">
-                <div class="media logged-user">
-                    <img alt="" src="images/photos/user-avatar.png" class="media-object">
-                    <div class="media-body">
-                        <h4><a href="#">John Doe</a></h4>
-                        <span>"Hello There..."</span>
-                    </div>
-                </div>
-
-                <h5 class="left-nav-title">Account Information</h5>
-                <ul class="nav nav-pills nav-stacked custom-nav">
-                    <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
-                    <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
-                    <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
-                </ul>
+          <!-- visible to small devices only -->
+          <div class="visible-xs hidden-sm hidden-md hidden-lg">
+            <div class="media logged-user">
+              <img alt="" src="images/photos/user-avatar.png" class="media-object">
+              <div class="media-body">
+                <h4>
+                  <a href="#">John Doe</a>
+                </h4>
+                <span>"Hello There..."</span>
+              </div>
             </div>
 
-            <!--sidebar nav start-->
+            <h5 class="left-nav-title">Account Information</h5>
             <ul class="nav nav-pills nav-stacked custom-nav">
-                <li class=""><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
-
-                <li class="menu-list active"><a href=""><i class="fa fa-book"></i> <span>课程管理</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="all_courses.html">全部课程</a></li>
-                        <li><a href="all_categories.html">课程分类</a></li>
-                        <li><a href="create_course.html">创建课程</a></li>
-                        <li><a href="#">课程推送</a></li>
-                    </ul>
-                </li>
-
-                <li class="menu-list"><a href=""><i class="fa fa-user"></i> <span>学员管理</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="all_students.html">全部学员</a></li>
-                        <li><a href="all_departments.html">部门管理</a></li>
-                    </ul>
-                </li>
-                <li class="menu-list"><a href=""><i class="fa fa-cog"></i> <span>系统设置</span></a>
-                    <ul class="sub-menu-list">
-                        <li><a href="#">网站信息统计</a></li>
-                        <li><a href="infoSet_manager.html">管理员信息设置</a></li>
-                        <li><a href="#">注册码</a></li>
-                    </ul>
-                </li>
-
+              <li>
+                <a href="#">
+                  <i class="fa fa-user"></i>
+                  <span>Profile</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-cog"></i>
+                  <span>Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-sign-out"></i>
+                  <span>Sign Out</span>
+                </a>
+              </li>
             </ul>
-            <!--sidebar nav end-->
+          </div>
+
+          <!--sidebar nav start-->
+          <ul class="nav nav-pills nav-stacked custom-nav">
+            <li class="">
+              <a href="index.html">
+                <i class="fa fa-home"></i>
+                <span>首页</span>
+              </a>
+            </li>
+
+            <li class="menu-list active">
+              <a href="">
+                <i class="fa fa-book"></i>
+                <span>课程管理</span>
+              </a>
+              <ul class="sub-menu-list">
+                <li>
+                  <a href="all_courses.html">全部课程</a>
+                </li>
+                <li>
+                  <a href="all_categories.html">课程分类</a>
+                </li>
+                <li>
+                  <a href="create_course.html">创建课程</a>
+                </li>
+                <li>
+                  <a href="#">课程推送</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="menu-list">
+              <a href="">
+                <i class="fa fa-user"></i>
+                <span>学员管理</span>
+              </a>
+              <ul class="sub-menu-list">
+                <li>
+                  <a href="all_students.html">全部学员</a>
+                </li>
+                <li>
+                  <a href="all_departments.html">部门管理</a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-list">
+              <a href="">
+                <i class="fa fa-cog"></i>
+                <span>系统设置</span>
+              </a>
+              <ul class="sub-menu-list">
+                <li>
+                  <a href="#">网站信息统计</a>
+                </li>
+                <li>
+                  <a href="infoSet_manager.html">管理员信息设置</a>
+                </li>
+                <li>
+                  <a href="#">注册码</a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+          <!--sidebar nav end-->
 
         </div>
-    </div>
-    <!-- left side end-->
+      </div>
+      <!-- left side end-->
 
-    <!-- main content start-->
-    <div class="main-content" >
+      <!-- main content start-->
+      <div class="main-content">
 
         <!-- header section start-->
         <div class="header-section">
 
-        <!--toggle button start-->
-        <a class="toggle-btn"><i class="fa fa-bars"></i></a>
-        <!--toggle button end-->
+          <!--toggle button start-->
+          <a class="toggle-btn">
+            <i class="fa fa-bars"></i>
+          </a>
+          <!--toggle button end-->
 
-        <!--search start-->
-        <form class="searchform" action="index.html" method="post">
-            <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
-        </form>
-        <!--search end-->
+          <!--search start-->
+          <form class="searchform" action="index.html" method="post">
+            <input type="text" class="form-control" name="keyword" placeholder="Search here..."/>
+          </form>
+          <!--search end-->
 
-        <!--notification menu start -->
-        <div class="menu-right">
+          <!--notification menu start -->
+          <div class="menu-right">
             <ul class="notification-menu">
-                <li>
-                    <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
-                        <i class="fa fa-tasks"></i>
-                        <span class="badge">8</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-head pull-right">
-                        <h5 class="title">You have 8 pending task</h5>
-                        <ul class="dropdown-list user-list">
-                            <li class="new">
-                                <a href="#">
-                                    <div class="task-info">
-                                        <div>Database update</div>
-                                    </div>
-                                    <div class="progress progress-striped">
-                                        <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-warning">
-                                            <span class="">40%</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="new">
-                                <a href="#">
-                                    <div class="task-info">
-                                        <div>Dashboard done</div>
-                                    </div>
-                                    <div class="progress progress-striped">
-                                        <div style="width: 90%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" role="progressbar" class="progress-bar progress-bar-success">
-                                            <span class="">90%</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="task-info">
-                                        <div>Web Development</div>
-                                    </div>
-                                    <div class="progress progress-striped">
-                                        <div style="width: 66%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="66" role="progressbar" class="progress-bar progress-bar-info">
-                                            <span class="">66% </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="task-info">
-                                        <div>Mobile App</div>
-                                    </div>
-                                    <div class="progress progress-striped">
-                                        <div style="width: 33%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="33" role="progressbar" class="progress-bar progress-bar-danger">
-                                            <span class="">33% </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div class="task-info">
-                                        <div>Issues fixed</div>
-                                    </div>
-                                    <div class="progress progress-striped">
-                                        <div style="width: 80%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" class="progress-bar">
-                                            <span class="">80% </span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="new"><a href="">See All Pending Task</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
-                        <i class="fa fa-envelope-o"></i>
-                        <span class="badge">5</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-head pull-right">
-                        <h5 class="title">You have 5 Mails </h5>
-                        <ul class="dropdown-list normal-list">
-                            <li class="new">
-                                <a href="">
-                                    <span class="thumb"><img src="images/photos/user1.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">John Doe <span class="badge badge-success">new</span></span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <span class="thumb"><img src="images/photos/user2.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">Jonathan Smith</span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <span class="thumb"><img src="images/photos/user3.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">Jane Doe</span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <span class="thumb"><img src="images/photos/user4.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">Mark Henry</span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <span class="thumb"><img src="images/photos/user5.png" alt="" /></span>
-                                        <span class="desc">
-                                          <span class="name">Jim Doe</span>
-                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                                        </span>
-                                </a>
-                            </li>
-                            <li class="new"><a href="">Read All Mails</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
-                        <i class="fa fa-bell-o"></i>
-                        <span class="badge">4</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-head pull-right">
-                        <h5 class="title">Notifications</h5>
-                        <ul class="dropdown-list normal-list">
-                            <li class="new">
-                                <a href="">
-                                    <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                    <span class="name">Server #1 overloaded.  </span>
-                                    <em class="small">34 mins</em>
-                                </a>
-                            </li>
-                            <li class="new">
-                                <a href="">
-                                    <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                    <span class="name">Server #3 overloaded.  </span>
-                                    <em class="small">1 hrs</em>
-                                </a>
-                            </li>
-                            <li class="new">
-                                <a href="">
-                                    <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                    <span class="name">Server #5 overloaded.  </span>
-                                    <em class="small">4 hrs</em>
-                                </a>
-                            </li>
-                            <li class="new">
-                                <a href="">
-                                    <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                    <span class="name">Server #31 overloaded.  </span>
-                                    <em class="small">4 hrs</em>
-                                </a>
-                            </li>
-                            <li class="new"><a href="">See All Notifications</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <a href="#" class="u-info btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        <img class="u-avatar" />
-                        <span class="u-name"></span>
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-                        <li><a href="/admin/profile.html"><i class="fa fa-user"></i>  个人中心</a></li>
-                        <li><a href="#"><i class="fa fa-cog"></i>  设置</a></li>
-                        <li><a href="javascript:void(0)" id="logout-btn"><i class="fa fa-sign-out"></i> 退出</a></li>
-                    </ul>
-                </li>
+              <li>
+                <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                  <i class="fa fa-tasks"></i>
+                  <span class="badge">8</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-head pull-right">
+                  <h5 class="title">You have 8 pending task</h5>
+                  <ul class="dropdown-list user-list">
+                    <li class="new">
+                      <a href="#">
+                        <div class="task-info">
+                          <div>Database update</div>
+                        </div>
+                        <div class="progress progress-striped">
+                          <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-warning">
+                            <span class="">40%</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="new">
+                      <a href="#">
+                        <div class="task-info">
+                          <div>Dashboard done</div>
+                        </div>
+                        <div class="progress progress-striped">
+                          <div style="width: 90%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" role="progressbar" class="progress-bar progress-bar-success">
+                            <span class="">90%</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <div class="task-info">
+                          <div>Web Development</div>
+                        </div>
+                        <div class="progress progress-striped">
+                          <div style="width: 66%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="66" role="progressbar" class="progress-bar progress-bar-info">
+                            <span class="">66%
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <div class="task-info">
+                          <div>Mobile App</div>
+                        </div>
+                        <div class="progress progress-striped">
+                          <div style="width: 33%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="33" role="progressbar" class="progress-bar progress-bar-danger">
+                            <span class="">33%
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <div class="task-info">
+                          <div>Issues fixed</div>
+                        </div>
+                        <div class="progress progress-striped">
+                          <div style="width: 80%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" class="progress-bar">
+                            <span class="">80%
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="new">
+                      <a href="">See All Pending Task</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                  <i class="fa fa-envelope-o"></i>
+                  <span class="badge">5</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-head pull-right">
+                  <h5 class="title">You have 5 Mails
+                  </h5>
+                  <ul class="dropdown-list normal-list">
+                    <li class="new">
+                      <a href="">
+                        <span class="thumb"><img src="images/photos/user1.png" alt=""/></span>
+                        <span class="desc">
+                          <span class="name">John Doe
+                            <span class="badge badge-success">new</span>
+                          </span>
+                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="thumb"><img src="images/photos/user2.png" alt=""/></span>
+                        <span class="desc">
+                          <span class="name">Jonathan Smith</span>
+                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="thumb"><img src="images/photos/user3.png" alt=""/></span>
+                        <span class="desc">
+                          <span class="name">Jane Doe</span>
+                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="thumb"><img src="images/photos/user4.png" alt=""/></span>
+                        <span class="desc">
+                          <span class="name">Mark Henry</span>
+                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="thumb"><img src="images/photos/user5.png" alt=""/></span>
+                        <span class="desc">
+                          <span class="name">Jim Doe</span>
+                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                        </span>
+                      </a>
+                    </li>
+                    <li class="new">
+                      <a href="">Read All Mails</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i>
+                  <span class="badge">4</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-head pull-right">
+                  <h5 class="title">Notifications</h5>
+                  <ul class="dropdown-list normal-list">
+                    <li class="new">
+                      <a href="">
+                        <span class="label label-danger">
+                          <i class="fa fa-bolt"></i>
+                        </span>
+                        <span class="name">Server #1 overloaded.
+                        </span>
+                        <em class="small">34 mins</em>
+                      </a>
+                    </li>
+                    <li class="new">
+                      <a href="">
+                        <span class="label label-danger">
+                          <i class="fa fa-bolt"></i>
+                        </span>
+                        <span class="name">Server #3 overloaded.
+                        </span>
+                        <em class="small">1 hrs</em>
+                      </a>
+                    </li>
+                    <li class="new">
+                      <a href="">
+                        <span class="label label-danger">
+                          <i class="fa fa-bolt"></i>
+                        </span>
+                        <span class="name">Server #5 overloaded.
+                        </span>
+                        <em class="small">4 hrs</em>
+                      </a>
+                    </li>
+                    <li class="new">
+                      <a href="">
+                        <span class="label label-danger">
+                          <i class="fa fa-bolt"></i>
+                        </span>
+                        <span class="name">Server #31 overloaded.
+                        </span>
+                        <em class="small">4 hrs</em>
+                      </a>
+                    </li>
+                    <li class="new">
+                      <a href="">See All Notifications</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#" class="u-info btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  <img class="u-avatar"/>
+                  <span class="u-name"></span>
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                  <li>
+                    <a href="/admin/profile.html">
+                      <i class="fa fa-user"></i>
+                      个人中心</a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-cog"></i>
+                      设置</a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0)" id="logout-btn">
+                      <i class="fa fa-sign-out"></i>
+                      退出</a>
+                  </li>
+                </ul>
+              </li>
 
             </ul>
-        </div>
-        <!--notification menu end -->
+          </div>
+          <!--notification menu end -->
 
         </div>
         <!-- header section end-->
 
         <!-- page heading start-->
         <div class="page-heading">
-            <h3 id="heading">
-                课程资料
-            </h3>
-            <ul class="breadcrumb">
-                <li>
-                    <a href="all_courses.html">课程管理</a>
-                </li>
-                <li class="active"> 课程资料 </li>
-            </ul>
+          <h3 id="heading">
+            课程详情
+          </h3>
+          <ul class="breadcrumb">
+            <li>
+              <a href="all_courses.html">课程管理</a>
+            </li>
+            <li class="active">
+              课程详情
+            </li>
+          </ul>
         </div>
         <!-- page heading end-->
 
         <!--body wrapper start-->
         <div class="wrapper">
-             <div class="row">
-                <div class="col-sm-12">
-                <section class="panel">
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="panel">
+                <div class="panel-body extra-pad">
+                  <h4 class="pros-title">实时流量统计
+                    <span>analisys</span>
+                  </h4>
+                  <div class="row">
+                    <div class="col-sm-4 col-xs-4">
+                      <div id="p-lead-1"></div>
+                      <p class="p-chart-title">日趋势</p>
+                    </div>
+                    <div class="col-sm-4 col-xs-4">
+                      <div id="p-lead-2"></div>
+                      <p class="p-chart-title">月趋势</p>
+                    </div>
+                    <div class="col-sm-4 col-xs-4">
+                      <div id="p-lead-3"></div>
+                      <p class="p-chart-title">年趋势</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="panel">
+                <div class="panel-body extra-pad">
+                  <div class="col-sm-6 col-xs-6">
+                    <div class="v-title">已报名人数</div>
+                    <div class="v-value" id="b-value"></div>
+                    <div id="visit-1"></div>
+                    <div class="v-info">Pages/Visit</div>
+                  </div>
+                  <div class="col-sm-6 col-xs-6">
+                    <div class="v-title">已完成学习人数</div>
+                    <div class="v-value" id="l-value"></div>
+                    <div id="visit-2"></div>
+                    <div class="v-info">Avg. Visit Duration</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <section class="panel">
                 <header class="panel-heading">
-                    课程资料
+                  课程信息
                 </header>
                 <div class="panel-body">
-                <div class="adv-table editable-table ">
-                <div class="clearfix">
-                    <div class="btn-group">
+                  <div class="adv-table editable-table ">
+                    <table class="table table-striped table-hover table-bordered">
+                      <thead>
+                        <tr>
+                          <th>课程章数</th>
+                          <th>课程节数</th>
+                          <th>开放人数</th>
+                          <th>选择人数</th>
+                          <th>完成人数</th>
+                          <th>资料数</th>
+                        </tr>
+                      </thead>
+                      <tbody id='c-chart'>
+                        <!-- 此处动态生成 -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <section class="panel">
+                <header class="panel-heading">
+                  课程资料
+                </header>
+                <div class="panel-body">
+                  <div class="adv-table editable-table ">
+                    <div class="clearfix">
+                      <div class="btn-group">
                         <a id="new-content" href="">
-                            <button class="btn btn-primary">
-                                上传课程资料 <i class="fa fa-plus"></i>
-                            </button>
+                          <button class="btn btn-primary">
+                            上传课程资料
+                            <i class="fa fa-plus"></i>
+                          </button>
                         </a>
-                    </div>
-                    <div class="btn-group pull-right">
-                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">工具 <i class="fa fa-angle-down"></i>
+                      </div>
+                      <div class="btn-group pull-right">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">工具
+                          <i class="fa fa-angle-down"></i>
                         </button>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="#">打印</a></li>
-                            <li><a href="#">保存为PDF</a></li>
-                            <li><a href="#">导出为Excel</a></li>
+                          <li>
+                            <a href="#">打印</a>
+                          </li>
+                          <li>
+                            <a href="#">保存为PDF</a>
+                          </li>
+                          <li>
+                            <a href="#">导出为Excel</a>
+                          </li>
                         </ul>
+                      </div>
                     </div>
+                    <div class="space15"></div>
+                    <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                      <thead>
+                        <tr>
+                          <th>id</th>
+                          <th>名称</th>
+                          <th>所属章</th>
+                          <th>所属节</th>
+                          <th>文件类型</th>
+                          <th>查看</th>
+                          <th>修改</th>
+                          <th>删除</th>
+                        </tr>
+                      </thead>
+                      <tbody id="course-info">
+                        <!-- 此处动态生成 -->
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-                <div class="space15"></div>
-                <table class="table table-striped table-hover table-bordered" id="editable-sample">
-                <thead>
-                <tr>
-                    <th>id</th>
-                    <th>名称</th>
-                    <th>所属章</th>
-                    <th>所属节</th>
-                    <th>文件类型</th>
-                    <th>查看</th>
-                    <th>修改</th>
-                    <th>删除</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <!-- 此处动态生成 -->
-                </tbody>
-                </table>
-                </div>
-                </div>
-                </section>
-                </div>
-                </div>
+              </section>
+            </div>
+          </div>
         </div>
         <!--body wrapper end-->
 
-    </div>
-    <!-- main content end-->
-</section>
+      </div>
+      <!-- main content end-->
+    </section>
 
-<!-- Placed js at the end of the document so the pages load faster -->
-<script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
-<script src="js/jquery-migrate-1.2.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/modernizr.min.js"></script>
-<script src="js/jquery.nicescroll.js"></script>
+    <!-- Placed js at the end of the document so the pages load faster -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/modernizr.min.js"></script>
+    <script src="js/jquery.nicescroll.js"></script>
 
-<!--data table-->
-<script type="text/javascript" src="js/data-tables/jquery.dataTables.js"></script>
-<script type="text/javascript" src="js/data-tables/DT_bootstrap.js"></script>
+    <!--data table-->
+    <script type="text/javascript" src="js/data-tables/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="js/data-tables/DT_bootstrap.js"></script>
 
-<!--common scripts for all pages-->
-<script src="js/scripts.js"></script>
+    <!--common scripts for all pages-->
+    <script src="js/scripts.js"></script>
 
-<script src="js/all_contents.js"></script>
+    <script src="js/all_contents.js"></script>
 
-<!-- 右键插件 -->
-<script src="js/context.js"></script>
+    <!-- 右键插件 -->
+    <script src="js/context.js"></script>
 
-<!-- END JAVASCRIPTS -->
-<script>
-    jQuery(document).ready(function() {
+    <!-- END JAVASCRIPTS -->
+    <script>
+      jQuery(document).ready(function () {
         EditableTable.init();
-    });
-</script>
-
+      });
+    </script>
+    <script src="js/sparkline/jquery.sparkline.js"></script>
+    <script src="js/sparkline/sparkline-init.js"></script>
   </body>
 </html>
