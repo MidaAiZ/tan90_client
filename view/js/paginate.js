@@ -21,9 +21,9 @@ var myPaginate = function(limit, url, callBK, pageTag) {
     function init() {
         paginate.on("click", "a", function () {
             var _this = $(this);
-            getLists(_this.data("href"), _this.data("value"));
+            getLists(_this.data("href"), _this.data("value"), arguments[0]);
         })
-        getLists(resUrl, 1);
+        getLists(resUrl, 1, arguments[0]);
     }
 
     function update() {
@@ -36,13 +36,13 @@ var myPaginate = function(limit, url, callBK, pageTag) {
         update();
     }
 
-    function setPage(count, current) {
+    function setPage(cnt, current) {
         paginate = paginate
         paginate.empty();
-        if (count == 0) {
+        if (cnt == 0) {
 
         } else {
-            var pages = Math.ceil(count / PAGELIMIT);
+            var pages = Math.ceil(cnt / PAGELIMIT);
             var $firstLi = $("<li><a href='javascript: void(0)' data-href='" + resUrl + "&page=1' data-value='1'>&laquo;</a></li>");
             var $lastLi = $("<li><a href='javascript: void(0)' data-href='" + resUrl + "&page=" + pages + "' data-value='" + pages + "'>&raquo;</a><li>");
             paginate.append($firstLi);
@@ -73,10 +73,11 @@ var myPaginate = function(limit, url, callBK, pageTag) {
         paginate.append($lastLi);
     }
 
-    function getLists(url, current) {
+    function getLists(url, current, con) {
         $.ajax({
             url: url,
-            type: 'GET',
+            type: 'POST',
+            data: con,
             dataType: 'json',
             //下面2个参数用于解决跨域问题
             xhrFields: {
@@ -86,8 +87,8 @@ var myPaginate = function(limit, url, callBK, pageTag) {
             error: function () {
             },
             success: function (res) {
-                var count = res.count;
-                setPage(count, current);
+                var cnt = res.cnt;
+                setPage(cnt, current);
                 callBK(res);
             }
         });

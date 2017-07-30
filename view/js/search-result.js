@@ -1,52 +1,53 @@
 var myPage;
 
 $(function() {
-    initCourse();
 
     //获取参数方法
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
-        if (r != null) return decodeURI(r[2]);
+        if (r != null) return escape(r[2]);
         return null;
     }
 
     //监听所有的课程封面及课程名
-    if (GetQueryString('keyword') != null) {
+    if (GetQueryString('course_name') != null) {
         $(document).attr("title", "搜索结果");
         $('#title').text("搜索结果");
         //连接服务器获取搜索结果
         var params = "limit=20&page=1&msg=" + GetQueryString('keyword');
-        console.log(params);
         var url = "http://115.159.188.200:8000/search_course/";
-        myPage.changeUrl(url, callbSearch);
+        myPage = new myPaginate(20, url, callbSearch);
+        myPage.init({
+            msg: GetQueryString('course_name')
+        });
+    } else {
+        initCourse();
     }
 
     function callbSearch(data) {
         console.log(data);
-        if(data.code==1000){
-            var course = data.courses;
-            for (var i = 0; i < course.length; i++) {
-                $($(".sed-md")[i]).css("display", "inline");
-                $($(".class-name")[i]).text(course[i].course_name);
-                $($(".class-name")[i]).attr("course-id", course[i].course_id);
-                $($(".class-pic")[i]).attr("course-id", course[i].course_id);
-                $($(".class-intro")[i]).text(course[i].course_introduce);
-                $($(".img-responsive")[i]).attr("src", "http://115.159.188.200:8000" + course[i].url);
-            };
-        }
+        var course = data.course;
+        for (var i = 0; i < course.length; i++) {
+            $($(".sed-md")[i]).css("display", "inline");
+            $($(".class-name")[i]).text(course[i].course_name);
+            $($(".class-name")[i]).attr("course-id", course[i].course_id);
+            $($(".class-pic")[i]).attr("course-id", course[i].course_id);
+            $($(".class-intro")[i]).text(course[i].course_introduce);
+            $($(".img-responsive")[i]).attr("src", "http://115.159.188.200:8000" + course[i].url);
+        };
     }
 
     //监听所有的课程封面及课程名
     $(".class-pic").on("click", function(event) {
         var $this = $(this);
         var id = $this.attr("course-id");
-        window.location.href = 'catalog.html?course_id=' + id ;
+        window.location.href = 'about.html?course_id=' + id ;
     });
     $(".class-name").on("click", function(event) {
         var $this = $(this);
         var id = $this.attr("course-id");
-        window.location.href = 'catalog.html?course_id=' + id ;
+        window.location.href = 'about.html?course_id=' + id ;
     });
 
     $(".filter-category-text").on("click", function(event) {

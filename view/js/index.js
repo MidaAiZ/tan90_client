@@ -232,7 +232,7 @@ function noteBK(data) {
 // 监听搜索
 $(function() {
 	$("#search-form").on("submit", function() {
-		window.location = '/view/courses.html?course_name=' + $('#search-input').val();
+		window.location = '/view/courses.html?course_name=' + encodeURI($('#search-input').val());
 		return false;
 	})
 })

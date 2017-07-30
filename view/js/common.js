@@ -210,7 +210,7 @@ $(function() {
     var search = $("#nav-search");
     var form = search.parent("form");
     form.on("submit", function() {
-        window.location = "/view/courses.html?course_name=" + search.val();
+        window.location = "/view/courses.html?course_name=" + encodeURI(search.val());
         return false;
     })
 })
