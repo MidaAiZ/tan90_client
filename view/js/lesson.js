@@ -14,7 +14,9 @@ $(function() {
                 type: 'POST',
                 url: 'http://115.159.188.200:8000/exit_course/',
                 dataType: 'json',
-                data: 'course_id=' + GetQueryString('course_id'),
+                data: {
+                    coruse_id: GetQueryString('course_id')
+                },
                 //下面2个参数用于解决跨域问题
                 xhrFields: {
                     withCredentials: true
