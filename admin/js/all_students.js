@@ -179,7 +179,12 @@ $(function() {
             },
             success: function(res) {
                 var url = res.url;
+<<<<<<< 70cbbb0af32675f826cc4993532044bbabc6915f
                 var $form = $("<form action='" + ROOT + url + "'></form>")
+=======
+                var $form = $("<form action='" + ROOT + url + "'></form>");
+                $(document.body).append($form);
+>>>>>>> 改了不知道什么
                 $form.trigger("submit");
             }
         })

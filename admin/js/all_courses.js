@@ -251,8 +251,10 @@ $(function() {
             },
             success: function(res) {
                 var url = res.url;
-                var $form = $("<form action='" + ROOT + url + "'></form>")
+                var $form = $("<form action='" + ROOT + url + "'></form>");
+                $(document.body).append($form);
                 $form.trigger("submit");
+                $(document.body).removeChild($form);
             }
         })
     })
