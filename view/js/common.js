@@ -92,7 +92,7 @@ function getLoginModal() {
 					  <input type='password' name='pwd' placeholder='密码' id='r_password' />\
 					  <input type='text' name='mail' placeholder='电子邮件' id='r_emial'/>\
                       <input type='text' name='code' placeholder='注册码' id='r_code'/>\
-                      <select type='text' name='department' placeholder='所属部门' id='r_department' class='select'>\
+                      <select type='text' name='department' placeholder='所属专业' id='r_department' class='select'>\
                       </select>\
 					  <button id='create'>创建账户</button>\
 					  <p class='message'>已经有了一个账户? <a href='#'>立刻登录</a></p>\
@@ -176,7 +176,7 @@ function register() {
 	});
 }
 
-// 获取部门列表
+// 获取专业列表
 function initDepart() {
     var departs = [];
     $.ajax({
@@ -200,7 +200,7 @@ function initDepart() {
                     className: 'select-theme-default'
                 });
             });
-           $(".select-target").text("选择部门")
+           $(".select-target").text("选择专业")
 		}
     })
 };

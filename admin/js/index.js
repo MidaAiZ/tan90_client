@@ -48,5 +48,5 @@ $(function() {
 
 // 活跃用户
 $(function() {
-	// var uActive = $("#u-active");	
+	// var uActive = $("#u-active");
 })
