@@ -7,7 +7,7 @@
   <meta name="author" content="ThemeBucket">
   <link rel="shortcut icon" href="#" type="image/png">
 
-  <title>修改课程信息</title>
+  <title>发布作业</title>
 
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
@@ -302,13 +302,13 @@
         <!-- page heading start-->
         <div class="page-heading">
             <h3>
-                修改课程信息
+                发布作业
             </h3>
             <ul class="breadcrumb">
                 <li>
                     <a href="all_courses.html">课程管理</a>
                 </li>
-                <li class="active"> 修改课程信息 </li>
+                <li class="active"> 发布作业 </li>
             </ul>
         </div>
         <!-- page heading end-->
@@ -322,43 +322,43 @@
             <div class="col-lg-10">
                 <section class="panel">
                     <header class="panel-heading">
-                        修改课程信息
+                        发布作业
                     </header>
                     <div class="panel-body">
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label for="inputId" class="col-lg-2 col-sm-2 control-label">课程id</label>
+                                <label for="input1" class="col-lg-2 col-sm-2 control-label">题目1</label>
                                 <div class="col-lg-8">
-                                    <input disabled="disabled" type="text" class="form-control" id="inputId" name="id">
+                                    <textarea class="form-control" id="input1" name="id"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputName" class="col-lg-2 col-sm-2 control-label">课程名称</label>
+                                <label for="input2" class="col-lg-2 col-sm-2 control-label">题目2</label>
                                 <div class="col-lg-8">
-                                    <input type="text" class="form-control" id="inputName" name="name">
+                                    <textarea class="form-control" id="input2" name="id"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputIntro" class="col-lg-2 col-sm-2 control-label">课程简介</label>
+                                <label for="input3" class="col-lg-2 col-sm-2 control-label">题目3</label>
                                 <div class="col-lg-8">
-                                    <input type="text" class="form-control" id="inputIntro" name="introduce" >
+                                    <textarea class="form-control" id="input3" name="id"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputCover" class="col-lg-2 col-sm-2 control-label">课程封面</label>
-                                <div class="col-lg-10">
-                                    <form id="setCover" enctype="MULTIPART/FORM-DATA" method="post" action="http://115.159.188.200:8000/add_course_cover/">
-                                        <input type="hidden" name="course_id" id="hiddenId">
-                                        <div class="file-beauty btn-sm btn-success">
-                                            <span>选择文件</span>
-                                            <input type="file" id="inputCover" name="cover" class="">
-                                        </div>
-                                    </form>
+                                <label for="input4" class="col-lg-2 col-sm-2 control-label">题目4</label>
+                                <div class="col-lg-8">
+                                    <textarea class="form-control" id="input4" name="id"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="input5" class="col-lg-2 col-sm-2 control-label">题目5</label>
+                                <div class="col-lg-8">
+                                    <textarea class="form-control" id="input5" name="id"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-lg-offset-2 col-lg-10">
-                                    <button id="sub" class="btn btn-primary">修改</button>
+                                    <button id="sub" class="btn btn-primary">发布</button>
                                 </div>
                             </div>
                         </div>
@@ -389,7 +389,16 @@
 <!--common scripts for all pages-->
 <script src="js/scripts.js"></script>
 
-<script src="js/modify_course.js"></script>
+<script type="text/javascript">
+    $("#sub").click(function() {
+        alert("发布成功");
+        $("#input1").val("");
+        $("#input2").val("");
+        $("#input3").val("");
+        $("#input4").val("");
+        $("#input5").val("");
+    })
+</script>
 
   </body>
 </html>
