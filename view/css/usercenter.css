@@ -424,3 +424,43 @@ li {
 a {
     color: #333;
 }
+
+/* 作业表样式 */
+.hm-list {
+    list-style: none;
+    display: block;
+    width: 100%;
+}
+
+.hm-item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.hm-item:last-child {
+    margin-bottom: 0;
+}
+
+.hm-item label {
+    width: 100%;
+    padding-bottom: 8px;
+}
+
+.hm-item textarea {
+    width: 100%;
+    display: inline-block;
+    resize: none;
+    outline: none;
+    padding: 8px;
+}
+
+.hm-submit {
+    text-align: center;
+    width: 100%;
+    margin-top: 15px
+}
+
+.hm-submit input[type=submit] {
+
+}

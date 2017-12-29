@@ -119,11 +119,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="tab-list ">
 							<a href="/view/usercenter/courses">我的课程</a>
 						</li>
-						<li class="tab-list ">
+						<li class="tab-list active">
 							<a href="/view/usercenter/homework">我的作业</a>
 						</li>
 
-						<li class="tab-list active">
+						<li class="tab-list">
 							<a href="/view/usercenter/notes">我的笔记</a>
 						</li>
 						<li class="tab-list">
@@ -141,47 +141,106 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</ul>
 				</div>
 				<div class="info-box fix-bounds t-scroll">
-					<table class="table">
-						<thead>
-							<tr class="tr">
-								<td class="td" width="15%">课程</td>
-								<td class="td" width="20%">标题</td>
-								<td class="td" width="30%">内容</td>
-								<td class="td" width="15%">时间</td>
-								<td class="td" width="10%">状态</td>
-							</tr>
-						</thead>
-						<tbody class="ctr" id="notes"></tbody>
-					</table>
+					<form action="" id="hm-form">
+						<ul class="hm-list">
+						</ul>
+						<div class="hm-submit">
+							<input type="submit" value="提交" id="submit-hm" class="btn btn-primary">
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 		<script type="text/javascript">
 			$(function() {
-			  var $notes = $("#notes");
-			  $.ajax({
-				  url: ROOT + "my_note/",
-				  type: "POST",
-				  dataType: "JSON",
-				  crossDomain: true,
-    			  xhrFields: {
-    				withCredentials: true
-  				  },
-				  success: function(res) {
-					  var notes = res.notes;
-					  for (var i in notes) {
-						  var n = notes[i];
-						  var $tr = $("<tr data-id='" + n.id + "'>\
-							<td><a href='/view/lesson.html?chapter_index=1&lesson_index=1&course_id='" + n.course_id + "'>" + n.course_name + "</a></td>\
-							<td>" + n.title + "</td>\
-							<td>" + n.content + "</td>\
-							<td>" + n.time + "</td>\
-							<td>" + (n.public == true ? '已公开' : '未分享') + "</td>\
-						  </tr>")
-						  $notes.append($tr);
-					  }
-				  }
-			  })
+				var works = getQues();
+				var $list = $(".hm-list");
+				for (var i in works) {
+					var ws = '\
+						<li class="hm-item" data-id="' + i + '">\
+							<label for="hm1">' + (+ i + 1) + ". " + works[i].ques + '</label>\
+							<textarea name="hm1" rows="8" cols="40">' + works[i].ans + '</textarea>\
+						</li>\
+					'
+					$list.append(ws);
+				}
+
+				var state = eval(localStorage.getItem("works"))[0].state;
+				if (state == "已完成") {
+					$("#submit-hm").remove();
+				}
+			})
+			function getQues() {
+				var questions = localStorage.getItem("ques");
+				if (!questions) {
+					questions = `
+						[
+							{
+								ques: '当你“编写”程序时是否会设计软件？软件设计和编码有什么不同？',
+								ans: ''
+							},
+							{
+								ques: '如果软件设计不是程序（它肯定不是），那么他是什么？',
+								ans: ''
+							},
+							{
+								ques: '如何评估软件设计的质量？',
+								ans: ''
+							},
+							{
+								ques: '查看设计任务集，在任务集中的什么地方对质量进行评估？评估是如何完成的？如何达到课本中讨论的质量属性？',
+								ans: ''
+							},
+							{
+								ques: '举三个数据抽象和能用来控制数据的过程抽象例子',
+								ans: ''
+							}
+						]
+					`;
+					localStorage.setItem("ques", questions);
+				}
+				return eval(questions)
+			}
+		</script>
+		<script>
+			$(function() {
+				$("#hm-form").submit(function(e) {
+					e.preventDefault();
+
+					var works = getQues();
+					var ansWorks = "[";
+					var $ansList = $(".hm-item");
+					var access = true;
+					$ansList.each(function(i, v) {
+						var v = $(v);
+						if (!v.find("textarea").val().length) {
+							alert("请完成题目" + (i + 1) + "！");
+							access = false;
+							return false;
+						}
+						var index = v.data("id");
+						ansWorks += "{ques: '" + works[index].ques + "', ans:'" + v.find("textarea").val() + "'},"
+					});
+					ansWorks += "]"
+
+					if (access) { localStorage.setItem("ques", ansWorks); }
+					else { return };
+
+					works = `[
+						{
+						  id: 1,
+						  course_name: "软件工程",
+						  time: "2017/12/31",
+						  state: "已完成"
+						}
+					]`;
+
+					localStorage.setItem("works", works);
+
+					alert("已成功提交作业!");
+					window.location = "/view/usercenter/homework";
+					return false;
+				})
 			})
 		</script>
 	<script src="/view/js/common.js"></script>
