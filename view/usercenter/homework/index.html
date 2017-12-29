@@ -119,11 +119,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li class="tab-list ">
 							<a href="/view/usercenter/courses">我的课程</a>
 						</li>
-						<li class="tab-list ">
+						<li class="tab-list active">
 							<a href="/view/usercenter/homework">我的作业</a>
 						</li>
 
-						<li class="tab-list active">
+						<li class="tab-list ">
 							<a href="/view/usercenter/notes">我的笔记</a>
 						</li>
 						<li class="tab-list">
@@ -144,45 +144,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<table class="table">
 						<thead>
 							<tr class="tr">
-								<td class="td" width="15%">课程</td>
-								<td class="td" width="20%">标题</td>
-								<td class="td" width="30%">内容</td>
-								<td class="td" width="15%">时间</td>
-								<td class="td" width="10%">状态</td>
+								<td class="td" width="30%">课程</td>
+								<td class="td" width="30%">截止时间</td>
+								<td class="td" width="20%">状态</td>
+								<td class="td" width="20%"></td>
 							</tr>
 						</thead>
-						<tbody class="ctr" id="notes"></tbody>
+						<tbody class="ctr" id="work"></tbody>
 					</table>
 				</div>
 			</div>
 		</div>
 		<script type="text/javascript">
 			$(function() {
-			  var $notes = $("#notes");
-			  $.ajax({
-				  url: ROOT + "my_note/",
-				  type: "POST",
-				  dataType: "JSON",
-				  crossDomain: true,
-    			  xhrFields: {
-    				withCredentials: true
-  				  },
-				  success: function(res) {
-					  var notes = res.notes;
-					  for (var i in notes) {
-						  var n = notes[i];
-						  var $tr = $("<tr data-id='" + n.id + "'>\
-							<td><a href='/view/lesson.html?chapter_index=1&lesson_index=1&course_id='" + n.course_id + "'>" + n.course_name + "</a></td>\
-							<td>" + n.title + "</td>\
-							<td>" + n.content + "</td>\
-							<td>" + n.time + "</td>\
-							<td>" + (n.public == true ? '已公开' : '未分享') + "</td>\
-						  </tr>")
-						  $notes.append($tr);
-					  }
-				  }
-			  })
+			  var works = getWorks();
+			  var $work = $("#work");
+			  for (var i in works) {
+				var n = works[i];
+				var $tr = $("<tr data-id='" + n.id + "'>\
+					<td>" + n.course_name + "</td>\
+					<td>" + n.time + "</td>\
+					<td>" + n.state + "</td>\
+					<td><a href='/view/usercenter/homework/do.html?id=" + n.id + "'>查看</a></td>\
+				    </tr>")
+				$work.append($tr);
+			  }
 			})
+
+			function getWorks() {
+				// localStorage.removeItem("works")
+				var works = localStorage.getItem("works");
+				if (!works) {
+					works = `[
+						{
+						  id: 1,
+						  course_name: "软件工程",
+						  time: "2017/12/31",
+						  state: "待完成"
+						}
+					]`;
+					localStorage.setItem("works", works);
+				}
+				return eval(works);
+			}
 		</script>
 	<script src="/view/js/common.js"></script>
   </body>

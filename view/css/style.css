@@ -232,25 +232,27 @@ span.menu {
 /*--- slider-css --*/
 
 .banner1 {
-    background: url(../images/bnr3.jpg) no-repeat 0px 0px;
+    background: url(../images/bnr.jpg) no-repeat 0px 0px;
     background-size: cover;
-    min-height: 680px;
+    min-height: 400px;
 }
 
 .banner2 {
     background: url(../images/bnr2.jpg) no-repeat 0px 0px;
     background-size: cover;
-    min-height: 680px;
+    min-height: 400px;
 }
 
 .banner3 {
     background: url(../images/bnr3.jpg) no-repeat 0px 0px;
     background-size: cover;
-    min-height: 680px;
+    min-height: 400px;
 }
 
 .slider {
     position: relative;
+    max-height: 400px;
+    overflow: hidden;
 }
 
 .rslides {
